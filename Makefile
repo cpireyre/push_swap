@@ -6,7 +6,7 @@
 #    By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/06/29 14:18:45 by cpireyre          #+#    #+#              #
-#    Updated: 2018/07/01 09:48:15 by cpireyre         ###   ########.fr        #
+#    Updated: 2018/07/01 13:21:40 by cpireyre         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,10 +15,14 @@ CFLAGS	:=	-Wall -Wextra -Werror
 DEBUG	:=	-fsanitize=address -fsanitize=undefined -g3
 INCLUDE	:=	-Ilibft/ -Llibft/ -lft
 
-C_FILES	:= wheel.c
+CHECKER	:=	checker
+C_FILES	:=	wheel.c main.c
+H_FILES	:=	wheel.h
 
-all:
-	@$(CC) $(CFLAGS) $(C_FILES) $(NAME) $(INCLUDE) $(DEBUG)
+all: $(CHECKER)
+
+$(CHECKER): $(H_FILES) Makefile
+	@$(CC) $(CFLAGS) $(C_FILES) $(NAME) $(INCLUDE) $(DEBUG) -o $(CHECKER)
 
 run: all
 	./a.out
