@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/01 09:24:05 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/07/01 13:19:19 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/07/01 13:37:14 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ t_wheel	*wheel_get_head(t_wheel *ptr)
 	return (ptr);
 }
 
-t_wheel	*wheel_add_spoke(t_wheel **oldtail, int input)
+t_wheel	*wheel_add_tail(t_wheel **oldtail, int input)
 {
 	t_wheel	*new;
 
