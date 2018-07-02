@@ -25,9 +25,11 @@ t_wheel	*wheel_add_tail(t_wheel **oldtail, int input)
 {
 	t_wheel	*new;
 
-	new = malloc(sizeof(t_wheel));
-	if (!new)
+	if (!(new = malloc(sizeof(t_wheel))))
+	{
+		wheel_free_all(*oldtail);
 		exit(1);
+	}
 	if (*oldtail)
 	{
 		(*oldtail)->tail = false;
