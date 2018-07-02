@@ -75,3 +75,14 @@ void	wheel_print_wheel(t_wheel *spoke)
 	}
 }
 
+void	wheel_free_all(t_wheel *spoke)
+{
+	if (spoke->head == false)
+		spoke = wheel_get_head(spoke);
+	while (spoke->tail == false)
+	{
+		spoke = spoke->next;
+		free(spoke->prev);
+	}
+	free(spoke)
+}

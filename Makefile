@@ -13,7 +13,7 @@
 CC		:=	gcc
 CFLAGS	:=	-Wall -Wextra -Werror
 DEBUG	:=	-fsanitize=address -fsanitize=undefined -g3
-INCLUDE	:=	-Ilibft/ -Llibft/ -lft -lftprintf
+INCLUDE	:=	-Ilibft/ -Llibft/ -lft
 
 CHECKER	:=	checker
 C_FILES	:=	wheel.c main.c

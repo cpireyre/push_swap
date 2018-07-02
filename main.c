@@ -10,21 +10,20 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
+#include <stdlib.h>
 #include "libft.h"
 #include "wheel.h"
 
 int		main(int argc, char **argv)
 {
 	t_wheel	*spoke;
-	char	*line;
 
 	spoke = NULL;
-	line = NULL;
 	if (argc < 2)
 		return (1);
 	while (*(++argv))
 		spoke = wheel_add_tail(&spoke, ft_atoi(*argv));
-	while (ft_gnl(0, &line))
-		ft_printf("%s\n", line);
+	wheel_free_all(spoke);
 	return (0);
 }
