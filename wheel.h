@@ -23,5 +23,5 @@ t_wheel	*wheel_get_head(t_wheel *ptr);
 t_wheel	*wheel_add_tail(t_wheel **oldtail, int input);
 void	wheel_print_spoke(t_wheel *spoke);
 void	wheel_print_wheel(t_wheel *spoke);
-int		ft_printf(const char *format, ...);
 void	wheel_free_all(t_wheel *spoke);
+void	wheel_swap_spokes(t_wheel *a, t_wheel *b);

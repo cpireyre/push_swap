@@ -16,7 +16,7 @@ DEBUG	:=	-fsanitize=address -fsanitize=undefined -g3
 INCLUDE	:=	-Ilibft/ -Llibft/ -lft
 
 CHECKER	:=	checker
-C_FILES	:=	wheel.c main.c
+C_FILES	:=	wheel.c main.c print.c
 H_FILES	:=	wheel.h
 
 all: $(CHECKER)
@@ -25,6 +25,7 @@ $(CHECKER): $(H_FILES) Makefile $(C_FILES)
 	@$(CC) $(CFLAGS) $(C_FILES) $(NAME) $(INCLUDE) $(DEBUG) -o $(CHECKER)
 
 run: all
-	./a.out
+	./$(CHECKER) 1 2 3 4 5 6
+
 
 .PHONY: all, run

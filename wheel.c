@@ -50,33 +50,6 @@ t_wheel	*wheel_add_tail(t_wheel **oldtail, int input)
 	return (new);
 }
 
-void	wheel_print_spoke(t_wheel *spoke)
-{
-	if (!spoke)
-		return ;
-	ft_putstr("Current spoke: ");
-	if (spoke->head == true)
-		ft_putendl("Head.");
-	if (spoke->tail == true)
-		ft_putendl("Tail.");
-	ft_putnbr_endl(spoke->number);
-	ft_putstr("--------\n");
-}
-
-void	wheel_print_wheel(t_wheel *spoke)
-{
-	if (spoke->head == true)
-	{
-		wheel_print_spoke(spoke);
-		spoke = spoke->next;
-	}
-	while (spoke->head == false)
-	{
-		wheel_print_spoke(spoke);
-		spoke = spoke->next;
-	}
-}
-
 void	wheel_free_all(t_wheel *spoke)
 {
 	if (spoke->head == false)
@@ -86,5 +59,12 @@ void	wheel_free_all(t_wheel *spoke)
 		spoke = spoke->next;
 		free(spoke->prev);
 	}
-	free(spoke)
+	free(spoke);
+}
+
+void	wheel_swap_spokes(t_wheel *a, t_wheel *b)
+{
+	a->number ^= b->number;
+	b->number ^= a->number;
+	a->number ^= b->number;
 }
