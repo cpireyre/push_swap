@@ -14,9 +14,9 @@
 #include "libft.h"
 #include "wheel.h"
 
-t_wheel	*wheel_get_head(t_wheel *ptr)
+t_wheel	*wheel_go_to_head(t_wheel *ptr)
 {
-	while (ptr->head == false)
+	while (ptr->is_head == false)
 		ptr = ptr->prev;
 	return (ptr);
 }
@@ -32,10 +32,10 @@ t_wheel	*wheel_add_tail(t_wheel **oldtail, int input)
 	}
 	if (*oldtail)
 	{
-		(*oldtail)->tail = false;
+		(*oldtail)->is_tail = false;
 		new->prev = *oldtail;
-		new->next = wheel_get_head(*oldtail);
-		new->head = false;
+		new->next = wheel_go_to_head(*oldtail);
+		new->is_head = false;
 		(*oldtail)->next = new;
 		new->next->prev = new;
 	}
@@ -43,18 +43,18 @@ t_wheel	*wheel_add_tail(t_wheel **oldtail, int input)
 	{
 		new->prev = new;
 		new->next = new;
-		new->head = true;
+		new->is_head = true;
 	}
-	new->tail = true;
+	new->is_tail = true;
 	new->number = input;
 	return (new);
 }
 
 void	wheel_free_all(t_wheel *spoke)
 {
-	if (spoke->head == false)
-		spoke = wheel_get_head(spoke);
-	while (spoke->tail == false)
+	if (spoke->is_head == false)
+		spoke = wheel_go_to_head(spoke);
+	while (spoke->is_tail == false)
 	{
 		spoke = spoke->next;
 		free(spoke->prev);

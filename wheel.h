@@ -14,8 +14,8 @@ typedef struct	s_wheel
 {
 	struct s_wheel	*prev;
 	struct s_wheel	*next;
-	t_bool			head;
-	t_bool			tail;
+	t_bool			is_head;
+	t_bool			is_tail;
 	int				number;
 }				t_wheel;
 
