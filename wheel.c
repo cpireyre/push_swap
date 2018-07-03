@@ -68,3 +68,18 @@ void	wheel_swap_spokes(t_wheel *a, t_wheel *b)
 	b->number ^= a->number;
 	a->number ^= b->number;
 }
+
+t_wheel	*wheel_delete_spoke(t_wheel *to_delete)
+{
+	t_wheel	*tmp;
+
+	tmp = to_delete->next;
+	if (to_delete->is_head == true)
+		to_delete->next->is_head = true;
+	if (to_delete->is_tail == true)
+		to_delete->prev->is_tail = true;
+	to_delete->prev->next = to_delete->next;
+	to_delete->next->prev = to_delete->prev;
+	free(to_delete);
+	return (tmp);
+}

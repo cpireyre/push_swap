@@ -19,9 +19,10 @@ typedef struct	s_wheel
 	int				number;
 }				t_wheel;
 
-t_wheel	*wheel_get_head(t_wheel *ptr);
+t_wheel	*wheel_go_to_head(t_wheel *ptr);
 t_wheel	*wheel_add_tail(t_wheel **oldtail, int input);
 void	wheel_print_spoke(t_wheel *spoke);
 void	wheel_print_wheel(t_wheel *spoke);
 void	wheel_free_all(t_wheel *spoke);
 void	wheel_swap_spokes(t_wheel *a, t_wheel *b);
+t_wheel	*wheel_delete_spoke(t_wheel *to_delete);
