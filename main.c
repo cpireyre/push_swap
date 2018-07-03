@@ -14,6 +14,8 @@
 #include <stdlib.h>
 #include "libft.h"
 #include "wheel.h"
+#include "actions.h"
+#include "check.h"
 
 int		main(int argc, char **argv)
 {
@@ -23,9 +25,11 @@ int		main(int argc, char **argv)
 	if (argc < 2)
 		return (1);
 	while (*(++argv))
-		spoke = wheel_add_head(&spoke, ft_atoi(*argv));
-	spoke = wheel_delete_spoke(wheel_retrieve_spoke(spoke, 4));
-	wheel_print_wheel(wheel_go_to_head(spoke));
+		spoke = wheel_add_tail(&spoke, ft_atoi(*argv));
+	if (check_wheel_sortedness(spoke) == true)
+		ft_putendl("OK");
+	else	
+		ft_putendl("Wrong!");
 	wheel_free_all(spoke);
 	return (0);
 }
