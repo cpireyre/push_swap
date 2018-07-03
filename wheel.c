@@ -37,7 +37,10 @@ t_wheel	*wheel_delete_spoke(t_wheel *to_delete)
 {
 	t_wheel	*tmp;
 
-	tmp = to_delete->next;
+	if (to_delete->next == to_delete)
+		tmp = NULL;
+	else
+		tmp = to_delete->next;
 	if (to_delete->is_head == true)
 		to_delete->next->is_head = true;
 	if (to_delete->is_tail == true)

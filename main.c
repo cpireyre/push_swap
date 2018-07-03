@@ -31,6 +31,9 @@ int		main(int argc, char **argv)
 		return (1);
 	while (*(++argv))
 		spoke = wheel_add_tail(&spoke, ft_atoi(*argv));
+/* later:
+** extract this loop into a function returns the sortedness?
+*/
 	while (ft_gnl(0, &line))
 	{
 		do_action(&spoke, &b, line);
@@ -44,6 +47,7 @@ int		main(int argc, char **argv)
 	else	
 		ft_putendl("Wrong!");
 	wheel_free_all(spoke);
-	wheel_free_all(b);
+	if (b)
+		wheel_free_all(b);
 	return (0);
 }
