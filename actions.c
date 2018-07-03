@@ -15,6 +15,11 @@ void	do_push(t_wheel **from, t_wheel **to)
 		return ;
 	*from = wheel_go_to_head(*from);
 	*to = wheel_add_head(to, (*from)->number);
+	if (!*to)
+	{
+		wheel_free_all(*from);
+		exit(1);
+	}
 	*from = wheel_delete_spoke(*from);
 }
 
