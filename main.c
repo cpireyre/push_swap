@@ -23,10 +23,8 @@ int		main(int argc, char **argv)
 	if (argc < 2)
 		return (1);
 	while (*(++argv))
-		spoke = wheel_add_tail(&spoke, ft_atoi(*argv));
-	spoke = wheel_delete_spoke(spoke);
-	spoke = wheel_delete_spoke(spoke);
-	spoke = wheel_delete_spoke(spoke);
+		spoke = wheel_add_head(&spoke, ft_atoi(*argv));
+	spoke = wheel_delete_spoke(wheel_retrieve_spoke(spoke, 4));
 	wheel_print_wheel(wheel_go_to_head(spoke));
 	wheel_free_all(spoke);
 	return (0);

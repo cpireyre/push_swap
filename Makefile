@@ -16,7 +16,7 @@ DEBUG	:=	-fsanitize=address -fsanitize=undefined -g3
 INCLUDE	:=	-Ilibft/ -Llibft/ -lft
 
 CHECKER	:=	checker
-C_FILES	:=	wheel.c main.c print.c
+C_FILES	:=	wheel.c wheel2.c main.c print.c
 H_FILES	:=	wheel.h
 
 all: $(CHECKER)
