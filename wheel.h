@@ -1,14 +1,5 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   wheel.h                                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/01 13:17:36 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/07/01 14:00:19 by cpireyre         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+#ifndef WHEEL_H
+# define WHEEL_H
 
 typedef struct	s_wheel
 {
@@ -38,3 +29,5 @@ t_wheel	*wheel_go_to_head(t_wheel *ptr);
 t_wheel	*wheel_go_to_tail(t_wheel *ptr);
 t_wheel	*wheel_add_tail(t_wheel **oldtail, int input);
 t_wheel	*wheel_add_head(t_wheel **oldhead, int input);
+
+#endif
