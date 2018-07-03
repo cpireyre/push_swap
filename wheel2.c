@@ -20,14 +20,14 @@ t_wheel		*wheel_retrieve_spoke(t_wheel *wheel, int to_find)
 
 t_wheel	*wheel_go_to_head(t_wheel *ptr)
 {
-	while (ptr->is_head == false)
+	while (ptr && ptr->is_head == false)
 		ptr = ptr->prev;
 	return (ptr);
 }
 
 t_wheel	*wheel_go_to_tail(t_wheel *ptr)
 {
-	while (ptr->is_tail == false)
+	while (ptr && ptr->is_tail == false)
 		ptr = ptr->next;
 	return (ptr);
 }

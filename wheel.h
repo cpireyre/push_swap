@@ -14,8 +14,6 @@ typedef struct	s_wheel
 ** wheel.c
 */
 
-void	wheel_print_spoke(t_wheel *spoke);
-void	wheel_print_wheel(t_wheel *spoke);
 void	wheel_free_all(t_wheel *spoke);
 void	wheel_swap_spokes(t_wheel *a, t_wheel *b);
 t_wheel	*wheel_delete_spoke(t_wheel *to_delete);

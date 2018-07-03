@@ -17,7 +17,7 @@ INCLUDE	:=	-Ilibft/ -Llibft/ -lft
 
 CHECKER	:=	checker
 C_FILES	:=	wheel.c wheel2.c main.c print.c actions.c check.c
-H_FILES	:=	wheel.h actions.h check.h
+H_FILES	:=	wheel.h actions.h check.h print.h
 
 all: $(CHECKER)
 

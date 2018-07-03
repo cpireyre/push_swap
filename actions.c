@@ -3,22 +3,19 @@
 
 void	do_swap(t_wheel *wheel)
 {
+	if (!wheel)
+		return ;
 	wheel = wheel_go_to_head(wheel);
 	wheel_swap_spokes(wheel, wheel->next);
 }
 
-void	do_push_atob(t_wheel *a, t_wheel *b)
+void	do_push(t_wheel **from, t_wheel **to)
 {
-	a = wheel_go_to_head(a);
-	wheel_add_head(&b, a->number);
-	wheel_delete_spoke(a);
-}
-
-void	do_push_btoa(t_wheel *a, t_wheel *b)
-{
-	b = wheel_go_to_head(b);
-	wheel_add_head(&a, b->number);
-	wheel_delete_spoke(b);
+	if (!*from)
+		return ;
+	*from = wheel_go_to_head(*from);
+	*to = wheel_add_head(to, (*from)->number);
+	*from = wheel_delete_spoke(*from);
 }
 
 void	do_rotate(t_wheel *wheel)
@@ -26,6 +23,8 @@ void	do_rotate(t_wheel *wheel)
 	t_wheel	*mark;
 	int	tmp;
 
+	if (!wheel)
+		return ;
 	mark = wheel;
 	tmp = wheel->number;
 	wheel->number = wheel->prev->number;
@@ -39,6 +38,8 @@ void	do_reverse_rotate(t_wheel *wheel)
 	t_wheel	*mark;
 	int	tmp;
 
+	if (!wheel)
+		return ;
 	mark = wheel;
 	tmp = wheel->number;
 	wheel->number = wheel->next->number;
