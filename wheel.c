@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/13 09:36:28 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/07/13 09:39:09 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/07/13 14:01:12 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,21 @@ t_wheel	*wheel_delete_spoke(t_wheel *to_delete)
 	to_delete->next->prev = to_delete->prev;
 	free(to_delete);
 	return (tmp);
+}
+
+t_wheel *wheel_go_to_max(t_wheel *spoke)
+{
+	t_wheel *tmp;
+	t_wheel	*max_spoke;
+
+	tmp = spoke;
+	max_spoke = spoke;
+	spoke = spoke->next;
+	while (spoke != tmp)
+	{
+		if (max_spoke->number < spoke->number)
+			max_spoke = spoke;
+		spoke = spoke->next;
+	}
+	return (max_spoke);
 }
