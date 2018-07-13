@@ -6,14 +6,15 @@
 #    By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/06/29 14:18:45 by cpireyre          #+#    #+#              #
-#    Updated: 2018/07/13 08:11:14 by cpireyre         ###   ########.fr        #
+#    Updated: 2018/07/13 08:23:38 by cpireyre         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC		:=	gcc
 CFLAGS	:=	-Wall -Wextra -Werror
 DEBUG	:=	-fsanitize=address -fsanitize=undefined -g3
-INCLUDE	:=	-Ilibft/ -Llibft/ -lft
+INCLUDE	:=	-Ift_printf/ -Lft_printf/ -lftprintf -Ift_printf/ \
+	-Ift_printf/libft/
 
 CHECKER		:=	checker
 PUSH_SWAP	:=	push_swap
