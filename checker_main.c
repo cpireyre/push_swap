@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/13 09:36:13 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/07/13 09:36:14 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/07/13 13:47:19 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,9 @@ int		main(int argc, char **argv)
 	line = NULL;
 	if (argc < 2)
 		return (1);
+/*	later
+ **	protect this malloc (if !wheel_add_tail then wheel_free_all and exit)
+*/
 	while (*(++argv))
 		spoke = wheel_add_tail(&spoke, ft_atoi(*argv));
 /* later:
