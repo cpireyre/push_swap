@@ -1,6 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   print.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/07/13 09:36:16 by cpireyre          #+#    #+#             */
+/*   Updated: 2018/07/13 09:36:17 by cpireyre         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 #include "wheel.h"
-#include <stdio.h> //Take this out! And replace printf with ft_printf.
 
 void	wheel_print_spoke(t_wheel *spoke)
 {
