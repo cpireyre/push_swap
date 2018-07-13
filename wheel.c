@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/13 09:36:28 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/07/13 14:01:12 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/07/13 14:30:41 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 
 void	wheel_free_all(t_wheel *spoke)
 {
+	if (!spoke)
+		return ;
 	if (spoke->is_head == false)
 		spoke = wheel_go_to_head(spoke);
 	while (spoke->is_tail == false)
@@ -66,4 +68,20 @@ t_wheel *wheel_go_to_max(t_wheel *spoke)
 		spoke = spoke->next;
 	}
 	return (max_spoke);
+}
+
+size_t	wheel_count_spokes(t_wheel *spoke)
+{
+	size_t	size;
+	t_wheel *tmp;
+
+	size = 0 ;
+	tmp = spoke;
+	spoke = spoke->next;
+	while (spoke != tmp)
+	{
+		size = size + 1;
+		spoke = spoke->next;
+	}
+	return (size);
 }

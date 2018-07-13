@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/13 09:36:49 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/07/13 13:57:29 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/07/13 14:42:48 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void			wheel_free_all(t_wheel *spoke);
 void			wheel_swap_spokes(t_wheel *a, t_wheel *b);
 t_wheel			*wheel_delete_spoke(t_wheel *to_delete);
 t_wheel 		*wheel_go_to_max(t_wheel *spoke);
+size_t			wheel_count_spokes(t_wheel *spoke);
 
 /*
 ** wheel2.c
@@ -42,8 +43,15 @@ t_wheel			*wheel_add_tail(t_wheel **oldtail, int input);
 t_wheel			*wheel_add_head(t_wheel **oldhead, int input);
 
 /*
+**	wheel3.c
+*/
+
+t_wheel 		*wheel_go_to_min(t_wheel *spoke);
+
+/*
 **	check.c
 */
 
 t_bool			check_wheel_sortedness(t_wheel *wheel);
+
 #endif
