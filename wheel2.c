@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/13 09:36:31 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/07/13 09:36:32 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/07/13 09:39:19 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "libft.h"
 #include "wheel.h"
 
-t_wheel		*wheel_retrieve_spoke(t_wheel *wheel, int to_find)
+t_wheel	*wheel_retrieve_spoke(t_wheel *wheel, int to_find)
 {
 	t_wheel	*mark;
 

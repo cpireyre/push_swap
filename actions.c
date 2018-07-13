@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/13 09:36:05 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/07/13 09:36:07 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/07/13 09:37:50 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	do_push(t_wheel **from, t_wheel **to)
 void	do_rotate(t_wheel *wheel)
 {
 	t_wheel	*mark;
-	int	tmp;
+	int		tmp;
 
 	if (!wheel)
 		return ;
@@ -54,7 +54,7 @@ void	do_rotate(t_wheel *wheel)
 void	do_reverse_rotate(t_wheel *wheel)
 {
 	t_wheel	*mark;
-	int	tmp;
+	int		tmp;
 
 	if (!wheel)
 		return ;
