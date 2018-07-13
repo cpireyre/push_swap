@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/13 13:32:32 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/07/13 14:10:19 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/07/13 14:42:17 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,22 @@
 
 void	push_swap(t_wheel *to_sort, t_wheel *reserve)
 {
-	(void)reserve;
-	to_sort = wheel_go_to_max(to_sort);
-	while (to_sort->is_head == false)
+	while (to_sort)
 	{
-		do_rotate(to_sort);
-		to_sort = to_sort->next;
-		ft_putendl("ra");
+		to_sort = wheel_go_to_min(to_sort);
+		while (to_sort->is_head == false)
+		{
+			do_rotate(to_sort);
+			to_sort = to_sort->next;
+			ft_putendl("ra");
+		}
+		do_push(&to_sort, &reserve);
+		ft_putendl("pb");
+	}
+	while (reserve)
+	{
+		do_push(&reserve, &to_sort);
+		ft_putendl("pa");
 	}
 }
 
@@ -41,7 +50,6 @@ int		main(int argc, char **argv)
 		to_sort = wheel_add_tail(&to_sort, ft_atoi(*argv));
 	to_sort = wheel_go_to_head(to_sort);
 	push_swap(to_sort, reserve);
-	wheel_free_all(to_sort);
 	if (reserve)
 		wheel_free_all(reserve);
 	return (0);
