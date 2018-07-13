@@ -6,12 +6,13 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/01 13:19:04 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/07/01 14:06:47 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/07/13 08:24:05 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <stdlib.h>
+#include "ft_printf.h"
 #include "libft.h"
 #include "wheel.h"
 #include "actions.h"
