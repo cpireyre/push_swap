@@ -6,13 +6,11 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/13 09:36:16 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/07/14 08:36:41 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/07/14 09:13:52 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include "libft.h"
-#include "wheel.h"
+#include "header.h"
 
 void	wheel_print_spoke(t_wheel *spoke)
 {

@@ -6,12 +6,11 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/13 14:41:04 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/07/14 09:04:03 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/07/14 09:14:25 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include "wheel.h"
+#include "header.h"
 
 t_wheel *wheel_go_to_min(t_wheel *spoke)
 {

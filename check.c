@@ -6,13 +6,11 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/13 09:36:08 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/07/13 09:36:10 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/07/14 09:13:28 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include "wheel.h"
-#include "actions.h"
+#include "header.h"
 
 t_bool	check_wheel_sortedness(t_wheel *wheel)
 {

@@ -6,27 +6,19 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/13 13:32:32 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/07/13 14:42:17 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/07/14 09:14:01 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
-#include "libft.h"
-#include "wheel.h"
-#include "print.h"
-#include "actions.h"
+#include "header.h"
 
 void	push_swap(t_wheel *to_sort, t_wheel *reserve)
 {
+	wheel_init_ranks(&to_sort);
+	wheel_init_ranks(&reserve);
 	while (to_sort)
 	{
-		to_sort = wheel_go_to_min(to_sort);
-		while (to_sort->is_head == false)
-		{
-			do_rotate(to_sort);
-			to_sort = to_sort->next;
-			ft_putendl("ra");
-		}
 		do_push(&to_sort, &reserve);
 		ft_putendl("pb");
 	}

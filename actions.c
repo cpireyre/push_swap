@@ -6,13 +6,12 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/13 09:36:05 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/07/13 09:37:50 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/07/14 09:13:20 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "libft.h"
-#include "wheel.h"
+#include "header.h"
 
 void	do_swap(t_wheel *wheel)
 {

@@ -6,18 +6,13 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/13 09:36:13 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/07/14 08:39:16 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/07/14 09:13:37 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "ft_printf.h"
-#include "libft.h"
-#include "wheel.h"
-#include "actions.h"
-#include "check.h"
-#include "print.h"
+#include "header.h"
 
 int		main(int argc, char **argv)
 {

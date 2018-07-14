@@ -6,13 +6,12 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/13 09:36:28 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/07/13 14:30:41 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/07/14 09:14:07 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "libft.h"
-#include "wheel.h"
+#include "header.h"
 
 void	wheel_free_all(t_wheel *spoke)
 {
