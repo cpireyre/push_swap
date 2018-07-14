@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/13 13:32:32 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/07/14 09:14:01 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/07/14 09:18:12 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	push_swap(t_wheel *to_sort, t_wheel *reserve)
 	wheel_init_ranks(&reserve);
 	while (to_sort)
 	{
+		place_min_first(&to_sort);
 		do_push(&to_sort, &reserve);
 		ft_putendl("pb");
 	}
