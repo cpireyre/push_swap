@@ -6,7 +6,7 @@
 #    By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/06/29 14:18:45 by cpireyre          #+#    #+#              #
-#    Updated: 2018/07/14 09:05:05 by cpireyre         ###   ########.fr        #
+#    Updated: 2018/07/14 09:24:46 by cpireyre         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,8 +19,8 @@ INCLUDE	:=	-Ift_printf/ -Lft_printf/ -lftprintf -Ift_printf/ \
 CHECKER		:=	checker
 PUSH_SWAP	:=	push_swap
 C_FILES		:=	wheel.c wheel2.c wheel3.c \
-	print.c actions.c check.c
-H_FILES		:=	wheel.h actions.h check.h print.h
+	print.c actions.c check.c compound_actions.c
+H_FILES		:=	actions.h check.h header.h print.h wheel.h
 
 all: $(PUSH_SWAP) $(CHECKER)
 
