@@ -6,10 +6,11 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/13 09:36:16 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/07/13 09:36:17 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/07/14 08:36:41 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_printf.h"
 #include "libft.h"
 #include "wheel.h"
 
@@ -47,9 +48,10 @@ void	print_game_state(t_wheel *a, t_wheel *b)
 {
 	a = wheel_go_to_head(a);
 	b = wheel_go_to_head(b);
+	ft_printf("-----\n");
 	ft_putstr("a: ");
 	wheel_print_wheel(a);
 	ft_putstr("\nb: ");
 	wheel_print_wheel(b);
-	ft_putchar('\n');
+	ft_printf("\n-----");
 }
