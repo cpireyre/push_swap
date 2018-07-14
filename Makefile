@@ -6,7 +6,7 @@
 #    By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/06/29 14:18:45 by cpireyre          #+#    #+#              #
-#    Updated: 2018/07/14 08:37:40 by cpireyre         ###   ########.fr        #
+#    Updated: 2018/07/14 08:48:31 by cpireyre         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ H_FILES		:=	wheel.h actions.h check.h print.h
 
 all: $(PUSH_SWAP)
 
-$(PUSH_SWAP): $(H_FILES) Makefile $(C_FILES) 
+$(PUSH_SWAP): $(H_FILES) Makefile $(C_FILES) push_swap.c
 	$(CC) $(CFLAGS) $(C_FILES) push_swap_main.c $(NAME) $(INCLUDE) $(DEBUG) -o $(PUSH_SWAP)
 
 $(CHECKER): $(H_FILES) Makefile $(C_FILES) checker_main.c
