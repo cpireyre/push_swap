@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/13 14:41:04 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/07/13 14:43:28 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/07/14 09:04:03 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,22 @@ t_wheel *wheel_go_to_min(t_wheel *spoke)
 		spoke = spoke->next;
 	}
 	return (min_spoke);
+}
+
+void	wheel_init_ranks(t_wheel **wheel)
+{
+	int		current_rank;
+
+	if (!wheel || !*wheel)
+		return ;
+	current_rank = 0;
+	*wheel = wheel_go_to_head(*wheel);
+	(*wheel)->rank = current_rank;
+	(*wheel) = (*wheel)->next;
+	while ((*wheel)->is_head == false)
+	{
+		current_rank++;
+		(*wheel)->rank = current_rank;
+		(*wheel) = (*wheel)->next;
+	}
 }
