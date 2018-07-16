@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/15 09:50:58 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/07/15 12:07:24 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/07/16 08:03:24 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ t_wheel *wheel_go_to_min(t_wheel *spoke)
 	return (min_spoke);
 }
 
-int		wheel_get_median(t_wheel *wheel)
+int		wheel_get_avg(t_wheel *wheel)
 {
 	int	acc;
 	int	count;
