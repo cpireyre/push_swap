@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/13 09:36:28 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/07/14 09:14:07 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/07/15 11:40:58 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,9 @@ size_t	wheel_count_spokes(t_wheel *spoke)
 	size_t	size;
 	t_wheel *tmp;
 
-	size = 0 ;
+	if (!spoke)
+		return (0);
+	size = 1;
 	tmp = spoke;
 	spoke = spoke->next;
 	while (spoke != tmp)

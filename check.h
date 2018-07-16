@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/13 09:36:42 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/07/13 09:36:43 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/07/15 11:52:34 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,6 @@
 
 t_bool	check_wheel_sortedness(t_wheel *wheel);
 void	do_action(t_wheel **a, t_wheel **b, char *action);
+void	do_and_print(t_wheel **a, t_wheel **b, char *action);
 
 #endif

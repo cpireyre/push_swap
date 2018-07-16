@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/13 09:36:08 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/07/14 09:13:28 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/07/15 11:52:18 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,4 +56,10 @@ void	do_action(t_wheel **a, t_wheel **b, char *action)
 		if (action[2] == 'b' || action[2] == 'r')
 			do_reverse_rotate(*b);
 	}
+}
+
+void	do_and_print(t_wheel **a, t_wheel **b, char *action)
+{
+	do_action(a, b, action);
+	ft_putendl(action);
 }
