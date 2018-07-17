@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/13 09:36:49 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/07/14 10:29:32 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/07/17 08:36:44 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,19 @@ t_wheel			*wheel_add_tail(t_wheel **oldtail, int input);
 t_wheel			*wheel_add_head(t_wheel **oldhead, int input);
 
 /*
-**	wheel3.c
+** wheel3.c
+*/
+
+int				wheel_init_ranks(t_wheel **wheel);
+
+/*
+**	wheel_math.c
 */
 
 t_wheel 		*wheel_go_to_min(t_wheel *spoke);
-int				wheel_init_ranks(t_wheel **wheel);
 int				wheel_get_avg(t_wheel *wheel);
+int				*wheel_to_array(t_wheel *wheel);
+int				wheel_get_median(t_wheel *wheel);
 
 /*
 **	check.c
