@@ -56,3 +56,7 @@ dkms.conf
 
 # Project specific
 analyzer.sh
+game
+checker
+test
+push_swap
