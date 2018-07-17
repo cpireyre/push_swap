@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/15 09:50:58 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/07/17 08:40:09 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/07/17 08:59:26 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,4 +82,28 @@ int		wheel_get_avg(t_wheel *wheel)
 		wheel = wheel->next;
 	}
 	return (acc / count);
+}
+
+t_bool	wheel_has_no_dupes(t_wheel *wheel)
+{
+	size_t	size;
+	int		*copy;
+	size_t	i;
+	int		tmp;
+
+	size = wheel_count_spokes(wheel);
+	if (!size)
+		return (0);
+	copy = wheel_to_array(wheel);
+	ft_sort_tab(copy, size);
+	i = 0;
+	tmp = *copy;
+	while (++i < size)
+	{
+		if (tmp == copy[i])
+			return (false);
+		tmp = copy[i];
+	}
+	free(copy);
+	return (true);
 }

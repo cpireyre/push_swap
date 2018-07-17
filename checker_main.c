@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/13 09:36:13 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/07/16 12:16:32 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/07/17 08:58:44 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,11 @@ int		main(int argc, char **argv)
 	 */
 	while (*(++argv))
 		spoke = wheel_add_tail(&spoke, ft_atoi(*argv));
+	if (wheel_has_no_dupes(spoke) == false)
+	{
+		ft_putendl("Error: duplicate entries");
+		return (1);
+	}
 	/* later:
 	 ** extract this loop into a function returns the sortedness?
 	 */
