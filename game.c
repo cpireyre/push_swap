@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/16 11:59:19 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/07/16 12:45:48 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/07/16 13:07:43 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,6 @@ void	wrap_ncurses(t_wheel **a, t_wheel **b)
 {
 	int		keypress;
 
-	initscr();
-	noecho();
-	cbreak();
-	keypad(stdscr, TRUE);
 	curse_print_wheel(*a, 5, 3);
 	mvprintw(15, 1, "q to quit");
 	while ((keypress = getch()) != 'q')
