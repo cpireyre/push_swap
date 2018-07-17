@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/13 09:36:13 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/07/17 14:42:35 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/07/17 14:46:40 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,17 +43,10 @@ int		main(int argc, char **argv)
 {
 	t_wheel	*to_sort;
 	t_wheel *b;
-	t_bool	visual;
 	char	*line;
 
 	b = NULL;
 	line = NULL;
-	visual = false;
-	if (ft_strequ(argv[1], "-v") == true)
-	{
-		visual = true;
-		argv++;
-	}
 	to_sort = (init_wheel(argc, argv));
 	/* later:
 	 ** extract this loop into a function returns the sortedness?
