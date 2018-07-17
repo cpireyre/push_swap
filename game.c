@@ -6,14 +6,14 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/16 11:59:19 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/07/16 13:07:43 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/07/17 08:21:04 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
 #define POS_A	5
-#define POS_B	10
+#define POS_B	13
 
 void	curse_print_wheel(t_wheel *wheel, int x, int y)
 {
@@ -58,6 +58,11 @@ void	wrap_ncurses(t_wheel **a, t_wheel **b)
 			printw("%c", keypress);
 		curse_print_wheel(*a, POS_A, 3);
 		curse_print_wheel(*b, POS_B, 3);
+	}
+	if (check_wheel_sortedness(*a) == true)
+	{
+		mvprintw(10, 10, "Well done!");
+		getch();
 	}
 	endwin();
 }
