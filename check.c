@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/13 09:36:08 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/07/15 11:52:18 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/07/17 09:12:38 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,4 +62,15 @@ void	do_and_print(t_wheel **a, t_wheel **b, char *action)
 {
 	do_action(a, b, action);
 	ft_putendl(action);
+}
+
+t_bool	is_valid_arg(const char *arg)
+{
+	while (*arg)
+	{
+		if (!ft_isdigit(*arg) && !ft_isblank(*arg))
+			return (false);
+		arg++;
+	}
+	return (true);
 }
