@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/13 13:32:32 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/07/17 17:45:04 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/07/17 18:16:32 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ int		main(int argc, char **argv)
 	if (!(to_sort = (init_wheel(argc, argv))))
 		return (1);
 	push_swap(&to_sort, &reserve);
-	if (to_sort)
-		wheel_free_all(to_sort);
+	wheel_free_all(to_sort);
 	return (0);
 }
