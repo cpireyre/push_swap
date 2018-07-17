@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/16 11:59:19 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/07/17 08:21:04 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/07/17 08:42:52 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	curse_print_wheel(t_wheel *wheel, int x, int y)
 	if (!wheel)
 		return ;
 	wheel = wheel_go_to_head(wheel);
+	mvprintw(y + 20, x, "%d", wheel_get_median(wheel));
 	mvprintw(y, x, "%d", wheel->number);
 	y++;
 	wheel = wheel->next;

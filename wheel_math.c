@@ -6,10 +6,11 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/15 09:50:58 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/07/17 08:31:55 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/07/17 08:40:09 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "header.h"
 
 t_wheel *wheel_go_to_min(t_wheel *spoke)
@@ -56,8 +57,10 @@ int		wheel_get_median(t_wheel *wheel)
 	int		median;
 
 	size = wheel_count_spokes(wheel);
+	if (!size)
+		return (0);
 	copy = wheel_to_array(wheel);
-	ft_sort_tab(copy);
+	ft_sort_tab(copy, size);
 	median = copy[size / 2];
 	free(copy);
 	return (median);
