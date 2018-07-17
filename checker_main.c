@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/13 09:36:13 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/07/17 14:51:08 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/07/17 15:25:45 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ t_bool	checker(t_wheel **to_sort, t_wheel **reserve)
 		*reserve = wheel_go_to_head(*reserve);
 		free(line);
 	}
-	return (check_wheel_sortedness(*to_sort));
+	return (!*reserve && check_wheel_sortedness(*to_sort));
 }
 
 int		main(int argc, char **argv)
