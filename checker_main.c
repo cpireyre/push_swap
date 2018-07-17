@@ -6,57 +6,70 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/13 09:36:13 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/07/17 09:31:58 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/07/17 14:42:35 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <stdlib.h>
 #include "header.h"
 
-int		main(int argc, char **argv)
+t_wheel		*init_wheel(int argc, char **argv)
 {
-	t_wheel	*spoke;
-	t_wheel *b;
-	char	*line;
+	t_wheel	*wheel;
 
-	spoke = NULL;
-	b = NULL;
-	line = NULL;
 	if (argc < 2)
-		return (1);
+		return (NULL);
 	while (*(++argv))
 	{
 		if (!is_valid_arg(*argv))
 		{
 			ft_putendl_fd("Error: invalid entry", STDERR_FILENO);
-			return (1); // free everything, then exit
+			return (NULL); // free everything, then exit
 		}
-		spoke = wheel_add_tail(&spoke, ft_atoi(*argv));
-	/*	later
-	 **	protect this malloc (if !wheel_add_tail then wheel_free_all and exit)
-	 */
+		/*	later
+		 **	protect this malloc (if !wheel_add_tail then wheel_free_all and exit)
+		 */
+		wheel = wheel_add_tail(&wheel, ft_atoi(*argv));
 	}
-	if (wheel_has_no_dupes(spoke) == false)
+	if (wheel_has_no_dupes(wheel) == false)
 	{
 		ft_putendl_fd("Error: duplicate entries", STDERR_FILENO);
-		return (1); //free everything, then exit
+		return (NULL); //free everything, then exit
 	}
+	return (wheel);
+}
+
+int		main(int argc, char **argv)
+{
+	t_wheel	*to_sort;
+	t_wheel *b;
+	t_bool	visual;
+	char	*line;
+
+	b = NULL;
+	line = NULL;
+	visual = false;
+	if (ft_strequ(argv[1], "-v") == true)
+	{
+		visual = true;
+		argv++;
+	}
+	to_sort = (init_wheel(argc, argv));
 	/* later:
 	 ** extract this loop into a function returns the sortedness?
 	 */
 	while (ft_gnl(0, &line))
 	{
-		do_action(&spoke, &b, line);
-		spoke = wheel_go_to_head(spoke);
+		do_action(&to_sort, &b, line);
+		to_sort = wheel_go_to_head(to_sort);
 		b = wheel_go_to_head(b);
 		free(line);
 	}
-	if (check_wheel_sortedness(spoke) == true)
+	if (to_sort && check_wheel_sortedness(to_sort) == true)
 		ft_putendl("OK");
 	else	
 		ft_putendl("KO");
-	wheel_free_all(spoke);
+	wheel_free_all(to_sort);
 	if (b)
 		wheel_free_all(b);
 	return (0);

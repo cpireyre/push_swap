@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/16 12:17:03 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/07/17 12:13:25 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/07/17 14:42:35 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,20 +34,13 @@ int			main(int argc, char **argv)
 	t_wheel	*spoke;
 	t_wheel *b;
 	char	*line;
-	t_bool	visual;
 
 	spoke = NULL;
 	b = NULL;
 	line = NULL;
-	visual = false;
 	initcurse();
 	if (argc < 2)
 		return (1);
-	if (ft_strequ(argv[1], "-v") == true)
-	{
-		visual = true;
-		argv++;
-	}
 	while (*(++argv))
 		spoke = wheel_add_tail(&spoke, ft_atoi(*argv));
 	if (visual == false)
