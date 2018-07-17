@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/13 09:36:13 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/07/17 15:25:45 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/07/17 17:31:56 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_wheel		*init_wheel(int argc, char **argv)
 {
 	t_wheel	*wheel;
 
-	if (argc < 2)
+	if (argc < 2 || !argv || !*argv)
 		return (NULL);
 	while (*(++argv))
 	{
@@ -60,12 +60,14 @@ int		main(int argc, char **argv)
 	t_wheel *reserve;
 
 	reserve = NULL;
-	to_sort = (init_wheel(argc, argv));
+	if (!(to_sort = (init_wheel(argc, argv))))
+		return (1);
 	if (checker(&to_sort, &reserve) == true)
 		ft_putendl("OK");
 	else
 		ft_putendl("KO");
-	wheel_free_all(to_sort);
+	if (to_sort)
+		wheel_free_all(to_sort);
 	if (reserve)
 		wheel_free_all(reserve);
 	return (0);
