@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/13 09:36:13 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/07/17 09:24:15 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/07/17 09:31:58 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,22 +25,22 @@ int		main(int argc, char **argv)
 	line = NULL;
 	if (argc < 2)
 		return (1);
-	/*	later
-	 **	protect this malloc (if !wheel_add_tail then wheel_free_all and exit)
-	 */
 	while (*(++argv))
 	{
 		if (!is_valid_arg(*argv))
 		{
 			ft_putendl_fd("Error: invalid entry", STDERR_FILENO);
-			return (1); // print on stderr, free everything, then exit
+			return (1); // free everything, then exit
 		}
 		spoke = wheel_add_tail(&spoke, ft_atoi(*argv));
+	/*	later
+	 **	protect this malloc (if !wheel_add_tail then wheel_free_all and exit)
+	 */
 	}
 	if (wheel_has_no_dupes(spoke) == false)
 	{
 		ft_putendl_fd("Error: duplicate entries", STDERR_FILENO);
-		return (1);// print on stderr, free everything, then exit
+		return (1); //free everything, then exit
 	}
 	/* later:
 	 ** extract this loop into a function returns the sortedness?

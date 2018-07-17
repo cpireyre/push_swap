@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/15 09:53:21 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/07/16 08:25:06 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/07/17 09:42:29 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,10 @@ void	wh_quicksort(t_wheel **to_sort, t_wheel **reserve)
 {
 	int	pivot;
 
-	pivot = wheel_get_avg(*to_sort);
+	pivot = wheel_get_median(*to_sort);
 	push_bigger(to_sort, reserve, pivot);
+	if (*to_sort)
+		wh_quicksort(to_sort, reserve);
 }
 
 int		main(int argc, char **argv)
