@@ -6,11 +6,10 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/13 09:36:13 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/07/17 17:43:28 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/07/17 18:03:58 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "header.h"
 
 t_bool	checker(t_wheel **to_sort, t_wheel **reserve)
@@ -19,12 +18,7 @@ t_bool	checker(t_wheel **to_sort, t_wheel **reserve)
 
 	line = NULL;
 	while (ft_gnl(0, &line))
-	{
-		do_action(to_sort, reserve, line);
-		*to_sort = wheel_go_to_head(*to_sort);
-		*reserve = wheel_go_to_head(*reserve);
-		free(line);
-	}
+		do_from_stdin(to_sort, reserve, &line);
 	return (!*reserve && check_wheel_sortedness(*to_sort));
 }
 
