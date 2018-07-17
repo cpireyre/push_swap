@@ -6,7 +6,7 @@
 #    By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/06/29 14:18:45 by cpireyre          #+#    #+#              #
-#    Updated: 2018/07/16 12:20:08 by cpireyre         ###   ########.fr        #
+#    Updated: 2018/07/17 15:05:27 by cpireyre         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,21 +26,20 @@ C_FILES		:=	wheel.c wheel2.c wheel3.c wheel_math.c \
 	game.c
 H_FILES		:=	actions.h check.h header.h print.h wheel.h game.h
 
-all: $(PUSH_SWAP) $(CHECKER)
+DEPS		=	$(H_FILES) Makefile $(C_FILES)
 
-$(PUSH_SWAP): $(H_FILES) Makefile $(C_FILES) push_swap_main.c
+all: $(PUSH_SWAP) $(CHECKER) $(TEST) $(GAME)
+
+$(PUSH_SWAP): $(DEPS) push_swap_main.c
 	$(CC) $(CFLAGS) $(C_FILES) push_swap_main.c $(NAME) $(INCLUDE) $(DEBUG) -o $(PUSH_SWAP)
 
-$(CHECKER): $(H_FILES) Makefile $(C_FILES) checker_main.c
+$(CHECKER): $(DEPS) checker_main.c
 	$(CC) $(CFLAGS) $(C_FILES) checker_main.c $(NAME) $(INCLUDE) $(DEBUG) -o $(CHECKER)
 
-$(TEST): $(H_FILES) Makefile $(C_FILES) test_main.c
+$(TEST): $(DEPS) test_main.c
 	$(CC) $(CFLAGS) $(C_FILES) test_main.c $(NAME) $(INCLUDE) $(DEBUG) -o $(TEST)
 
-$(GAME): $(H_FILES) Makefile $(C_FILES) game_main.c
+$(GAME):  $(DEPS) game_main.c
 	$(CC) $(CFLAGS) $(C_FILES) game_main.c $(NAME) $(INCLUDE) $(DEBUG) -o $(GAME)
-
-run: all
-	./$(PUSH_SWAP) 9 8 7 6 5 4 3 2 1 0
 
 .PHONY: all, run
