@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/13 09:36:13 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/07/17 09:08:00 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/07/17 09:24:15 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,15 +32,15 @@ int		main(int argc, char **argv)
 	{
 		if (!is_valid_arg(*argv))
 		{
-			ft_putendl("Error: invalid entry");
-			return (1);
+			ft_putendl_fd("Error: invalid entry", STDERR_FILENO);
+			return (1); // print on stderr, free everything, then exit
 		}
 		spoke = wheel_add_tail(&spoke, ft_atoi(*argv));
 	}
 	if (wheel_has_no_dupes(spoke) == false)
 	{
-		ft_putendl("Error: duplicate entries");
-		return (1);
+		ft_putendl_fd("Error: duplicate entries", STDERR_FILENO);
+		return (1);// print on stderr, free everything, then exit
 	}
 	/* later:
 	 ** extract this loop into a function returns the sortedness?
