@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/13 09:36:05 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/07/14 09:13:20 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/07/17 17:27:38 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 void	do_swap(t_wheel *wheel)
 {
-	if (!wheel)
+	if (!wheel || wheel->prev == wheel)
 		return ;
 	wheel = wheel_go_to_head(wheel);
 	wheel_swap_spokes(wheel, wheel->next);
