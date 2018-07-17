@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/13 09:36:49 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/07/17 08:57:31 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/07/17 17:42:44 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ t_wheel			*wheel_add_head(t_wheel **oldhead, int input);
 */
 
 int				wheel_init_ranks(t_wheel **wheel);
+t_wheel			*init_wheel(int argc, char **argv);
 
 /*
 **	wheel_math.c

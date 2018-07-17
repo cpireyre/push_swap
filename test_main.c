@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/15 09:53:21 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/07/17 12:43:12 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/07/17 17:47:33 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,16 +44,15 @@ void	wh_quicksort(t_wheel **to_sort, t_wheel **reserve)
 
 int		main(int argc, char **argv)
 {
-	t_wheel	*spoke;
-	t_wheel	*reserve;
+	t_wheel	*to_sort;
+	t_wheel *reserve;
 
-	spoke = NULL;
 	reserve = NULL;
-	if (argc < 2)
+	if (!(to_sort = (init_wheel(argc, argv))))
 		return (1);
-	while (*(++argv))
-		spoke = wheel_add_tail(&spoke, ft_atoi(*argv));
-	wh_quicksort(&spoke, &reserve);
-	print_game_state(spoke, reserve);
+	wh_quicksort(&to_sort, &reserve);
+	print_game_state(to_sort, reserve);
+	if (to_sort)
+		wheel_free_all(to_sort);
 	return (0);
 }
