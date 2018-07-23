@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/13 09:36:33 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/07/19 09:19:15 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/07/23 09:10:17 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,6 @@ void	do_reverse_rotate(t_wheel *wheel);
 */
 
 void	place_min_first(t_wheel **to_sort);
+void	place_max_first(t_wheel **to_sort);
 
 #endif

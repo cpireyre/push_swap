@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/16 11:59:19 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/07/17 10:17:15 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/07/23 14:12:29 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,15 @@ void	curse_print_wheel(t_wheel *wheel, int x, int y)
 {
 	if (!wheel)
 		return ;
-	wheel = wheel_go_to_head(wheel);
+	wheel = wheel_go_to_tail(wheel);
 	mvprintw(y, x, "%d", wheel->number);
-	y++;
-	wheel = wheel->next;
-	while (wheel->is_head == false)
+	y--;
+	wheel = wheel->prev;
+	while (wheel->is_tail == false)
 	{
 		mvprintw(y, x, "%d", wheel->number);
-		y++;
-		wheel = wheel->next;
+		y--;
+		wheel = wheel->prev;
 	}
 	refresh();
 }
@@ -65,8 +65,8 @@ void	wrap_ncurses(t_wheel **a, t_wheel **b)
 		clear();
 		mvprintw(15, 1, "q to quit");
 		ncurses_do_action(keypress, a, b);
-		curse_print_wheel(*a, X_A, 3);
-		curse_print_wheel(*b, X_B, 3);
+		curse_print_wheel(*a, X_A, 30);
+		curse_print_wheel(*b, X_B, 30);
 		moves++;
 	}
 	if (*a && check_wheel_sortedness(*a) == true && !*b)

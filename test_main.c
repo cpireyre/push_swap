@@ -6,13 +6,13 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/15 09:53:21 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/07/19 09:31:25 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/07/23 08:44:27 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void	push_bigger(t_wheel **to_sort, t_wheel **reserve, int pivot)
+void	push_smaller(t_wheel **to_sort, t_wheel **reserve, int pivot)
 {
 	size_t	size;
 	size_t	i;
@@ -41,7 +41,7 @@ void	wh_quicksort(t_wheel **to_sort, t_wheel **reserve)
 	while (*to_sort)
 	{
 		pivot = wheel_get_median(*to_sort);
-		push_bigger(to_sort, reserve, pivot);
+		push_smaller(to_sort, reserve, pivot);
 	}
 }
 
@@ -67,8 +67,8 @@ int		main(int argc, char **argv)
 	reserve = NULL;
 	if (!(to_sort = (init_wheel(argc, argv))))
 		return (1);
-	wh_quicksort(&to_sort, &reserve);
-	pushmax(&reserve, &to_sort);
+	to_sort = wheel_go_to_head(to_sort);
+	wh_quick_step(&to_sort, &reserve, wheel_get_median(to_sort));
 	wheel_free_all(to_sort);
 	return (0);
 }

@@ -1,27 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   header.h                                           :+:      :+:    :+:   */
+/*   quicksort.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/14 09:10:01 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/07/23 08:38:34 by cpireyre         ###   ########.fr       */
+/*   Created: 2018/07/23 08:38:37 by cpireyre          #+#    #+#             */
+/*   Updated: 2018/07/23 08:38:56 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HEADER_H
-# define HEADER_H
+#ifndef QUICKSORT_H
+# define QUICKSORT_H
 
-# define	VISUAL_MODE	"-v"
-
-# include	"libft.h"
-# include	"ft_printf.h"
-# include	"wheel.h"
-# include	"actions.h"
-# include	"check.h"
-# include	"print.h"
-# include	"game.h"
-# include	"quicksort.h"
+void	wh_quick_step(t_wheel **a, t_wheel **b, int median);
 
 #endif

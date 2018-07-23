@@ -6,7 +6,7 @@
 #    By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/06/29 14:18:45 by cpireyre          #+#    #+#              #
-#    Updated: 2018/07/19 17:35:54 by cpireyre         ###   ########.fr        #
+#    Updated: 2018/07/23 08:39:07 by cpireyre         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,8 +20,8 @@ PROGRAMS	=	push_swap checker game test
 
 C_FILES		:=	wheel.c wheel2.c wheel3.c wheel_math.c \
 	print.c actions.c check.c compound_actions.c \
-	game.c
-H_FILES		:=	actions.h check.h header.h print.h wheel.h game.h
+	game.c quicksort.c
+H_FILES		:=	actions.h check.h header.h print.h wheel.h game.h quicksort.h
 
 DEPS		=	$(H_FILES) Makefile $(C_FILES)
 

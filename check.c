@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/13 09:36:08 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/07/17 17:59:58 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/07/23 13:17:41 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,5 +80,4 @@ void	do_from_stdin(t_wheel **to_sort, t_wheel **reserve, char **line)
 	do_action(to_sort, reserve, *line);
 	*to_sort = wheel_go_to_head(*to_sort);
 	*reserve = wheel_go_to_head(*reserve);
-	free(*line);
 }
