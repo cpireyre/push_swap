@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/13 09:36:49 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/07/17 17:42:44 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/07/24 14:11:05 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ t_wheel			*init_wheel(int argc, char **argv);
 t_wheel 		*wheel_go_to_min(t_wheel *spoke);
 int				wheel_get_avg(t_wheel *wheel);
 int				*wheel_to_array(t_wheel *wheel);
-int				wheel_get_median(t_wheel *wheel);
+int				wheel_get_quant(t_wheel *wheel, int cutoff_percent);
 t_bool			wheel_has_no_dupes(t_wheel *wheel);
 
 /*

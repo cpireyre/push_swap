@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/15 09:50:58 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/07/19 09:06:41 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/07/24 14:15:18 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,20 +50,21 @@ int		*wheel_to_array(t_wheel *wheel)
 	return (array - size);
 }
 
-int		wheel_get_median(t_wheel *wheel)
+int		wheel_get_quant(t_wheel *wheel, int cutoff_percent)
 {
 	size_t	size;
 	int		*copy;
-	int		median;
+	int		quant;
 
 	size = wheel_count_spokes(wheel);
 	if (!size)
 		return (0);
 	copy = wheel_to_array(wheel);
 	ft_sort_tab(copy, size);
-	median = copy[size / 2];
+	size = size * ((float)cutoff_percent / 100);
+	quant = copy[size];
 	free(copy);
-	return (median);
+	return (quant);
 }
 
 int		wheel_get_avg(t_wheel *wheel)
