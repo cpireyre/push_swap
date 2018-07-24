@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/16 12:17:03 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/07/23 14:03:49 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/07/24 09:30:39 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,16 +51,17 @@ int		main(int argc, char **argv)
 		wrap_ncurses(&to_sort, &reserve);
 	else
 	{
-		size = wheel_count_spokes(to_sort) + 10;
+		size = 80 - wheel_count_spokes(to_sort);
+		size = ft_max(size, 80 - size);
 		while (ft_gnl(0, &line))
 		{
 			clear();
 			mvprintw(5, 30, "%s", line);
 			do_from_stdin(&to_sort, &reserve, &line);
 			free(line);
-			curse_print_wheel(to_sort, 5, size);
-			curse_print_wheel(reserve, 20, size);
-			usleep(SPEED);
+			curse_print_wheel(to_sort, 5, size, true);
+			curse_print_wheel(reserve, 40, size, false);
+			usleep(SLEEP_DELAY);
 		}
 		getch();
 		endwin();
