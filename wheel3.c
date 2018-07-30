@@ -35,6 +35,7 @@ t_wheel		*init_wheel(int argc, char **argv)
 {
 	t_wheel	*wheel;
 
+	wheel = NULL;
 	if (argc < 2 || !argv || !*argv)
 		return (NULL);
 	while (*(++argv))
