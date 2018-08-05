@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/13 14:41:04 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/07/17 17:43:24 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/08/05 10:32:28 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int		wheel_init_ranks(t_wheel **wheel)
 
 t_wheel		*init_wheel(int argc, char **argv)
 {
-	t_wheel	*wheel;
+	t_wheel		*wheel;
 
 	wheel = NULL;
 	if (argc < 2 || !argv || !*argv)
@@ -41,19 +41,12 @@ t_wheel		*init_wheel(int argc, char **argv)
 	while (*(++argv))
 	{
 		if (!is_valid_arg(*argv))
-		{
-			ft_putendl_fd("Error: invalid entry", STDERR_FILENO);
-			return (NULL); // free everything, then exit
-		}
-		/*	later
-		 **	protect this malloc (if !wheel_add_tail then wheel_free_all and exit)
-		 */
+			free_and_quit(wheel, 0);
 		wheel = wheel_add_tail(&wheel, ft_atoi(*argv));
+		if (!wheel)
+			free_and_quit(wheel, 0);
 	}
 	if (wheel_has_no_dupes(wheel) == false)
-	{
-		ft_putendl_fd("Error: duplicate entries", STDERR_FILENO);
-		return (NULL); //free everything, then exit
-	}
+		free_and_quit(wheel, 0);
 	return (wheel);
 }
