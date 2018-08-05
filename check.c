@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/13 09:36:08 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/08/05 12:10:29 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/08/05 12:27:45 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,16 +86,14 @@ void	do_from_stdin(t_wheel **to_sort, t_wheel **reserve, char **line)
 {
 	if (!is_not_valid_action(*line))
 	{
-		ft_putendl_fd("Error", STDERR_FILENO);
-		wheel_free_all(*to_sort);
-		wheel_free_all(*reserve);
 		free(*line);
-		exit(EXIT_FAILURE);
+		free_and_quit(*to_sort, *reserve);
 	}
 	else
 	{
 		do_action(to_sort, reserve, *line);
 		*to_sort = wheel_go_to_head(*to_sort);
 		*reserve = wheel_go_to_head(*reserve);
+		free(*line);
 	}
 }
