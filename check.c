@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/13 09:36:08 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/07/23 13:17:41 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/08/05 09:40:55 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,8 @@ void	do_and_print(t_wheel **a, t_wheel **b, char *action)
 
 t_bool	is_valid_arg(const char *arg)
 {
+	if (*arg == '+' || *arg == '-')
+		arg++;
 	while (*arg)
 	{
 		if (!ft_isdigit(*arg) && !ft_isblank(*arg))
