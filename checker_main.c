@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/13 09:36:13 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/08/05 10:00:27 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/08/05 12:09:02 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,6 @@ t_bool	checker(t_wheel **to_sort, t_wheel **reserve)
 	line = NULL;
 	while (ft_gnl(0, &line))
 	{
-		if (!is_not_valid_action(line))
-		{
-			ft_putendl_fd("Error", STDERR_FILENO);
-			wheel_free_all(*to_sort);
-			wheel_free_all(*reserve);
-			exit(EXIT_FAILURE);
-		}
 		do_from_stdin(to_sort, reserve, &line);
 		free(line);
 	}
