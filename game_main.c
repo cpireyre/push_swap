@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/16 12:17:03 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/07/24 09:30:39 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/08/09 13:00:53 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ int		main(int argc, char **argv)
 			clear();
 			mvprintw(5, 30, "%s", line);
 			do_from_stdin(&to_sort, &reserve, &line);
-			free(line);
 			curse_print_wheel(to_sort, 5, size, true);
 			curse_print_wheel(reserve, 40, size, false);
 			usleep(SLEEP_DELAY);
