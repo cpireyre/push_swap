@@ -6,15 +6,15 @@
 #    By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/06/29 14:18:45 by cpireyre          #+#    #+#              #
-#    Updated: 2018/08/05 10:02:41 by cpireyre         ###   ########.fr        #
+#    Updated: 2018/08/10 12:50:08 by cpireyre         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC		:=	gcc
 CFLAGS	:=	-Wall -Wextra -Werror
 DEBUG	:=	-fsanitize=address -fsanitize=undefined -g3
-INCLUDE	:=	-Ift_printf/ -Lft_printf/ -lftprintf -Ift_printf/ \
-	-Ift_printf/libft/ -lncurses
+INCLUDE	:=	-lncurses -Ilibft/ -lft -Llibft/
+LIB		:=	libft/libft.a
 
 PROGRAMS	=	push_swap checker game test
 
@@ -24,7 +24,7 @@ C_FILES		:=	wheel.c wheel2.c wheel3.c wheel_math.c \
 H_FILES		:=	actions.h check.h header.h print.h wheel.h game.h quicksort.h \
 	error.h
 
-DEPS		=	$(H_FILES) Makefile $(C_FILES)
+DEPS		=	$(H_FILES) Makefile $(C_FILES) $(LIB)
 
 all: $(DEPS)
 	$(PROGRAMS)
