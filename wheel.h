@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/13 09:36:49 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/07/24 14:11:05 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/08/10 13:58:31 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,14 @@ typedef struct	s_wheel
 	int				number;
 	int				rank;
 }				t_wheel;
+
+typedef struct	s_ps
+{
+	t_wheel **a;
+	t_wheel **b;
+	size_t	total_size;
+	int		*sorted_cpy;
+}				t_ps;
 
 /*
 ** wheel.c
@@ -49,6 +57,7 @@ t_wheel			*wheel_add_head(t_wheel **oldhead, int input);
 
 int				wheel_init_ranks(t_wheel **wheel);
 t_wheel			*init_wheel(int argc, char **argv);
+t_ps			*init_ps(t_wheel *a);
 
 /*
 **	wheel_math.c

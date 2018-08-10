@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/13 09:36:13 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/08/05 12:22:12 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/08/10 12:51:04 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ int		main(int argc, char **argv)
 	if (!(to_sort = (init_wheel(argc, argv))))
 		return (1);
 	if (checker(&to_sort, &reserve) == true)
-		ft_putendl("OK");
+		ft_printf("OK");
 	else
-		ft_putendl("KO");
+		ft_printf("KO");
 	if (to_sort)
 		wheel_free_all(to_sort);
 	if (reserve)
