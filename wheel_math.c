@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/15 09:50:58 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/07/24 14:15:18 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/08/13 12:05:01 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,25 +30,6 @@ t_wheel *wheel_go_to_min(t_wheel *spoke)
 	return (min_spoke);
 }
 
-int		*wheel_to_array(t_wheel *wheel)
-{
-	size_t	size;
-	int		*array;
-
-	size = wheel_count_spokes(wheel);
-	array = malloc(sizeof(int) * size);
-	wheel = wheel_go_to_head(wheel);
-	*array = wheel->number;
-	array++;
-	wheel = wheel->next;
-	while (wheel->is_head == false)
-	{
-		*array = wheel->number;
-		array++;
-		wheel = wheel->next;
-	}
-	return (array - size);
-}
 
 int		wheel_get_quant(t_wheel *wheel, int cutoff_percent)
 {

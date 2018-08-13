@@ -6,7 +6,7 @@
 #    By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/06/29 14:18:45 by cpireyre          #+#    #+#              #
-#    Updated: 2018/08/12 10:37:21 by cpireyre         ###   ########.fr        #
+#    Updated: 2018/08/13 12:58:31 by cpireyre         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,14 +16,14 @@ CFLAGS	:=	-Wall -Wextra -Werror
 LIBDIR	:=	./libft
 LIBFT	:=	$(LIBDIR)/libft.a
 BFLAGS	:=	-I$(LIBDIR)/
-DEBUG	:=	-g
+DEBUG	:=	-g -fsanitize=address -fsanitize=undefined
 INCLUDE	:=	-lncurses -lft -L$(LIBDIR)/
 
 PROGRAMS	=	push_swap checker game test
 
 C_FILES		:=	wheel.c wheel2.c wheel3.c wheel_math.c \
 	print.c actions.c check.c compound_actions.c \
-	game.c quicksort.c error.c
+	game.c quicksort.c error.c mem.c init.c
 H_FILES		:=	actions.h check.h header.h print.h wheel.h game.h quicksort.h \
 	error.h
 OBJ			:=	$(C_FILES:.c=.o)
@@ -43,6 +43,7 @@ $(PROGRAMS): %: %_main.o $(DEPS) $(LIBFT) $(OBJ)
 	$(CC) $(CFLAGS) $(BFLAGS) $(OBJ) $< $(NAME) $(INCLUDE) $(DEBUG) -o $@
 
 clean:
+	$(RM) checker_main.o push_swap.o
 	$(MAKE) clean -C $(LIBDIR)
 	$(RM) $(OBJ)
 
