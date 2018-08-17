@@ -6,37 +6,38 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/13 09:36:13 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/08/10 12:51:04 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/08/17 14:57:25 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-t_bool	checker(t_wheel **to_sort, t_wheel **reserve)
+t_bool	checker(t_ps *ps)
 {
 	char	*line;
 
 	line = NULL;
 	while (ft_gnl(0, &line))
-		do_from_stdin(to_sort, reserve, &line);
-	return (!*reserve && check_wheel_sortedness(*to_sort));
+		do_from_stdin(ps, &line);
+	return (!*ps->b && check_wheel_sortedness(*ps->a));
 }
 
 int		main(int argc, char **argv)
 {
-	t_wheel	*to_sort;
-	t_wheel *reserve;
+	t_wheel	*a;
+	t_wheel	*b;
+	t_ps	*ps;
 
-	reserve = NULL;
-	if (!(to_sort = (init_wheel(argc, argv))))
-		return (1);
-	if (checker(&to_sort, &reserve) == true)
+	a = init_wheel(argc, argv);
+	b = NULL;
+	ps = init_ps(&a, &b);
+	if (!ps)
+		free_and_quit(a, b);
+	if (checker(ps) == true)
 		ft_printf("OK");
 	else
 		ft_printf("KO");
-	if (to_sort)
-		wheel_free_all(to_sort);
-	if (reserve)
-		wheel_free_all(reserve);
+	wheel_free_all(*ps->a);
+	wheel_free_all(*ps->b);
 	return (0);
 }

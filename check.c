@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/13 09:36:08 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/08/05 12:27:45 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/08/17 14:12:50 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,41 +26,32 @@ t_bool	check_wheel_sortedness(t_wheel *wheel)
 }
 
 /*
- ** sa, sb, ss. pa, pb. ra, rb, rr. rra, rrb, rrr.
- */
+** sa, sb, ss. pa, pb. ra, rb, rr. rra, rrb, rrr.
+*/
 
-void	do_action(t_wheel **a, t_wheel **b, char *action)
+void	do_action(t_ps *ps, char *action)
 {
-	if (action[0] == 's')
-	{
-		if (action[1] == 'a' || action[1] == 's')
-			do_swap(*a);
-		if (action[1] == 'b' || action[1] == 's')
-			do_swap(*b);
-	}
-	else if (ft_strequ(action, "pa"))
-		do_push(b, a);
-	else if (ft_strequ(action, "pb"))
-		do_push(a, b);
-	else if (action[0] == 'r' && action[2] == 0)
-	{
-		if (action[1] == 'a' || action[1] == 'r')
-			do_rotate(*a);
-		if (action[1] == 'b' || action[1] == 'r')
-			do_rotate(*b);
-	}
-	else if (action[0] == 'r' && action[1] == 'r')
-	{
-		if (action[2] == 'a' || action[2] == 'r')
-			do_reverse_rotate(*a);
-		if (action[2] == 'b' || action[2] == 'r')
-			do_reverse_rotate(*b);
-	}
+	if (ft_strequ(action, "sa") || ft_strequ(action, "ss"))
+		do_swap(*ps->a);
+	if (ft_strequ(action, "sb") || ft_strequ(action, "ss"))
+		do_swap(*ps->b);
+	if (ft_strequ(action, "pa"))
+		do_push(ps->b, ps->a);
+	if (ft_strequ(action, "pb"))
+		do_push(ps->a, ps->b);
+	if (ft_strequ(action, "ra") || ft_strequ(action, "rr"))
+		do_rotate(*ps->a);
+	if (ft_strequ(action, "rb") || ft_strequ(action, "rr"))
+		do_rotate(*ps->b);
+	if (ft_strequ(action, "rra") || ft_strequ(action, "rrr"))
+		do_reverse_rotate(*ps->a);
+	if (ft_strequ(action, "rrb") || ft_strequ(action, "rrr"))
+		do_reverse_rotate(*ps->b);
 }
 
-void	do_and_print(t_wheel **a, t_wheel **b, char *action)
+void	do_and_print(t_ps *ps, char *action)
 {
-	do_action(a, b, action);
+	do_action(ps, action);
 	ft_putendl(action);
 }
 
@@ -82,18 +73,16 @@ t_bool	is_valid_arg(const char *arg)
 	return (true);
 }
 
-void	do_from_stdin(t_wheel **to_sort, t_wheel **reserve, char **line)
+void	do_from_stdin(t_ps *ps, char **line)
 {
 	if (!is_not_valid_action(*line))
 	{
 		free(*line);
-		free_and_quit(*to_sort, *reserve);
+		free_and_quit(*ps->a, *ps->b);
 	}
 	else
 	{
-		do_action(to_sort, reserve, *line);
-		*to_sort = wheel_go_to_head(*to_sort);
-		*reserve = wheel_go_to_head(*reserve);
+		do_action(ps, *line);
 		free(*line);
 	}
 }
