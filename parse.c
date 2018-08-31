@@ -73,21 +73,21 @@ t_ps	*parse(int argc, char **argv)
 
 	ps = malloc(sizeof(t_ps));
 	if (!ps)
-		return (NULL);
+		ft_exit(ERROR);
 	ps->a = create_array(argc, argv);
 	if (!(ps->a))
-		return (NULL);
+		ft_exit(ERROR);
 	ps->b = NULL;
 	ps->size_total = argc - 1;
 	ps->size_a = ps->size_total;
 	ps->size_b = 0;
 	sorted = malloc(sizeof(int) * ps->size_a);
 	if (!sorted)
-		return (NULL);
+		ft_exit(ERROR);
 	ft_memcpy((void*)sorted, (void*)(ps->a), sizeof(int) * ps->size_a);
 	ft_sort_tab(sorted, ps->size_a);
 	ps->sorted = sorted;
  	if (has_dupes(sorted, ps->size_a))
-		return (NULL);
+		ft_exit(ERROR);
 	return (ps);
 }

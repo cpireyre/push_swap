@@ -16,6 +16,7 @@
 # include "libft.h"
 
 # define VISUAL_MODE	"-v"
+# define ERROR		"Error"
 
 typedef struct	s_ps
 {
@@ -32,5 +33,12 @@ typedef struct	s_ps
 */
 
 t_ps	*parse(int argc, char **argv);
+
+/*
+**	mem.c
+*/
+
+void	free_ps(t_ps *ps);
+void	ft_exit(const char *errmsg);
 
 #endif

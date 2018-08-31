@@ -21,7 +21,7 @@ INCLUDE	:=	-lncurses -lft -L$(LIBDIR)/
 
 PROGRAMS	=	push_swap checker
 
-C_FILES		:=	parse.c
+C_FILES		:=	parse.c mem.c
 H_FILES		:=	header.h
 OBJ			:=	$(C_FILES:.c=.o)
 
