@@ -1,29 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   header.h                                           :+:      :+:    :+:   */
+/*   checker.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/14 09:10:01 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/08/10 12:45:11 by cpireyre         ###   ########.fr       */
+/*   Created: 2018/08/31 12:32:30 by cpireyre          #+#    #+#             */
+/*   Updated: 2018/08/31 13:34:30 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HEADER_H
-# define HEADER_H
+#ifndef CHECKER_H
+# define CHECKER_H
 
-# define	VISUAL_MODE	"-v"
+# include "libft.h"
 
-# include	<limits.h>
+# define VISUAL_MODE	"-v"
 
-# include	"libft.h"
-# include	"wheel.h"
-# include	"actions.h"
-# include	"check.h"
-# include	"print.h"
-# include	"game.h"
-# include	"quicksort.h"
-# include	"error.h"
+typedef struct	s_ps
+{
+	int		*a;
+	int		*b;
+	int		size_total;
+	int		size_a;
+	int		size_b;
+	int		*sorted;
+}				t_ps;
+
+/*
+**	parse.c
+*/
+
+t_ps	*parse(int argc, char **argv);
 
 #endif

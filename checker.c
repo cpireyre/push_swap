@@ -1,34 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_main.c                                   :+:      :+:    :+:   */
+/*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/13 13:32:32 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/08/17 15:00:28 by cpireyre         ###   ########.fr       */
+/*   Created: 2018/08/31 12:22:12 by cpireyre          #+#    #+#             */
+/*   Updated: 2018/08/31 13:55:35 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
 #include "header.h"
+
+static void	toggle_visu(char ***argv, t_bool *visu_on, int *argc)
+{
+	if (ft_strequ((*argv)[1], VISUAL_MODE) == true)
+	{
+		*visu_on = true;
+		(*argv)++;
+		(*argc)--;
+	}
+	else
+		*visu_on = false;
+}
 
 int		main(int argc, char **argv)
 {
-	t_wheel	*a;
-	t_wheel	*b;
+	t_bool	visu_on;
 	t_ps	*ps;
 
-	a = init_wheel(argc, argv);
-	b = NULL;
-	ps = init_ps(&a, &b);
+	toggle_visu(&argv, &visu_on, &argc);
+	ps = parse(argc, argv);
 	if (!ps)
-		free_and_quit(a, b);
-//	if (ps->total_size == 2) TBD
-//		swap_pair(ps);
-//	else
-//		push_swap(ps);
-	wheel_free_all(*ps->a);
-	wheel_free_all(*ps->b);
+	{
+		ft_putendl_fd("Error", STDERR_FILENO);
+		exit(EXIT_FAILURE);
+	}
 	return (0);
 }
