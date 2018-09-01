@@ -6,13 +6,13 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/31 12:22:12 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/08/31 13:55:35 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/09/01 11:14:53 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-static void	toggle_visu(char ***argv, t_bool *visu_on, int *argc)
+static void			toggle_visu(char ***argv, t_bool *visu_on, int *argc)
 {
 	if (ft_strequ((*argv)[1], VISUAL_MODE) == true)
 	{
@@ -25,9 +25,9 @@ static void	toggle_visu(char ***argv, t_bool *visu_on, int *argc)
 }
 
 /*
- **	ft_memcmp returns 0 if the memory areas contain equal values
- **	more or less.
- */
+**	ft_memcmp returns 0 if the memory areas contain equal values
+**	more or less.
+*/
 
 static t_bool		is_sorted(t_ps *ps)
 {
@@ -37,7 +37,7 @@ static t_bool		is_sorted(t_ps *ps)
 					sizeof(int) * ps->size_total)));
 }
 
-int		main(int argc, char **argv)
+int					main(int argc, char **argv)
 {
 	t_bool	visu_on;
 	t_ps	*ps;

@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/31 12:21:21 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/08/31 14:01:38 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/09/01 11:15:06 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static int		*create_array(int argc, char **argv)
 	return (array);
 }
 
-t_bool	has_dupes(int *sorted, int size)
+t_bool			has_dupes(int *sorted, int size)
 {
 	int		i;
 
@@ -66,7 +66,7 @@ t_bool	has_dupes(int *sorted, int size)
 	return (false);
 }
 
-t_ps	*parse(int argc, char **argv)
+t_ps			*parse(int argc, char **argv)
 {
 	t_ps	*ps;
 	int		*sorted;
@@ -87,7 +87,7 @@ t_ps	*parse(int argc, char **argv)
 	ft_memcpy((void*)sorted, (void*)(ps->a), sizeof(int) * ps->size_a);
 	ft_sort_tab(sorted, ps->size_a);
 	ps->sorted = sorted;
- 	if (has_dupes(sorted, ps->size_a))
+	if (has_dupes(sorted, ps->size_a))
 		ft_exit(ERROR);
 	return (ps);
 }
