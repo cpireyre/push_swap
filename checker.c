@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/31 12:22:12 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/09/01 11:14:53 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/09/01 11:28:34 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int					main(int argc, char **argv)
 	{
 		toggle_visu(&argv, &visu_on, &argc);
 		ps = parse(argc, argv);
-		ft_assert(is_sorted(ps));
+		ft_assert(is_sorted(ps), MSG_OK, MSG_NOT_OK);
 		free_ps(ps);
 	}
 	return (0);

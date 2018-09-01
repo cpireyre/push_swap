@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/31 12:32:30 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/09/01 11:18:01 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/09/01 11:37:23 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,9 @@
 # include "libft.h"
 
 # define VISUAL_MODE	"-v"
-# define ERROR			"Error"
+# define MSG_ERROR		"Error\n"
+# define MSG_OK			"OK\n"
+# define MSG_NOT_OK		"KO\n"
 
 typedef struct	s_ps
 {

@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/31 12:21:21 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/09/01 11:15:06 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/09/01 11:37:55 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,21 +73,21 @@ t_ps			*parse(int argc, char **argv)
 
 	ps = malloc(sizeof(t_ps));
 	if (!ps)
-		ft_exit(ERROR);
+		ft_exit(MSG_ERROR);
 	ps->a = create_array(argc, argv);
 	if (!(ps->a))
-		ft_exit(ERROR);
+		ft_exit(MSG_ERROR);
 	ps->b = NULL;
 	ps->size_total = argc - 1;
 	ps->size_a = ps->size_total;
 	ps->size_b = 0;
 	sorted = malloc(sizeof(int) * ps->size_a);
 	if (!sorted)
-		ft_exit(ERROR);
+		ft_exit(MSG_ERROR);
 	ft_memcpy((void*)sorted, (void*)(ps->a), sizeof(int) * ps->size_a);
 	ft_sort_tab(sorted, ps->size_a);
 	ps->sorted = sorted;
 	if (has_dupes(sorted, ps->size_a))
-		ft_exit(ERROR);
+		ft_exit(MSG_ERROR);
 	return (ps);
 }
