@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/31 12:21:21 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/09/01 13:53:09 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/09/02 14:57:16 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ static t_bool	is_valid_arg(const char *arg)
 {
 	intmax_t	tmp;
 
+	if (ft_strlen(arg) > 11)
+		return (false);
 	tmp = ft_atoi(arg);
 	if ((intmax_t)INT_MAX < (intmax_t)tmp || (intmax_t)tmp < (intmax_t)INT_MIN)
 		return (false);
@@ -79,8 +81,6 @@ t_ps			*parse(int argc, char **argv)
 		ft_exit(MSG_ERROR);
 	ps->size_total = argc - 1;
 	ps->b = malloc(sizeof(int) * ps->size_total);
-	ft_printf("%d size total", ps->size_total);
-	ft_printf("%p\n", ps->b);
 	if (!ps->b)
 		ft_exit(MSG_ERROR);
 	ps->size_a = ps->size_total;

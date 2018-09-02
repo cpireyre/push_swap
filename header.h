@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/31 12:32:30 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/09/01 12:45:57 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/09/02 14:47:04 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,21 @@ void			free_ps(t_ps *ps);
 void			ft_exit(const char *errmsg);
 
 /*
-**	actions.c
+**	tab.c
 */
 
 void			tab_erase_first(int **tab, int *size);
 void			tab_add_first(int **tab, int *size, int value);
+void			tab_rotate_down(int **tab, int *size);
+
+/*
+**	actions.c
+*/
+
+void			pb(t_ps *ps);
+void			pa(t_ps *ps);
+void			sa(t_ps *ps);
+void			sb(t_ps *ps);
+void			ra(t_ps *ps);
 
 #endif

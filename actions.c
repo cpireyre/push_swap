@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/01 11:44:36 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/09/01 13:02:32 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/09/02 14:46:50 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,27 +18,44 @@
 ** ss, rr, rrr.
 */
 
-void	tab_erase_first(int **tab, int *size)
+void	pb(t_ps *ps)
 {
-	int		i;
-
-	if (*size < 1)
-		return ;
-	i = -1;
-	while (++i < (*size - 1))
-		(*tab)[i] = (*tab)[i + 1];
-	(*size)--;
-}
-
-void	tab_add_first(int **tab, int *size, int value)
-{
-	int		i;
 	int		tmp;
 
-	(*size)++;
-	i = 0;
-	tmp = (*tab)[0];
-	(*tab)[0] = value;
-	while (++i < (*size))
-		ft_swap_int(&tmp, &(*tab)[i]);
+	if (ps->size_a >= 1)
+	{
+		tmp = (ps->a)[0];
+		tab_erase_first(&(ps->a), &(ps->size_a));
+		tab_add_first(&(ps->b), &(ps->size_b), tmp);
+	}
+}
+
+void	pa(t_ps *ps)
+{
+	int		tmp;
+
+	if (ps->size_b >= 1)
+	{
+		tmp = (ps->b)[0];
+		tab_erase_first(&(ps->b), &(ps->size_b));
+		tab_add_first(&(ps->a), &(ps->size_a), tmp);
+	}
+}
+
+void	sa(t_ps *ps)
+{
+	if (ps->size_a >= 2)
+		ft_swap_int(&((ps->a)[0]), &((ps->a)[1]));
+}
+
+void	sb(t_ps *ps)
+{
+	if (ps->size_b >= 2)
+		ft_swap_int(&((ps->b)[0]), &((ps->b)[1]));
+}
+
+void	ra(t_ps *ps)
+{
+	if (ps->size_a >= 2)
+		tab_rotate_down(&(ps->a), &(ps->size_a));
 }
