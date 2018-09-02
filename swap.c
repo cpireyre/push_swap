@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/02 15:20:10 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/09/02 15:21:03 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/09/02 15:35:59 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,10 @@ void	sb(t_ps *ps)
 {
 	if (ps->size_b >= 2)
 		ft_swap_int(&((ps->b)[0]), &((ps->b)[1]));
+}
+
+void	ss(t_ps *ps)
+{
+	sa(ps);
+	sb(ps);
 }

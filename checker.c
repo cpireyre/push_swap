@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/31 12:22:12 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/09/02 15:27:26 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/09/02 15:36:33 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,11 @@ int				main(int argc, char **argv)
 		/*
 		** test stuff. throw out later:
 		*/
+		pb(ps);
+		pb(ps);
+		pb(ps);
+		ss(ps);
+		ss(ps);
 		ft_printf("a:\n");
 		ft_print_int_tab(ps->a, ps->size_a);
 		ft_printf("b:\n");
