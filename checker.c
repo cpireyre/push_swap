@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/31 12:22:12 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/09/02 14:53:06 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/09/02 15:27:26 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,12 @@ int				main(int argc, char **argv)
 		*/
 		ft_printf("a:\n");
 		ft_print_int_tab(ps->a, ps->size_a);
+		ft_printf("b:\n");
+		ft_print_int_tab(ps->b, ps->size_b);
 		/*
 		** end of test stuff. keep what follows.
 		*/
 		ft_assert(is_sorted(ps), MSG_OK, MSG_NOT_OK);
-		//ft_printf("%llu", (intmax_t)(1 << 31));
 		free_ps(ps);
 	}
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/31 12:32:30 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/09/02 15:15:34 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/09/02 15:24:41 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,14 +52,25 @@ void			tab_add_first(int **tab, int *size, int value);
 void			tab_rotate_down(int **tab, int *size);
 
 /*
-**	actions.c
+**	push.c
 */
 
 void			pb(t_ps *ps);
 void			pa(t_ps *ps);
+
+/*
+** swap.c
+*/
+
 void			sa(t_ps *ps);
 void			sb(t_ps *ps);
+
+/*
+**	rotate.c
+*/
+
 void			ra(t_ps *ps);
 void			rb(t_ps *ps);
+void			rr(t_ps *ps);
 
 #endif

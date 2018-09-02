@@ -6,7 +6,7 @@
 #    By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/06/29 14:18:45 by cpireyre          #+#    #+#              #
-#    Updated: 2018/09/02 14:22:17 by cpireyre         ###   ########.fr        #
+#    Updated: 2018/09/02 15:25:31 by cpireyre         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,8 @@ INCLUDE	:=	-lncurses -lft -L$(LIBDIR)/
 
 PROGRAMS	=	push_swap checker
 
-C_FILES		:=	parse.c mem.c actions.c tab.c
+C_FILES		:=	parse.c mem.c \
+	tab.c push.c swap.c rotate.c
 H_FILES		:=	header.h
 OBJ			:=	$(C_FILES:.c=.o)
 
