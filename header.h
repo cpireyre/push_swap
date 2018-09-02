@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/31 12:32:30 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/09/02 15:36:12 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/09/02 15:37:27 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,8 +79,8 @@ void			rr(t_ps *ps);
 **	reverse.c
 */
 
-void	rra(t_ps *ps);
-void	rrb(t_ps *ps);
-void	rrr(t_ps *ps);
+void			rra(t_ps *ps);
+void			rrb(t_ps *ps);
+void			rrr(t_ps *ps);
 
 #endif

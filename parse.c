@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/31 12:21:21 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/09/02 14:57:16 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/09/02 17:42:42 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,19 +38,14 @@ static int		*create_tab(int argc, char **argv)
 	int		*tab;
 	int		i;
 
-	tab = malloc(sizeof(int) * (argc - 1));
-	if (!tab)
-		return (NULL);
+	tab = ft_memalloc(sizeof(int) * (argc - 1));
 	i = 0;
 	while (++i < argc)
 	{
 		if (is_valid_arg(argv[i]))
 			tab[i - 1] = ft_atoi(argv[i]);
 		else
-		{
-			free(tab);
-			return (NULL);
-		}
+			ft_exit(MSG_ERROR);
 	}
 	return (tab);
 }
@@ -73,21 +68,13 @@ t_ps			*parse(int argc, char **argv)
 	t_ps	*ps;
 	int		*sorted;
 
-	ps = malloc(sizeof(t_ps));
-	if (!ps)
-		ft_exit(MSG_ERROR);
+	ps = ft_memalloc(sizeof(t_ps));
 	ps->a = create_tab(argc, argv);
-	if (!(ps->a))
-		ft_exit(MSG_ERROR);
 	ps->size_total = argc - 1;
-	ps->b = malloc(sizeof(int) * ps->size_total);
-	if (!ps->b)
-		ft_exit(MSG_ERROR);
+	ps->b = ft_memalloc(sizeof(int) * ps->size_total);
 	ps->size_a = ps->size_total;
 	ps->size_b = 0;
-	sorted = malloc(sizeof(int) * ps->size_a);
-	if (!sorted)
-		ft_exit(MSG_ERROR);
+	sorted = ft_memalloc(sizeof(int) * ps->size_a);
 	ft_memcpy((void*)sorted, (void*)(ps->a), sizeof(int) * ps->size_a);
 	ft_sort_tab(sorted, ps->size_a);
 	ps->sorted = sorted;
