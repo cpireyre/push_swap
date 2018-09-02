@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/31 12:21:21 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/09/01 11:37:55 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/09/01 13:53:09 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,26 +31,26 @@ static t_bool	is_valid_arg(const char *arg)
 	return (true);
 }
 
-static int		*create_array(int argc, char **argv)
+static int		*create_tab(int argc, char **argv)
 {
-	int		*array;
+	int		*tab;
 	int		i;
 
-	array = malloc(sizeof(int) * (argc - 1));
-	if (!array)
+	tab = malloc(sizeof(int) * (argc - 1));
+	if (!tab)
 		return (NULL);
 	i = 0;
 	while (++i < argc)
 	{
 		if (is_valid_arg(argv[i]))
-			array[i - 1] = ft_atoi(argv[i]);
+			tab[i - 1] = ft_atoi(argv[i]);
 		else
 		{
-			free(array);
+			free(tab);
 			return (NULL);
 		}
 	}
-	return (array);
+	return (tab);
 }
 
 t_bool			has_dupes(int *sorted, int size)
@@ -74,11 +74,15 @@ t_ps			*parse(int argc, char **argv)
 	ps = malloc(sizeof(t_ps));
 	if (!ps)
 		ft_exit(MSG_ERROR);
-	ps->a = create_array(argc, argv);
+	ps->a = create_tab(argc, argv);
 	if (!(ps->a))
 		ft_exit(MSG_ERROR);
-	ps->b = NULL;
 	ps->size_total = argc - 1;
+	ps->b = malloc(sizeof(int) * ps->size_total);
+	ft_printf("%d size total", ps->size_total);
+	ft_printf("%p\n", ps->b);
+	if (!ps->b)
+		ft_exit(MSG_ERROR);
 	ps->size_a = ps->size_total;
 	ps->size_b = 0;
 	sorted = malloc(sizeof(int) * ps->size_a);

@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/31 12:32:30 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/09/01 11:37:23 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/09/01 12:45:57 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,12 @@ t_ps			*parse(int argc, char **argv);
 
 void			free_ps(t_ps *ps);
 void			ft_exit(const char *errmsg);
+
+/*
+**	actions.c
+*/
+
+void			tab_erase_first(int **tab, int *size);
+void			tab_add_first(int **tab, int *size, int value);
 
 #endif
