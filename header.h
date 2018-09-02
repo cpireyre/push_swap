@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/31 12:32:30 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/09/02 14:47:04 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/09/02 15:15:34 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,6 @@ void			pa(t_ps *ps);
 void			sa(t_ps *ps);
 void			sb(t_ps *ps);
 void			ra(t_ps *ps);
+void			rb(t_ps *ps);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/01 11:44:36 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/09/02 14:46:50 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/09/02 15:15:26 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,10 @@ void	ra(t_ps *ps)
 {
 	if (ps->size_a >= 2)
 		tab_rotate_down(&(ps->a), &(ps->size_a));
+}
+
+void	rb(t_ps *ps)
+{
+	if (ps->size_b >= 2)
+		tab_rotate_down(&(ps->b), &(ps->size_b));
 }
