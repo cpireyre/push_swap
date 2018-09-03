@@ -6,20 +6,22 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/01 11:09:54 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/09/01 13:51:54 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/09/03 13:04:11 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void	free_ps(t_ps *ps)
+void	quit_push_swap(t_ps **ps, const char *errmsg)
 {
-	if (ps->sorted)
-		free(ps->sorted);
-	if (ps->b)
-		free(ps->b);
-	if (ps->a)
-		free(ps->a);
-	if (ps)
-		free(ps);
+	free_ps(ps);
+	ft_exit(errmsg);
+}
+
+void	free_ps(t_ps **ps)
+{
+	free((*ps)->sorted);
+	free((*ps)->b);
+	free((*ps)->a);
+	free((*ps));
 }

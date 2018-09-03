@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/31 12:21:21 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/09/02 17:42:42 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/09/03 13:03:48 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,33 @@ t_bool			has_dupes(int *sorted, int size)
 	return (false);
 }
 
+void			do_action(t_ps *ps, char *action)
+{
+	if (ft_strequ(action, "sa"))
+		sa(ps);
+	else if (ft_strequ(action, "pa"))
+		pa(ps);
+	else if (ft_strequ(action, "ra"))
+		ra(ps);
+	else if (ft_strequ(action, "rra"))
+		rra(ps);
+	else if (ft_strequ(action, "sb"))
+		sb(ps);
+	else if (ft_strequ(action, "pb"))
+		pb(ps);
+	else if (ft_strequ(action, "rb"))
+		rb(ps);
+	else if (ft_strequ(action, "rrb"))
+		rrb(ps);
+	else if (ft_strequ(action, "ss"))
+		ss(ps);
+	else if (ft_strequ(action, "rr"))
+		rr(ps);
+	else if (ft_strequ(action, "rrr"))
+		rrr(ps);
+	ft_strdel(&action);
+}
+
 t_ps			*parse(int argc, char **argv)
 {
 	t_ps	*ps;
@@ -79,6 +106,6 @@ t_ps			*parse(int argc, char **argv)
 	ft_sort_tab(sorted, ps->size_a);
 	ps->sorted = sorted;
 	if (has_dupes(sorted, ps->size_a))
-		ft_exit(MSG_ERROR);
+		quit_push_swap(&ps, MSG_DUPES);
 	return (ps);
 }

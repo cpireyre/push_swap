@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/31 12:32:30 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/09/02 15:37:27 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/09/03 13:03:35 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 # define MSG_ERROR		"Error\n"
 # define MSG_OK			"OK\n"
 # define MSG_NOT_OK		"KO\n"
+# define MSG_DUPES		"Error: duplicate entries.\n"
+# define MSG_BAD_ACTION	"Error: invalid instruction.\n"
 
 typedef struct	s_ps
 {
@@ -35,13 +37,15 @@ typedef struct	s_ps
 */
 
 t_ps			*parse(int argc, char **argv);
+void			do_action(t_ps *ps, char *action);
 
 /*
 **	mem.c
 */
 
-void			free_ps(t_ps *ps);
+void			free_ps(t_ps **ps);
 void			ft_exit(const char *errmsg);
+void			quit_push_swap(t_ps **ps, const char *errmsg);
 
 /*
 **	tab.c
