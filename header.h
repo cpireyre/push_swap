@@ -32,12 +32,23 @@ typedef struct	s_ps
 	int		*sorted;
 }				t_ps;
 
+typedef struct	s_action
+{
+	char		*instruction;
+	void		(*operation)(t_ps *);
+}		t_action;
+
 /*
 **	parse.c
 */
 
 t_ps			*parse(int argc, char **argv);
-void			do_action(t_ps *ps, char *action);
+
+/*
+**	actions.c
+*/
+
+void			do_action(t_ps *ps, char **line);
 
 /*
 **	mem.c
@@ -86,5 +97,19 @@ void			rr(t_ps *ps);
 void			rra(t_ps *ps);
 void			rrb(t_ps *ps);
 void			rrr(t_ps *ps);
+
+static const	t_action g_actions[11] = {
+	(t_action){"pa", &pa},
+	(t_action){"pb", &pb},
+	(t_action){"sa", &sa},
+	(t_action){"sb", &sb},
+	(t_action){"ss", &ss},
+	(t_action){"ra", &ra},
+	(t_action){"rb", &rb},
+	(t_action){"rr", &rr},
+	(t_action){"rra", &rra},
+	(t_action){"rrb", &rrb},
+	(t_action){"rrr", &rrr}
+};
 
 #endif

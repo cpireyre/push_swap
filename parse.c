@@ -63,33 +63,6 @@ t_bool			has_dupes(int *sorted, int size)
 	return (false);
 }
 
-void			do_action(t_ps *ps, char *action)
-{
-	if (ft_strequ(action, "sa"))
-		sa(ps);
-	else if (ft_strequ(action, "pa"))
-		pa(ps);
-	else if (ft_strequ(action, "ra"))
-		ra(ps);
-	else if (ft_strequ(action, "rra"))
-		rra(ps);
-	else if (ft_strequ(action, "sb"))
-		sb(ps);
-	else if (ft_strequ(action, "pb"))
-		pb(ps);
-	else if (ft_strequ(action, "rb"))
-		rb(ps);
-	else if (ft_strequ(action, "rrb"))
-		rrb(ps);
-	else if (ft_strequ(action, "ss"))
-		ss(ps);
-	else if (ft_strequ(action, "rr"))
-		rr(ps);
-	else if (ft_strequ(action, "rrr"))
-		rrr(ps);
-	ft_strdel(&action);
-}
-
 t_ps			*parse(int argc, char **argv)
 {
 	t_ps	*ps;
