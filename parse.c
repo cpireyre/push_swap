@@ -26,7 +26,7 @@ static t_bool	is_valid_arg(const char *arg)
 		arg++;
 	while (*arg)
 	{
-		if (!ft_isdigit(*arg) && !ft_isblank(*arg))
+		if (!ft_isdigit(*arg))
 			return (false);
 		arg++;
 	}
