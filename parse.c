@@ -45,21 +45,19 @@ static int		*create_tab(int argc, char **argv)
 		if (is_valid_arg(argv[i]))
 			tab[i - 1] = ft_atoi(argv[i]);
 		else
-			ft_exit(MSG_ERROR);
+			ft_exit(MSG_INVALID);
 	}
 	return (tab);
 }
 
-t_bool			has_dupes(int *sorted, int size)
+static t_bool			has_dupes(int *sorted, int size)
 {
 	int		i;
 
 	i = -1;
 	while (++i < (size - 1))
-	{
 		if (sorted[i] == sorted[i + 1])
 			return (true);
-	}
 	return (false);
 }
 

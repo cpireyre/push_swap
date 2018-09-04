@@ -46,9 +46,9 @@ int				main(int argc, char **argv)
 
 	if (argc < 2)
 		return (1);
-	line = NULL;
 	toggle_visu(&argv, &visu_on, &argc);
 	ps = parse(argc, argv);
+	line = NULL;
 	while (ft_gnl(0, &line))
 		do_action(ps, &line);
 	ft_assert(is_sorted(ps), MSG_OK, MSG_NOT_OK);

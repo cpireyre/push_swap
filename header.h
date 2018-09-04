@@ -17,6 +17,7 @@
 
 # define VISUAL_MODE	"-v"
 # define MSG_ERROR		"Error\n"
+# define MSG_INVALID		"Error: invalid argument.\n"
 # define MSG_OK			"OK\n"
 # define MSG_NOT_OK		"KO\n"
 # define MSG_DUPES		"Error: duplicate entries.\n"
