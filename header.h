@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/31 12:32:30 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/09/05 10:00:07 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/09/05 12:05:44 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void			do_action(t_ps *ps, char **line);
 **	draw.c
 */
 
-void			visu_wrapper(t_ps *ps);
+void			visu_wrapper(t_ps *ps, char **line);
 
 /*
 **	mem.c

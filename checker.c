@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/31 12:22:12 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/09/05 09:59:19 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/09/05 13:36:04 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,11 +65,14 @@ int				main(int argc, char **argv)
 	toggle_visu(&argv, &visu_on, &argc);
 	ps = parse(argc, argv);
 	line = NULL;
-	if (visu_on)
-		visu_wrapper(ps);
-	else
-		while (ft_gnl(0, &line))
+	while (ft_gnl(0, &line))
+	{
+		if (visu_on)
+			visu_wrapper(ps, &line);
+		else
 			do_action(ps, &line);
+	}
+	endwin();
 	ft_assert(is_sorted(ps), MSG_OK, MSG_NOT_OK);
 	free_ps(&ps);
 	return (0);
