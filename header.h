@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/31 12:32:30 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/09/05 12:05:44 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/09/05 15:03:40 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ t_ps			*parse(int argc, char **argv);
 */
 
 void			do_action(t_ps *ps, char **line);
+void			do_print(t_ps *ps, char *action);
 
 /*
 **	draw.c

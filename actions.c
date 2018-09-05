@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/05 09:36:55 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/09/05 09:38:38 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/09/05 15:17:08 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,13 @@ void			do_action(t_ps *ps, char **line)
 		do_op(ps);
 	else
 		quit_push_swap(&ps, MSG_BAD_ACTION);
+}
+
+void		do_print(t_ps *ps, char *action)
+{
+	void	(*do_op)(t_ps *);
+
+	ft_putendl(action);
+	do_op = get_operation(action);
+	do_op(ps);
 }
