@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/31 12:21:21 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/09/03 13:03:48 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/09/05 09:39:25 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static int		*create_tab(int argc, char **argv)
 	return (tab);
 }
 
-static t_bool			has_dupes(int *sorted, int size)
+static t_bool	has_dupes(int *sorted, int size)
 {
 	int		i;
 

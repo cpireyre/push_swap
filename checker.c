@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/31 12:22:12 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/09/03 13:03:06 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/09/05 09:38:53 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ static t_bool	is_sorted(t_ps *ps)
 	return (!(ft_memcmp((void*)(ps->a), (void*)(ps->sorted),
 				sizeof(int) * ps->size_total)));
 }
-
 
 int				main(int argc, char **argv)
 {

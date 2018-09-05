@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/31 12:32:30 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/09/03 13:03:35 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/09/05 09:39:04 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ typedef struct	s_action
 {
 	char		*instruction;
 	void		(*operation)(t_ps *);
-}		t_action;
+}				t_action;
 
 /*
 **	parse.c

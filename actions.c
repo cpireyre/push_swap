@@ -1,13 +1,25 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   actions.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/09/05 09:36:55 by cpireyre          #+#    #+#             */
+/*   Updated: 2018/09/05 09:38:38 by cpireyre         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "header.h"
 
-static void    (*get_operation(const char *arg))(t_ps *)
+static void		(*get_operation(const char *arg))(t_ps *)
 {
 	int	i;
 
-        i = -1;
-        while (++i < 11)
-                if (ft_strequ(arg, g_actions[i].instruction))
-                        return (g_actions[i].operation);
+	i = -1;
+	while (++i < 11)
+		if (ft_strequ(arg, g_actions[i].instruction))
+			return (g_actions[i].operation);
 	return (NULL);
 }
 
