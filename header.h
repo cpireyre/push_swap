@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/31 12:32:30 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/09/05 09:39:04 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/09/05 10:00:07 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,11 @@
 # define HEADER_H
 
 # include "libft.h"
+# include <ncurses.h>
 
 # define VISUAL_MODE	"-v"
 # define MSG_ERROR		"Error\n"
-# define MSG_INVALID		"Error: invalid argument.\n"
+# define MSG_INVALID	"Error: invalid argument.\n"
 # define MSG_OK			"OK\n"
 # define MSG_NOT_OK		"KO\n"
 # define MSG_DUPES		"Error: duplicate entries.\n"
@@ -50,6 +51,12 @@ t_ps			*parse(int argc, char **argv);
 */
 
 void			do_action(t_ps *ps, char **line);
+
+/*
+**	draw.c
+*/
+
+void			visu_wrapper(t_ps *ps);
 
 /*
 **	mem.c
