@@ -32,5 +32,5 @@ void	visu_wrapper(t_ps *ps, char **line)
 	ncurses_print_tab(ps->b, ps->size_b, 30, ps->size_total);
 	mvprintw(ps->size_total + 3, 30, "b");
 	refresh();
-	usleep(450000);
+	sleep(1);
 }
