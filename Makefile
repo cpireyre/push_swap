@@ -33,7 +33,7 @@ all: push_swap checker
 	ctags -R #remove later
 
 $(LIBFT): force
-	$(MAKE) -C $(LIBDIR)
+	@$(MAKE) -C $(LIBDIR) 2> /dev/null
 
 %.o: %.c $(DEPS)
 	$(CC) $(CFLAGS) $(BFLAGS) $< -c -o $@ $(DEBUG)
@@ -56,5 +56,8 @@ re: fclean all
 
 force:
 	@true
+
+run: push_swap
+	sh run.sh
 
 .PHONY: all, re, clean, fclean, force
