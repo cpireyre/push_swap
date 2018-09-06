@@ -24,6 +24,18 @@
 # define MSG_DUPES		"Error: duplicate entries.\n"
 # define MSG_BAD_ACTION	"Error: invalid instruction.\n"
 
+# define PA	do_print(ps, "pa")
+# define PB	do_print(ps, "pb")
+# define SA	do_print(ps, "sa")
+# define SB	do_print(ps, "sb")
+# define SS	do_print(ps, "ss")
+# define RA	do_print(ps, "ra")
+# define RB	do_print(ps, "rb")
+# define RR	do_print(ps, "rr")
+# define RRA	do_print(ps, "rra")
+# define RRB	do_print(ps, "rrb")
+# define RRR	do_print(ps, "rrr")
+
 typedef struct	s_ps
 {
 	int		*a;

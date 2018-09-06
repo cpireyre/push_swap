@@ -15,8 +15,8 @@
 void	push_swap(t_ps *ps)
 {
 	while (ps->size_a)
-		do_print(ps, "pb");
-	do_print(ps, "rrb");
+		PB;
+	RRB;
 }
 
 int		main(int argc, char **argv)
