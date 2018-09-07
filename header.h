@@ -24,6 +24,9 @@
 # define MSG_DUPES		"Error: duplicate entries.\n"
 # define MSG_BAD_ACTION	"Error: invalid instruction.\n"
 
+# define A_FIRST	(ps->a[0])
+# define A_SECOND	(ps->a[1])
+
 # define PA	do_print(ps, "pa")
 # define PB	do_print(ps, "pb")
 # define SA	do_print(ps, "sa")
