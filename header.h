@@ -56,7 +56,6 @@ typedef struct	s_action
 	void		(*operation)(t_ps *);
 }				t_action;
 
-typedef void	(*t_pattern)(t_ps *ps);
 /*
 **	parse.c
 */
@@ -69,7 +68,6 @@ t_ps			*parse(int argc, char **argv);
 
 void			do_action(t_ps *ps, char **line);
 void			do_print(t_ps *ps, char *action);
-t_bool			try_action(t_ps *ps, void (*to_try)(t_ps *), t_bool (*check)(t_ps *));
 
 /*
 **	draw.c
@@ -134,15 +132,18 @@ int	tab_get_min(int *tab, int size);
 int	tab_get_max(int *tab, int size);
 
 /*
-**		A Pattern Language:
+** --- A Pattern Language:
 */
+
+typedef void	(*t_pattern)(t_ps *ps);
+typedef t_bool	(*t_checker)(t_ps *ps);
 
 /*
 **	patterns.c
 */
 
 t_pattern	find_winning_pattern(t_ps *ps);
-
+t_bool		dry_run(t_ps *ps, t_pattern to_try, t_checker check);
 /*
 **	./patterns/swaps.c
 */

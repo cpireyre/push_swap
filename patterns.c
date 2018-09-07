@@ -1,16 +1,31 @@
 #include "header.h"
 
+t_bool		dry_run(t_ps *ps, t_pattern to_try, t_checker check)
+{
+	t_ps	copy;
+	int	a_copy[ps->size_total];
+	int	b_copy[ps->size_total];
+
+	ft_memcpy(&copy, ps, sizeof(t_ps));
+	ft_memcpy(a_copy, ps->a, sizeof(a_copy));
+	copy.a = a_copy;
+	ft_memcpy(b_copy, ps->b, sizeof(b_copy));
+	copy.b = b_copy;
+	to_try(&copy);
+	return (check(&copy));
+}
+
 t_pattern	find_winning_pattern(t_ps *ps)
 {
-	if (try_action(ps, &rra, &is_sorted))
+	if (dry_run(ps, &rra, &is_sorted))
 		return (&rra);
-	else if (try_action(ps, &ra, &is_sorted))
+	else if (dry_run(ps, &ra, &is_sorted))
 		return (&ra);
-	else if (try_action(ps, &swap_second_third, &is_sorted))
+	else if (dry_run(ps, &swap_second_third, &is_sorted))
 		return (&swap_second_third);
-	else if (try_action(ps, &swap_first_last, &is_sorted))
+	else if (dry_run(ps, &swap_first_last, &is_sorted))
 		return (&swap_first_last);
-	else if (try_action(ps, &sa, &is_sorted))
+	else if (dry_run(ps, &sa, &is_sorted))
 		return (&sa);
 	else
 		return (NULL);
