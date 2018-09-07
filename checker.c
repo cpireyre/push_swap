@@ -46,21 +46,25 @@ int				main(int argc, char **argv)
 	t_bool	visu_on;
 	t_ps	*ps;
 	char	*line;
+	int	count;
 
 	if (argc < 2)
 		return (1);
 	toggle_visu(&argv, &visu_on, &argc);
 	ps = parse(argc, argv);
 	line = NULL;
+	count = 0;
 	while (ft_gnl(0, &line))
 	{
 		if (visu_on)
 			visu_wrapper(ps, &line);
 		else
 			do_action(ps, &line);
+		count++;
 	}
 	endwin();
 	ft_assert(is_sorted(ps), MSG_OK, MSG_NOT_OK);
+	ft_printf("%d moves.\n", count);
 	free_ps(&ps);
 	return (0);
 }
