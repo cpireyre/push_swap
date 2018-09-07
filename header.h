@@ -56,6 +56,7 @@ typedef struct	s_action
 	void		(*operation)(t_ps *);
 }				t_action;
 
+typedef void	(*t_pattern)(t_ps *ps);
 /*
 **	parse.c
 */
@@ -131,6 +132,23 @@ void			rrr(t_ps *ps);
 
 int	tab_get_min(int *tab, int size);
 int	tab_get_max(int *tab, int size);
+
+/*
+**		A Pattern Language:
+*/
+
+/*
+**	patterns.c
+*/
+
+t_pattern	find_winning_pattern(t_ps *ps);
+
+/*
+**	./patterns/swaps.c
+*/
+
+void	swap_second_third(t_ps *ps);
+void	swap_first_last(t_ps *ps);
 
 static const	t_action g_actions[11] = {
 	(t_action){"pa", &pa},

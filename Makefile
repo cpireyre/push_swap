@@ -21,10 +21,13 @@ INCLUDE	:=	-lncurses -lft -L$(LIBDIR)/
 
 PROGRAMS	=	push_swap checker
 
+PAT_SRC		:=	swaps.c
+PATTERNS	:=	$(addprefix ./patterns/, $(PAT_SRC))
 C_FILES		:=	parse.c mem.c actions.c \
 	push.c swap.c rotate.c reverse.c \
 	tab.c math.c \
-	draw.c
+	draw.c \
+	$(PATTERNS) patterns.c
 H_FILES		:=	header.h
 OBJ			:=	$(C_FILES:.c=.o)
 

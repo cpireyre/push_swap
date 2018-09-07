@@ -44,7 +44,7 @@ void		do_print(t_ps *ps, char *action)
 	do_op(ps);
 }
 
-t_bool		try_action(t_ps *ps, void (*to_try)(t_ps *), t_bool (*check)(t_ps *))
+t_bool		try_action(t_ps *ps, t_pattern to_try, t_bool (*check)(t_ps *))
 {
 	t_ps	copy;
 	int	a_copy[ps->size_total];
