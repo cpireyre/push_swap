@@ -13,3 +13,17 @@ void	swap_first_last(t_ps *ps, t_bool will_print)
 	SA;
 	RA;
 }
+
+void	b_swap_second_third(t_ps *ps, t_bool will_print)
+{
+	RB;
+	SB;
+	RRB;
+}
+
+void	b_swap_first_last(t_ps *ps, t_bool will_print)
+{
+	RRB;
+	SB;
+	RB;
+}

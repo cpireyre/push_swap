@@ -148,12 +148,15 @@ typedef struct	s_action
 t_pattern	find_winning_pattern(t_ps *ps);
 t_bool		dry_run(t_ps *ps, t_pattern to_try, t_checker check);
 void	print_pattern(t_ps *ps, char *instruction);
+
 /*
 **	./patterns/swaps.c
 */
 
 void	swap_second_third(t_ps *ps, t_bool will_print);
 void	swap_first_last(t_ps *ps, t_bool will_print);
+void	b_swap_second_third(t_ps *ps, t_bool will_print);
+void	b_swap_first_last(t_ps *ps, t_bool will_print);
 
 static const	t_action g_actions[11] = {
 	(t_action){"pa", &pa},
