@@ -25,7 +25,7 @@ void	ncurses_print_tab(int *tab, int size, size_t leftshift, int	total)
 void	visu_wrapper(t_ps *ps, char **line)
 {
 	clear();
-	do_action(ps, line);
+	do_action(ps, line, NO_PRINT);
 	mvprintw(ps->size_total + 2, 1, "----------------------------------------");
 	ncurses_print_tab(ps->a, ps->size_a, 1, ps->size_total);
 	mvprintw(ps->size_total + 3, 9, "a");

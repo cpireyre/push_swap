@@ -38,7 +38,7 @@ void	push_swap(t_ps *ps)
 
 	solve = find_winning_pattern(ps);
 	if (solve)
-		solve(ps);
+		solve(ps, PRINT);
 }
 
 int		main(int argc, char **argv)

@@ -11,7 +11,7 @@ t_bool		dry_run(t_ps *ps, t_pattern to_try, t_checker check)
 	copy.a = a_copy;
 	ft_memcpy(b_copy, ps->b, sizeof(b_copy));
 	copy.b = b_copy;
-	to_try(&copy);
+	to_try(&copy, NO_PRINT);
 	return (check(&copy));
 }
 
@@ -29,4 +29,10 @@ t_pattern	find_winning_pattern(t_ps *ps)
 		return (&sa);
 	else
 		return (NULL);
+}
+
+void	print_pattern(t_ps *ps, char *instruction)
+{
+	(void)ps;
+	ft_putendl(instruction);
 }

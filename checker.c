@@ -59,7 +59,8 @@ int				main(int argc, char **argv)
 		if (visu_on)
 			visu_wrapper(ps, &line);
 		else
-			do_action(ps, &line);
+			do_action(ps, &line, NO_PRINT);
+		ft_strdel(&line);
 		count++;
 	}
 	endwin();

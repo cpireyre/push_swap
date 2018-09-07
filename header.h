@@ -28,17 +28,17 @@
 # define A_SECOND	(ps->a[1])
 # define A_LAST		(ps->a[ps->size_a - 1])
 
-# define PA	do_print(ps, "pa")
-# define PB	do_print(ps, "pb")
-# define SA	do_print(ps, "sa")
-# define SB	do_print(ps, "sb")
-# define SS	do_print(ps, "ss")
-# define RA	do_print(ps, "ra")
-# define RB	do_print(ps, "rb")
-# define RR	do_print(ps, "rr")
-# define RRA	do_print(ps, "rra")
-# define RRB	do_print(ps, "rrb")
-# define RRR	do_print(ps, "rrr")
+# define PA	pa(ps, will_print)
+# define PB	pb(ps, will_print)
+# define SA	sa(ps, will_print)
+# define SB	sb(ps, will_print)
+# define SS	ss(ps, will_print)
+# define RA	ra(ps, will_print)
+# define RB	rb(ps, will_print)
+# define RR	rr(ps, will_print)
+# define RRA	rra(ps, will_print)
+# define RRB	rrb(ps, will_print)
+# define RRR	rrr(ps, will_print)
 
 typedef struct	s_ps
 {
@@ -50,11 +50,6 @@ typedef struct	s_ps
 	int		*sorted;
 }				t_ps;
 
-typedef struct	s_action
-{
-	char		*instruction;
-	void		(*operation)(t_ps *);
-}				t_action;
 
 /*
 **	parse.c
@@ -66,8 +61,7 @@ t_ps			*parse(int argc, char **argv);
 **	actions.c
 */
 
-void			do_action(t_ps *ps, char **line);
-void			do_print(t_ps *ps, char *action);
+void			do_action(t_ps *ps, char **line, t_bool will_print);
 
 /*
 **	draw.c
@@ -97,32 +91,32 @@ t_bool			is_sorted(t_ps *ps);
 **	push.c
 */
 
-void			pb(t_ps *ps);
-void			pa(t_ps *ps);
+void			pb(t_ps *ps, t_bool will_print);
+void			pa(t_ps *ps, t_bool will_print);
 
 /*
 ** swap.c
 */
 
-void			sa(t_ps *ps);
-void			sb(t_ps *ps);
-void			ss(t_ps *ps);
+void			sa(t_ps *ps, t_bool will_print);
+void			sb(t_ps *ps, t_bool will_print);
+void			ss(t_ps *ps, t_bool will_print);
 
 /*
 **	rotate.c
 */
 
-void			ra(t_ps *ps);
-void			rb(t_ps *ps);
-void			rr(t_ps *ps);
+void			ra(t_ps *ps, t_bool will_print);
+void			rb(t_ps *ps, t_bool will_print);
+void			rr(t_ps *ps, t_bool will_print);
 
 /*
 **	reverse.c
 */
 
-void			rra(t_ps *ps);
-void			rrb(t_ps *ps);
-void			rrr(t_ps *ps);
+void			rra(t_ps *ps, t_bool will_print);
+void			rrb(t_ps *ps, t_bool will_print);
+void			rrr(t_ps *ps, t_bool will_print);
 
 /*
 **	math.c
@@ -135,8 +129,17 @@ int	tab_get_max(int *tab, int size);
 ** --- A Pattern Language:
 */
 
-typedef void	(*t_pattern)(t_ps *ps);
+# define PRINT		1
+# define NO_PRINT	0
+
+typedef void	(*t_pattern)(t_ps *ps, t_bool will_print);
 typedef t_bool	(*t_checker)(t_ps *ps);
+
+typedef struct	s_action
+{
+	char		*instruction;
+	t_pattern	operation;
+}				t_action;
 
 /*
 **	patterns.c
@@ -144,12 +147,13 @@ typedef t_bool	(*t_checker)(t_ps *ps);
 
 t_pattern	find_winning_pattern(t_ps *ps);
 t_bool		dry_run(t_ps *ps, t_pattern to_try, t_checker check);
+void	print_pattern(t_ps *ps, char *instruction);
 /*
 **	./patterns/swaps.c
 */
 
-void	swap_second_third(t_ps *ps);
-void	swap_first_last(t_ps *ps);
+void	swap_second_third(t_ps *ps, t_bool will_print);
+void	swap_first_last(t_ps *ps, t_bool will_print);
 
 static const	t_action g_actions[11] = {
 	(t_action){"pa", &pa},

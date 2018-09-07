@@ -12,20 +12,24 @@
 
 #include "header.h"
 
-void	rra(t_ps *ps)
+void	rra(t_ps *ps, t_bool will_print)
 {
 	if (ps->size_a >= 2)
 		tab_rotate_down(&(ps->a), &(ps->size_a));
+	if (will_print)
+		print_pattern(ps, "rra");
 }
 
-void	rrb(t_ps *ps)
+void	rrb(t_ps *ps, t_bool will_print)
 {
 	if (ps->size_b >= 2)
 		tab_rotate_down(&(ps->b), &(ps->size_b));
+	if (will_print)
+		print_pattern(ps, "rrb");
 }
 
-void	rrr(t_ps *ps)
+void	rrr(t_ps *ps, t_bool will_print)
 {
-	rra(ps);
-	rrb(ps);
+	rra(ps, will_print);
+	rrb(ps, will_print);
 }

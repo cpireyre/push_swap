@@ -12,7 +12,7 @@
 
 #include "header.h"
 
-void	pb(t_ps *ps)
+void	pb(t_ps *ps, t_bool will_print)
 {
 	int		tmp;
 
@@ -22,9 +22,11 @@ void	pb(t_ps *ps)
 		tab_erase_first(&(ps->a), &(ps->size_a));
 		tab_add_first(&(ps->b), &(ps->size_b), tmp);
 	}
+	if (will_print)
+		print_pattern(ps, "pb");
 }
 
-void	pa(t_ps *ps)
+void	pa(t_ps *ps, t_bool will_print)
 {
 	int		tmp;
 
@@ -34,4 +36,6 @@ void	pa(t_ps *ps)
 		tab_erase_first(&(ps->b), &(ps->size_b));
 		tab_add_first(&(ps->a), &(ps->size_a), tmp);
 	}
+	if (will_print)
+		print_pattern(ps, "pa");
 }

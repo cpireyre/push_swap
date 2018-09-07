@@ -12,7 +12,7 @@
 
 #include "header.h"
 
-static void		(*get_operation(const char *arg))(t_ps *)
+t_pattern	get_operation(const char *arg)
 {
 	int	i;
 
@@ -23,23 +23,16 @@ static void		(*get_operation(const char *arg))(t_ps *)
 	return (NULL);
 }
 
-void			do_action(t_ps *ps, char **line)
+void			do_action(t_ps *ps, char **line, t_bool will_print)
 {
-	void	(*do_op)(t_ps *);
+	t_pattern do_op;
 
 	do_op = get_operation(*line);
-	ft_strdel(line);
 	if (do_op)
-		do_op(ps);
+		do_op(ps, (will_print) ? PRINT : NO_PRINT);
 	else
+	{
+		ft_strdel(line);
 		quit_push_swap(&ps, MSG_BAD_ACTION);
-}
-
-void		do_print(t_ps *ps, char *action)
-{
-	void	(*do_op)(t_ps *);
-
-	ft_putendl(action);
-	do_op = get_operation(action);
-	do_op(ps);
+	}
 }
