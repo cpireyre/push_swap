@@ -34,9 +34,12 @@ int	get_prev_int(int *sorted, int size, int next)
 
 void	find_ordered_pairs(t_ps *ps)
 {
-	int	tmp;
-
-	tmp = get_next_int(ps->sorted, ps->size_a, ps->a[0]);
+	while (!is_sorted(ps))
+	{
+		RRA;
+		if (A_FIRST > A_SECOND)
+			SA;
+	}
 }
 	
 
