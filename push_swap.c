@@ -34,16 +34,11 @@ int	get_prev_int(int *sorted, int size, int next)
 
 void	find_ordered_pairs(t_ps *ps)
 {
-	int	j;
 	int	tmp;
-	
-	j = -1;
-	while (++j < ps->size_a - 1)
-	{
-		tmp = get_next_int(ps->sorted, ps->size_a, ps->a[j]);
-		//do stuff
-	}
+
+	tmp = get_next_int(ps->sorted, ps->size_a, ps->a[0]);
 }
+	
 
 void	push_swap(t_ps *ps)
 {

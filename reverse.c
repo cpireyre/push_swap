@@ -15,13 +15,13 @@
 void	rra(t_ps *ps)
 {
 	if (ps->size_a >= 2)
-		tab_rotate_up(&(ps->a), &(ps->size_a));
+		tab_rotate_down(&(ps->a), &(ps->size_a));
 }
 
 void	rrb(t_ps *ps)
 {
 	if (ps->size_b >= 2)
-		tab_rotate_up(&(ps->b), &(ps->size_b));
+		tab_rotate_down(&(ps->b), &(ps->size_b));
 }
 
 void	rrr(t_ps *ps)

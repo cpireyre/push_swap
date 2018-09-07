@@ -78,3 +78,16 @@ void	tab_rotate_up(int **tab, int *size)
 		}
 	}
 }
+
+/*
+**	ft_memcmp returns 0 if the memory areas contain equal values.
+**	more or less.
+*/
+
+t_bool	is_sorted(t_ps *ps)
+{
+	if (ps->size_b || (ps->size_a != ps->size_total))
+		return (false);
+	return (!(ft_memcmp((void*)(ps->a), (void*)(ps->sorted),
+					sizeof(int) * ps->size_total)));
+}

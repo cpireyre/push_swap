@@ -22,7 +22,8 @@ INCLUDE	:=	-lncurses -lft -L$(LIBDIR)/
 PROGRAMS	=	push_swap checker
 
 C_FILES		:=	parse.c mem.c actions.c \
-	tab.c push.c swap.c rotate.c reverse.c \
+	push.c swap.c rotate.c reverse.c \
+	tab.c math.c \
 	draw.c
 H_FILES		:=	header.h
 OBJ			:=	$(C_FILES:.c=.o)

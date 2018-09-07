@@ -87,6 +87,7 @@ void			tab_erase_first(int **tab, int *size);
 void			tab_add_first(int **tab, int *size, int value);
 void			tab_rotate_down(int **tab, int *size);
 void			tab_rotate_up(int **tab, int *size);
+t_bool			is_sorted(t_ps *ps);
 
 /*
 **	push.c
@@ -118,6 +119,13 @@ void			rr(t_ps *ps);
 void			rra(t_ps *ps);
 void			rrb(t_ps *ps);
 void			rrr(t_ps *ps);
+
+/*
+**	math.c
+*/
+
+int	tab_get_min(int *tab, int size);
+int	tab_get_max(int *tab, int size);
 
 static const	t_action g_actions[11] = {
 	(t_action){"pa", &pa},
