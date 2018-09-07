@@ -26,6 +26,7 @@
 
 # define A_FIRST	(ps->a[0])
 # define A_SECOND	(ps->a[1])
+# define A_LAST		(ps->a[ps->size_a - 1])
 
 # define PA	do_print(ps, "pa")
 # define PB	do_print(ps, "pb")
@@ -67,6 +68,7 @@ t_ps			*parse(int argc, char **argv);
 
 void			do_action(t_ps *ps, char **line);
 void			do_print(t_ps *ps, char *action);
+t_bool			try_action(t_ps *ps, void (*to_try)(t_ps *), t_bool (*check)(t_ps *));
 
 /*
 **	draw.c

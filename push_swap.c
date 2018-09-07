@@ -34,11 +34,38 @@ int	get_prev_int(int *sorted, int size, int next)
 
 void	find_ordered_pairs(t_ps *ps)
 {
+	int	min;
+	int	max;
+
+	max = tab_get_max(ps->a, ps->size_a);
+	min = tab_get_min(ps->a, ps->size_a);
 	while (!is_sorted(ps))
 	{
-		RRA;
-		if (A_FIRST > A_SECOND)
+/*
+**	this sequence swaps the second and third elements
+**	and leaves the first one alone
+*/
+		if (!ps->size_b && try_action(ps, &rra, &is_sorted))
+			RRA;
+		else if (A_FIRST == min && A_LAST == max)
+		{
+			RA;
 			SA;
+			RRA;
+		}
+/*
+**	this sequence swaps the first and last elements
+*/
+		else if (A_FIRST == max && A_LAST == min)
+		{
+			RRA;
+			SA;
+			RA;
+		}
+		else if (A_FIRST > A_SECOND)
+			SA;
+		else
+			RRA;
 	}
 }
 	

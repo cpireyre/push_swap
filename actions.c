@@ -43,3 +43,12 @@ void		do_print(t_ps *ps, char *action)
 	do_op = get_operation(action);
 	do_op(ps);
 }
+
+t_bool		try_action(t_ps *ps, void (*to_try)(t_ps *), t_bool (*check)(t_ps *))
+{
+	t_ps	copy;
+
+	ft_memcpy(&copy, ps, sizeof(t_ps));
+	to_try(&copy);
+	return (check(&copy));
+}
