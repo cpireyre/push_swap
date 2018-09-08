@@ -39,6 +39,8 @@ void	push_swap(t_ps *ps)
 	solve = find_winning_pattern(ps);
 	if (solve)
 		solve(ps, PRINT);
+	else
+		crapsort(ps, PRINT);
 }
 
 int		main(int argc, char **argv)
@@ -48,7 +50,8 @@ int		main(int argc, char **argv)
 	if (argc < 2)
 		return (1);
 	ps = parse(argc, argv);
-	push_swap(ps);
+	if (!is_sorted(ps))
+		push_swap(ps);
 	free_ps(&ps);
 	return (0);
 }

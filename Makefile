@@ -27,7 +27,7 @@ C_FILES		:=	parse.c mem.c actions.c \
 	push.c swap.c rotate.c reverse.c \
 	tab.c math.c \
 	draw.c \
-	$(PATTERNS) patterns.c
+	$(PATTERNS) patterns.c crapsort.c
 H_FILES		:=	header.h
 OBJ			:=	$(C_FILES:.c=.o)
 
