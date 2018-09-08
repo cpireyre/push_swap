@@ -64,7 +64,7 @@ int				main(int argc, char **argv)
 		count++;
 	}
 	endwin();
-	ft_assert(is_sorted(ps), MSG_OK, MSG_NOT_OK);
+	ft_assert(is_done(ps), MSG_OK, MSG_NOT_OK);
 	ft_printf("%d moves.\n", count);
 	free_ps(&ps);
 	return (0);

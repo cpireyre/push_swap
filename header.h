@@ -88,7 +88,6 @@ void			tab_erase_first(int **tab, int *size);
 void			tab_add_first(int **tab, int *size, int value);
 void			tab_rotate_down(int **tab, int *size);
 void			tab_rotate_up(int **tab, int *size);
-t_bool			is_sorted(t_ps *ps);
 
 /*
 **	push.c
@@ -164,11 +163,19 @@ void	b_swap_first_last(t_ps *ps, t_bool will_print);
 void	swap_and_down(t_ps *ps, t_bool will_print);
 
 /*
-**	crapsort,c
+**	crapsort.c
 */
 
-void	place_min_first(t_ps *ps, t_bool will_print);
+void	place_min_first(t_ps *ps, t_bool will_print); /* todo: move to own file */
 void	crapsort(t_ps *ps, t_bool will_print);
+
+/*
+**	a few checkers to start with.
+**	todo: move them to their own files
+*/
+
+t_bool			is_done(t_ps *ps); /* hidden in tab.c */
+t_bool			a_is_ordered(t_ps *ps); /* hidden in crapsort.c */
 
 static const	t_action g_actions[11] = {
 	(t_action){"pa", &pa},
@@ -184,7 +191,7 @@ static const	t_action g_actions[11] = {
 	(t_action){"rrr", &rrr}
 };
 
-# define NBR_PATTERNS	6
+# define NBR_PATTERNS	7
 
 static const	t_pattern g_all_patterns[NBR_PATTERNS] = {
 	&ra,
@@ -192,7 +199,8 @@ static const	t_pattern g_all_patterns[NBR_PATTERNS] = {
 	&sa,
 	&swap_and_down,
 	&swap_second_third,
-	&swap_first_last
+	&swap_first_last,
+	&place_min_first
 };
 
 #endif

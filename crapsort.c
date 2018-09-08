@@ -26,7 +26,7 @@ void	place_min_first(t_ps *ps, t_bool will_print)
 t_bool	a_is_ordered(t_ps *ps)
 {
 	int	i;
-	
+
 	i = -1;
 	while (++i < ps->size_a - 1)
 		if (ps->a[i + 1] != get_next_int(ps->sorted, ps->size_total, ps->a[i]))
@@ -42,13 +42,10 @@ void	crapsort(t_ps *ps, t_bool will_print)
 	{
 		place_min_first(ps, will_print);
 		PB;
-		if (ps->size_a <= 3)
-		{
-			last = find_pattern(ps, a_is_ordered);
-			if (last)
-				last(ps, will_print);
-		}
+		last = find_pattern(ps, a_is_ordered);
+		if (last)
+			last(ps, will_print);
 	}
 	while (ps->size_b)
 		PA;
-
+}

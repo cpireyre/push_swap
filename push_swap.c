@@ -16,7 +16,7 @@ void	push_swap(t_ps *ps)
 {
 	t_pattern	solve;
 
-	solve = find_pattern(ps, &is_sorted);
+	solve = find_pattern(ps, &is_done);
 	if (solve)
 		solve(ps, PRINT);
 	else
@@ -30,7 +30,7 @@ int		main(int argc, char **argv)
 	if (argc < 2)
 		return (1);
 	ps = parse(argc, argv);
-	if (!is_sorted(ps))
+	if (!is_done(ps))
 		push_swap(ps);
 	free_ps(&ps);
 	return (0);

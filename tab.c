@@ -84,7 +84,7 @@ void	tab_rotate_up(int **tab, int *size)
 **	more or less.
 */
 
-t_bool	is_sorted(t_ps *ps)
+t_bool	is_done(t_ps *ps)
 {
 	if (ps->size_b || (ps->size_a != ps->size_total))
 		return (false);
