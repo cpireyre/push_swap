@@ -149,7 +149,7 @@ typedef struct	s_action
 **	patterns.c
 */
 
-t_pattern	find_winning_pattern(t_ps *ps);
+t_pattern	find_pattern(t_ps *ps, t_checker to_pass);
 t_bool		dry_run(t_ps *ps, t_pattern to_try, t_checker check);
 void	print_pattern(t_ps *ps, char *instruction);
 

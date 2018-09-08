@@ -16,7 +16,7 @@ void	push_swap(t_ps *ps)
 {
 	t_pattern	solve;
 
-	solve = find_winning_pattern(ps);
+	solve = find_pattern(ps, &is_sorted);
 	if (solve)
 		solve(ps, PRINT);
 	else

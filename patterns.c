@@ -15,13 +15,13 @@ t_bool		dry_run(t_ps *ps, t_pattern to_try, t_checker check)
 	return (check(&copy));
 }
 
-t_pattern	find_winning_pattern(t_ps *ps)
+t_pattern	find_pattern(t_ps *ps, t_checker to_pass)
 {
 	int	i;
 	
 	i = -1;
 	while (++i < NBR_PATTERNS)
-		if (dry_run(ps, g_all_patterns[i], &is_sorted))
+		if (dry_run(ps, g_all_patterns[i], *to_pass))
 			return (g_all_patterns[i]);
 	return (NULL);
 }
