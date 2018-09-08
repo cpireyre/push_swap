@@ -27,6 +27,9 @@
 # define A_FIRST	(ps->a[0])
 # define A_SECOND	(ps->a[1])
 # define A_LAST		(ps->a[ps->size_a - 1])
+# define B_FIRST	(ps->b[0])
+# define B_SECOND	(ps->b[1])
+# define B_LAST		(ps->b[ps->size_b - 1])
 
 # define PA	pa(ps, will_print)
 # define PB	pb(ps, will_print)
@@ -124,6 +127,7 @@ void			rrr(t_ps *ps, t_bool will_print);
 
 int	tab_get_min(int *tab, int size);
 int	tab_get_max(int *tab, int size);
+int	get_next_int(int *sorted, int size, int previous);
 
 /*
 ** --- A Pattern Language:

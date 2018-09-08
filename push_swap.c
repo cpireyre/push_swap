@@ -12,26 +12,6 @@
 
 #include "header.h"
 
-int	get_next_int(int *sorted, int size, int previous)
-{
-	int	i;
-
-	i = 0;
-	while (i < size - 1 && sorted[i] != previous)
-		i++;
-	return ((i < size - 1) ? sorted[i + 1] : previous);
-}
-
-int	get_prev_int(int *sorted, int size, int next)
-{
-	int	i;
-
-	i = 1;
-	while (i < size && sorted[i] != next)
-		i++;
-	return ((i < size) ? sorted[i - 1] : next);
-}
-
 void	push_swap(t_ps *ps)
 {
 	t_pattern	solve;
