@@ -17,20 +17,13 @@ t_bool		dry_run(t_ps *ps, t_pattern to_try, t_checker check)
 
 t_pattern	find_winning_pattern(t_ps *ps)
 {
-	if (dry_run(ps, &rra, &is_sorted))
-		return (&rra);
-	else if (dry_run(ps, &ra, &is_sorted))
-		return (&ra);
-	else if (dry_run(ps, &sa, &is_sorted))
-		return (&sa);
-	else if (dry_run(ps, &swap_and_down, &is_sorted))
-		return (&swap_and_down);
-	else if (dry_run(ps, &swap_second_third, &is_sorted))
-		return (&swap_second_third);
-	else if (dry_run(ps, &swap_first_last, &is_sorted))
-		return (&swap_first_last);
-	else
-		return (NULL);
+	int	i;
+	
+	i = -1;
+	while (++i < NBR_PATTERNS)
+		if (dry_run(ps, g_all_patterns[i], &is_sorted))
+			return (g_all_patterns[i]);
+	return (NULL);
 }
 
 void	print_pattern(t_ps *ps, char *instruction)

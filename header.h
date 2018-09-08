@@ -173,4 +173,15 @@ static const	t_action g_actions[11] = {
 	(t_action){"rrr", &rrr}
 };
 
+# define NBR_PATTERNS	6
+
+static const	t_pattern g_all_patterns[NBR_PATTERNS] = {
+	&ra,
+	&rra,
+	&sa,
+	&swap_and_down,
+	&swap_second_third,
+	&swap_first_last
+};
+
 #endif
