@@ -127,6 +127,7 @@ void			rrr(t_ps *ps, t_bool will_print);
 int	tab_get_min(int *tab, int size);
 int	tab_get_max(int *tab, int size);
 int	get_next_int(int *sorted, int size, int previous);
+int	get_prev_int(int *sorted, int size, int next);
 
 /*
 ** --- A Pattern Language:
@@ -161,6 +162,7 @@ void	swap_first_last(t_ps *ps, t_bool will_print);
 void	b_swap_second_third(t_ps *ps, t_bool will_print);
 void	b_swap_first_last(t_ps *ps, t_bool will_print);
 void	swap_and_down(t_ps *ps, t_bool will_print);
+void	b_swap_and_down(t_ps *ps, t_bool will_print);
 
 /*
 **	crapsort.c
@@ -191,15 +193,22 @@ static const	t_action g_actions[11] = {
 	(t_action){"rrr", &rrr}
 };
 
-# define NBR_PATTERNS	7
+# define NBR_PATTERNS	14
 
 static const	t_pattern g_all_patterns[NBR_PATTERNS] = {
 	&ra,
 	&rra,
 	&sa,
+	&rb,
+	&rrb,
+	&sb,
+	&b_swap_and_down,
 	&swap_and_down,
 	&swap_second_third,
 	&swap_first_last,
+	&b_swap_and_down,
+	&b_swap_second_third,
+	&b_swap_first_last,
 	&place_min_first
 };
 

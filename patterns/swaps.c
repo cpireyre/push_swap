@@ -39,3 +39,9 @@ void	swap_and_down(t_ps *ps, t_bool will_print)
 	SA;
 	RRA;
 }
+
+void	b_swap_and_down(t_ps *ps, t_bool will_print)
+{
+	SB;
+	RRB;
+}
