@@ -157,6 +157,7 @@ void	swap_second_third(t_ps *ps, t_bool will_print);
 void	swap_first_last(t_ps *ps, t_bool will_print);
 void	b_swap_second_third(t_ps *ps, t_bool will_print);
 void	b_swap_first_last(t_ps *ps, t_bool will_print);
+void	swap_and_down(t_ps *ps, t_bool will_print);
 
 static const	t_action g_actions[11] = {
 	(t_action){"pa", &pa},

@@ -21,12 +21,14 @@ t_pattern	find_winning_pattern(t_ps *ps)
 		return (&rra);
 	else if (dry_run(ps, &ra, &is_sorted))
 		return (&ra);
+	else if (dry_run(ps, &sa, &is_sorted))
+		return (&sa);
+	else if (dry_run(ps, &swap_and_down, &is_sorted))
+		return (&swap_and_down);
 	else if (dry_run(ps, &swap_second_third, &is_sorted))
 		return (&swap_second_third);
 	else if (dry_run(ps, &swap_first_last, &is_sorted))
 		return (&swap_first_last);
-	else if (dry_run(ps, &sa, &is_sorted))
-		return (&sa);
 	else
 		return (NULL);
 }

@@ -27,3 +27,9 @@ void	b_swap_first_last(t_ps *ps, t_bool will_print)
 	SB;
 	RB;
 }
+
+void	swap_and_down(t_ps *ps, t_bool will_print)
+{
+	SA;
+	RRA;
+}
