@@ -36,7 +36,7 @@ void	in_situ_sort(t_ps *ps, t_bool will_print)
 		if (B_FIRST < B_SECOND && B_FIRST != tab_get_min(ps->b, ps->size_b))
 			SB;
 		else
-			RRB;
+			RB;
 	}
 }
 
