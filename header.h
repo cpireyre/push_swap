@@ -152,7 +152,19 @@ typedef struct	s_action
 
 t_pattern	find_pattern(t_ps *ps, t_checker to_pass);
 t_bool		dry_run(t_ps *ps, t_pattern to_try, t_checker check);
+t_pattern	deep_run(t_ps *ps, t_pattern to_try, t_checker check);
 void	print_pattern(t_ps *ps, char *instruction);
+
+void	leader(t_ps *ps, t_bool will_print);
+
+/*
+**	./patterns/doubles.c
+*/
+
+void	dra(t_ps *ps, t_bool will_print);
+void	drra(t_ps *ps, t_bool will_print);
+void	drb(t_ps *ps, t_bool will_print);
+void	drrb(t_ps *ps, t_bool will_print);
 
 /*
 **	./patterns/swaps.c
@@ -207,7 +219,7 @@ static const	t_action g_actions[11] = {
 	(t_action){"rrr", &rrr}
 };
 
-# define NBR_PATTERNS	13
+# define NBR_PATTERNS	18
 
 /*
 **	this array should be split up.
@@ -217,19 +229,24 @@ static const	t_action g_actions[11] = {
 */
 
 static const	t_pattern g_all_patterns[NBR_PATTERNS] = {
-	&sa,
 	&ra,
 	&rra,
+	&sa,
+	&dra,
+	&drra,
 	&rb,
 	&rrb,
 	&sb,
-	&b_swap_and_down,
+	&drb,
+	&drrb,
 	&swap_and_down,
+	&b_swap_and_down,
 	&swap_second_third,
 	&swap_first_last,
 	&b_swap_and_down,
 	&b_swap_second_third,
 	&b_swap_first_last,
+	&leader
 };
 
 #endif

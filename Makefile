@@ -21,7 +21,7 @@ INCLUDE	:=	-lncurses -lft -L$(LIBDIR)/
 
 PROGRAMS	=	push_swap checker
 
-PAT_SRC		:=	swaps.c
+PAT_SRC		:=	swaps.c doubles.c
 PATTERNS	:=	$(addprefix ./patterns/, $(PAT_SRC))
 C_FILES		:=	parse.c mem.c actions.c \
 	push.c swap.c rotate.c reverse.c \

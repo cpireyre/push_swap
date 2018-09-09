@@ -22,6 +22,11 @@ t_bool	autosolve(t_ps **ps, t_bool will_print, t_checker check)
 	return (tmp ? true : false);
 }
 
+/*
+**	todo: split these into two patterns
+**	and then figure out some way to merge them with rrs and rrrs and sss...
+*/
+
 void	in_situ_sort(t_ps *ps, t_bool will_print)
 {
 	while (!autosolve(&ps, will_print, &a_is_ordered))
