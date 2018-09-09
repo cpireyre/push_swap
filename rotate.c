@@ -34,6 +34,8 @@ void	rb(t_ps *ps, t_bool will_print)
 
 void	rr(t_ps *ps, t_bool will_print)
 {
-	ra(ps, will_print);
-	rb(ps, will_print);
+	ra(ps, NO_PRINT);
+	rb(ps, NO_PRINT);
+	if (will_print)
+		print_pattern(ps, "rr");
 }

@@ -34,6 +34,8 @@ void	sb(t_ps *ps, t_bool will_print)
 
 void	ss(t_ps *ps, t_bool will_print)
 {
-	sa(ps, will_print);
-	sb(ps, will_print);
+	sa(ps, NO_PRINT);
+	sb(ps, NO_PRINT);
+	if (will_print)
+		print_pattern(ps, "ss");
 }
