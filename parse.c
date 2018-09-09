@@ -61,10 +61,19 @@ static t_bool	has_dupes(int *sorted, int size)
 	return (false);
 }
 
+int	*create_sorted_copy(int	*tab, int size)
+{
+	int	*sorted;
+
+	sorted = ft_memalloc(sizeof(int) * size);
+	ft_memcpy((void*)sorted, (void*)(tab), sizeof(int) * size);
+	ft_sort_tab(sorted, size);
+	return (sorted);
+}
+
 t_ps			*parse(int argc, char **argv)
 {
 	t_ps	*ps;
-	int		*sorted;
 
 	ps = ft_memalloc(sizeof(t_ps));
 	ps->a = create_tab(argc, argv);
@@ -72,12 +81,12 @@ t_ps			*parse(int argc, char **argv)
 	ps->b = ft_memalloc(sizeof(int) * ps->size_total);
 	ps->size_a = ps->size_total;
 	ps->size_b = 0;
-	sorted = ft_memalloc(sizeof(int) * ps->size_a);
-	ft_memcpy((void*)sorted, (void*)(ps->a), sizeof(int) * ps->size_a);
-	ft_sort_tab(sorted, ps->size_a);
-	ps->sorted = sorted;
-	if (has_dupes(sorted, ps->size_a))
+	ps->sorted = create_sorted_copy(ps->a, ps->size_a);
+	if (has_dupes(ps->sorted, ps->size_a))
 		quit_push_swap(&ps, MSG_DUPES);
-	ps->median = sorted[ps->size_total / 2];
+	ps->splits[0] = ps->sorted[ps->size_total / 4];
+	ps->splits[1] = ps->sorted[ps->size_total / 3];
+	ps->splits[2] = ps->sorted[ps->size_total / 2];
+	ps->splits[3] = ps->sorted[ps->size_total - 1];
 	return (ps);
 }

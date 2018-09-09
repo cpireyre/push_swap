@@ -14,25 +14,24 @@
 
 void	push_swap(t_ps *ps)
 {
-/*
 	t_pattern	solve;
 	int		i;
 
 	i = -1;
-	while (++i < NBR_PATTERNS)
-		if ((solve = deep_run(ps, g_all_patterns[i], &is_done)))
-		{
-			g_all_patterns[i](ps, PRINT);
-			solve(ps, PRINT);
-			return ;
-		}
-	crapsort(ps, PRINT);
-*/
-	t_pattern	*identity;
-
-	identity = composition(&rra, &swap_and_down);
-	run_sequence(&ps, identity, PRINT);
-	free(identity);
+	solve = find_pattern(ps, &is_done);
+	if (solve)
+		solve(ps, PRINT);
+	else
+	{
+		while (++i < NBR_PATTERNS)
+			if ((solve = deep_run(ps, g_all_patterns[i], &is_done)))
+			{
+				g_all_patterns[i](ps, PRINT);
+				solve(ps, PRINT);
+				return ;
+			}
+		splitsort(ps, PRINT);
+	}
 }
 
 int		main(int argc, char **argv)

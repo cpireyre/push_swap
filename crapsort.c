@@ -1,17 +1,5 @@
 #include "header.h"
 
-t_pattern	spin_til(t_ps *ps, int to_find)
-{
-	int	count;
-	t_pattern	spin;
-
-	count = 0;
-	while (ps->a[count] != to_find)
-		count++;
-	spin = ((count * 2) < ps->size_a) ? &ra : &rra;
-	return (spin);
-}
-
 t_bool	finished(t_ps *ps)
 {
 	t_pattern	solved;

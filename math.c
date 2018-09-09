@@ -44,7 +44,11 @@ int	get_prev_int(int *sorted, int size, int next)
 	return ((i < size) ? sorted[i - 1] : next);
 }
 
-int	tab_get_median(int *sorted, int size)
+void	tab_get_median(int *tab, int size, int *median)
 {
-	return (sorted[size / 2]);
+	int	*sorted;
+
+	sorted = create_sorted_copy(tab, size);
+	*median = sorted[size / 2];
+	free(sorted);
 }

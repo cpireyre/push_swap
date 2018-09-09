@@ -27,40 +27,50 @@ t_bool	autosolve(t_ps **ps, t_bool will_print, t_checker check)
 **	and then figure out some way to merge them with rrs and rrrs and sss...
 */
 
-void	in_situ_sort(t_ps *ps, t_bool will_print)
+t_bool	entries_below_median(t_ps *ps)
 {
-	while (!autosolve(&ps, will_print, &a_is_ordered))
-	{
-		if (A_FIRST > A_SECOND && A_FIRST != tab_get_max(ps->a, ps->size_a))
-			SA;
-		else
-			RA;
-	}
-	while (!autosolve(&ps, will_print, &b_is_ordered))
-	{
-		if (B_FIRST < B_SECOND && B_FIRST != tab_get_min(ps->b, ps->size_b))
-			SB;
-		else
-			RB;
-	}
+	int	i;
+
+	i = -1;
+	while (++i < ps->size_a)
+		if (ps->a[i] < ps->splits[2])
+			return (true);
+	return (false);
 }
 
 void	push_all_below_median(t_ps *ps, t_bool will_print)
 {
-	while (ps->size_b <= ps->size_total / 2)
+	while (entries_below_median(ps))
 	{
-		if (autosolve(&ps, will_print, &a_is_ordered))
-			break ;
-		while (A_FIRST > ps->median)
+		while (A_FIRST > ps->splits[2])
 			RA;
 		PB;
 	}
 }
 
+void	place_bmax_first(t_ps *ps, t_bool will_print)
+{
+	t_pattern	spin;
+	int		max;
+
+	max = tab_get_max(ps->b, ps->size_b);
+	spin = b_spin_til(ps, max);
+	while (B_FIRST != max)
+		spin(ps, will_print);
+}
+
 void	splitsort(t_ps *ps, t_bool will_print)
 {
-	push_all_below_median(ps, will_print);
-	in_situ_sort(ps, will_print);
-	while (!is_done(ps))
+	while (ps->size_a >= 4)
+	{
+		push_all_below_median(ps, will_print);
+		tab_get_median(ps->a, ps->size_a, &ps->splits[2]);
+		if (autosolve(&ps, will_print, &a_is_ordered))
+			break ;
+	}
+	while (ps->size_b)
+	{
+		place_bmax_first(ps, will_print);
 		PA;
+	}
 }

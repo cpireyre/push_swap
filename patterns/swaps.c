@@ -1,16 +1,15 @@
 #include "../header.h"
 
 /*
-**	this pattern is equivalent to:
-**	RA; SA; RRA;
+**	this pattern is equivalent to PB; SA; PA;
 **	which one to choose...?
 */
 
 void	swap_second_third(t_ps *ps, t_bool will_print)
 {
-	PB;
+	RA;
 	SA;
-	PA;
+	RRA;
 }
 
 void	swap_first_last(t_ps *ps, t_bool will_print)

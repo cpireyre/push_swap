@@ -51,7 +51,7 @@ typedef struct	s_ps
 	int		size_a;
 	int		size_b;
 	int		*sorted;
-	int		median;
+	int		splits[4];
 }				t_ps;
 
 
@@ -60,6 +60,7 @@ typedef struct	s_ps
 */
 
 t_ps			*parse(int argc, char **argv);
+int	*create_sorted_copy(int	*tab, int size);
 
 /*
 **	actions.c
@@ -129,6 +130,7 @@ int	tab_get_min(int *tab, int size);
 int	tab_get_max(int *tab, int size);
 int	get_next_int(int *sorted, int size, int previous);
 int	get_prev_int(int *sorted, int size, int next);
+void	tab_get_median(int *tab, int size, int *median);
 
 /*
 ** --- A Pattern Language:
@@ -178,6 +180,13 @@ void	swap_and_down(t_ps *ps, t_bool will_print);
 void	b_swap_and_down(t_ps *ps, t_bool will_print);
 
 /*
+**	spin.c
+*/
+
+t_pattern	spin_til(t_ps *ps, int to_find);
+t_pattern	b_spin_til(t_ps *ps, int to_find);
+
+/*
 **	crapsort.c
 */
 
@@ -190,6 +199,10 @@ void	crapsort(t_ps *ps, t_bool will_print);
 
 void	push_all_below_median(t_ps *ps, t_bool will_print);
 void	splitsort(t_ps *ps, t_bool will_print);
+
+void	optisort(t_ps *ps, t_bool will_print);
+void	push_half(t_ps *ps, t_bool willprint);
+void	dilettantesort(t_ps *ps, t_bool willprint);
 
 /*
 **	a few checkers to start with.
@@ -204,6 +217,8 @@ t_bool			is_done(t_ps *ps); /* hidden in tab.c */
 
 t_bool			a_is_ordered(t_ps *ps);
 t_bool			b_is_ordered(t_ps *ps);
+t_bool	b_is_decreasing(t_ps *ps);
+t_bool	a_is_increasing(t_ps *ps);
 
 static const	t_action g_actions[11] = {
 	(t_action){"pa", &pa},
