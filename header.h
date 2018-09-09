@@ -249,4 +249,12 @@ static const	t_pattern g_all_patterns[NBR_PATTERNS] = {
 	&leader
 };
 
+/*
+**	eldritch knowledge
+**	sorcery.c
+*/
+
+t_pattern	*composition(t_pattern f, t_pattern g);
+void		run_sequence(t_ps **ps, t_pattern *composite, t_bool will_print);
+
 #endif

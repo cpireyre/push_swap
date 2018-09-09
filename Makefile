@@ -28,7 +28,8 @@ C_FILES		:=	parse.c mem.c actions.c \
 	tab.c math.c \
 	draw.c \
 	$(PATTERNS) patterns.c crapsort.c splitsort.c \
-	is_ordered.c
+	is_ordered.c \
+	sorcery.c
 H_FILES		:=	header.h
 OBJ			:=	$(C_FILES:.c=.o)
 

@@ -14,6 +14,7 @@
 
 void	push_swap(t_ps *ps)
 {
+/*
 	t_pattern	solve;
 	int		i;
 
@@ -25,7 +26,13 @@ void	push_swap(t_ps *ps)
 			solve(ps, PRINT);
 			return ;
 		}
-	splitsort(ps, PRINT);
+	crapsort(ps, PRINT);
+*/
+	t_pattern	*identity;
+
+	identity = composition(&rra, &swap_and_down);
+	run_sequence(&ps, identity, PRINT);
+	free(identity);
 }
 
 int		main(int argc, char **argv)
