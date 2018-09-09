@@ -78,5 +78,6 @@ t_ps			*parse(int argc, char **argv)
 	ps->sorted = sorted;
 	if (has_dupes(sorted, ps->size_a))
 		quit_push_swap(&ps, MSG_DUPES);
+	ps->median = sorted[ps->size_total / 2];
 	return (ps);
 }

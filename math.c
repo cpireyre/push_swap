@@ -43,3 +43,8 @@ int	get_prev_int(int *sorted, int size, int next)
 		i++;
 	return ((i < size) ? sorted[i - 1] : next);
 }
+
+int	tab_get_median(int *sorted, int size)
+{
+	return (sorted[size / 2]);
+}

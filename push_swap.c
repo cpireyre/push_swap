@@ -20,7 +20,7 @@ void	push_swap(t_ps *ps)
 	if (solve)
 		solve(ps, PRINT);
 	else
-		crapsort(ps, PRINT);
+		splitsort(ps, PRINT);
 }
 
 int		main(int argc, char **argv)

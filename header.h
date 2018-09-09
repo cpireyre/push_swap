@@ -51,6 +51,7 @@ typedef struct	s_ps
 	int		size_a;
 	int		size_b;
 	int		*sorted;
+	int		median;
 }				t_ps;
 
 
@@ -172,12 +173,25 @@ void	place_min_first(t_ps *ps, t_bool will_print); /* todo: move to own file */
 void	crapsort(t_ps *ps, t_bool will_print);
 
 /*
+**	splitsort.c
+*/
+
+void	push_all_below_median(t_ps *ps, t_bool will_print);
+void	splitsort(t_ps *ps, t_bool will_print);
+
+/*
 **	a few checkers to start with.
 **	todo: move them to their own files
 */
 
 t_bool			is_done(t_ps *ps); /* hidden in tab.c */
-t_bool			a_is_ordered(t_ps *ps); /* hidden in crapsort.c */
+
+/*
+**	is_ordered.c
+*/
+
+t_bool			a_is_ordered(t_ps *ps);
+t_bool			b_is_ordered(t_ps *ps);
 
 static const	t_action g_actions[11] = {
 	(t_action){"pa", &pa},
@@ -193,12 +207,19 @@ static const	t_action g_actions[11] = {
 	(t_action){"rrr", &rrr}
 };
 
-# define NBR_PATTERNS	14
+# define NBR_PATTERNS	13
+
+/*
+**	this array should be split up.
+**	all the a patterns, all the cheap a patterns,
+**	all the b patterns, etc.
+**	so as to prevent useless checks.
+*/
 
 static const	t_pattern g_all_patterns[NBR_PATTERNS] = {
+	&sa,
 	&ra,
 	&rra,
-	&sa,
 	&rb,
 	&rrb,
 	&sb,
@@ -209,7 +230,6 @@ static const	t_pattern g_all_patterns[NBR_PATTERNS] = {
 	&b_swap_and_down,
 	&b_swap_second_third,
 	&b_swap_first_last,
-	&place_min_first
 };
 
 #endif
