@@ -57,18 +57,24 @@ void	place_bmax_first(t_ps *ps, t_bool will_print)
 	t_pattern	spin;
 	int		max;
 	int		min;
+	t_bool		double_it;
 
 	max = tab_get_max(ps->b, ps->size_b);
 	min = tab_get_min(ps->b, ps->size_b);
 	spin = b_spin_til(ps, max);
 	while (B_FIRST != max)
 	{
-		if (B_FIRST == min)
-		{
+		if ((double_it = (B_FIRST == min)))
 			PA;
+		if (!double_it)
+			spin(ps, will_print);
+		else if (spin == &rb)
+			RR;
+		else
+		{
 			RA;
+			RRB;
 		}
-		spin(ps, will_print);
 	}
 }
 
