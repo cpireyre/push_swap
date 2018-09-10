@@ -38,6 +38,34 @@ t_bool	entries_below(t_ps *ps, int below)
 	return (false);
 }
 
+void	smart_push(t_ps *ps, t_bool will_print)
+{
+	int	pos;
+	int	first;
+	int	last;
+	int	diff_first;
+	int	diff_last;
+
+	first = 0;
+	last = 0;
+	pos = 0;
+	while ((ps->sorted)[first] != B_FIRST)
+		first++;
+	while ((ps->sorted)[last] != B_LAST)
+		last++;
+	while ((ps->sorted)[pos] != A_FIRST)
+		pos++;
+	diff_first = ft_abs(first - pos);
+	diff_last = ft_abs(last - pos);
+	if (diff_first < diff_last)
+		PB;
+	else
+	{
+		PB;
+		RB;
+	}
+}
+	
 void	push_all_below_median(t_ps *ps, t_bool will_print)
 {
 	int	current_median;
@@ -46,7 +74,12 @@ void	push_all_below_median(t_ps *ps, t_bool will_print)
 	while (entries_below(ps, current_median))
 	{
 		if (A_FIRST < current_median)
-			PB;
+		{
+			if (ps->size_b)
+				smart_push(ps, will_print);
+			else
+				PB;
+		}
 		else
 			RA;
 	}
