@@ -71,6 +71,26 @@ int	*create_sorted_copy(int	*tab, int size)
 	return (sorted);
 }
 
+int			*calculate_splits(int *sorted, int size, int *nbr_splits)
+{
+	int	*splits;
+	int	i;
+	int	pwr;
+	
+	*nbr_splits = 0;
+	while (size >> *nbr_splits)
+		(*nbr_splits)++;
+	splits = ft_memalloc(sizeof(int) * *nbr_splits);
+	i = 0;
+	while (i < *nbr_splits)
+	{
+		pwr = 1 << i;
+		splits[i] = sorted[size - (1 + size / (2 * pwr))];
+		i++;
+	}
+	return (splits);
+}
+
 t_ps			*parse(int argc, char **argv)
 {
 	t_ps	*ps;
@@ -84,9 +104,7 @@ t_ps			*parse(int argc, char **argv)
 	ps->sorted = create_sorted_copy(ps->a, ps->size_a);
 	if (has_dupes(ps->sorted, ps->size_a))
 		quit_push_swap(&ps, MSG_DUPES);
-	ps->splits[0] = ps->sorted[ps->size_total / 4];
-	ps->splits[1] = ps->sorted[ps->size_total / 3];
-	ps->splits[2] = ps->sorted[ps->size_total / 2];
-	ps->splits[3] = ps->sorted[ps->size_total - 1];
+	ps->splits = calculate_splits(ps->sorted, ps->size_total, &ps->nbr_splits);
+	ps->median = 0;
 	return (ps);
 }

@@ -51,7 +51,9 @@ typedef struct	s_ps
 	int		size_a;
 	int		size_b;
 	int		*sorted;
-	int		splits[4];
+	int		*splits;
+	int		nbr_splits;
+	int		median;
 }				t_ps;
 
 

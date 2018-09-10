@@ -21,6 +21,7 @@ void	quit_push_swap(t_ps **ps, const char *errmsg)
 
 void	free_ps(t_ps **ps)
 {
+	free((*ps)->splits);
 	free((*ps)->sorted);
 	free((*ps)->b);
 	free((*ps)->a);
