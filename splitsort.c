@@ -56,20 +56,36 @@ void	place_bmax_first(t_ps *ps, t_bool will_print)
 {
 	t_pattern	spin;
 	int		max;
+	int		min;
 
 	max = tab_get_max(ps->b, ps->size_b);
+	min = tab_get_min(ps->b, ps->size_b);
 	spin = b_spin_til(ps, max);
 	while (B_FIRST != max)
+	{
+		if (B_FIRST == min)
+		{
+			PA;
+			RA;
+		}
 		spin(ps, will_print);
+	}
 }
 
 void	insertionsort(t_ps *ps, t_bool will_print)
 {
+	t_pattern	aspin;
+	int	min;
+
+	min = ps->sorted[0];
 	while (ps->size_b)
 	{
 		place_bmax_first(ps, will_print);
 		PA;
 	}
+	aspin = spin_til(ps, min);
+	while (A_FIRST != min)
+		aspin(ps, will_print);
 }
 
 void	splitsort(t_ps *ps, t_bool will_print)
