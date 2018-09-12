@@ -6,13 +6,13 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/12 13:54:50 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/09/12 14:26:06 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/09/12 14:49:14 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-int	*create_sorted_copy(int *tab, int size)
+int			*create_sorted_copy(int *tab, int size)
 {
 	int	*sorted;
 
@@ -42,7 +42,7 @@ int			*calculate_splits(int *sorted, int size, int *nbr_splits)
 	return (splits);
 }
 
-void			normalize_tabs(int **tab, int **sorted, int size)
+void		normalize_tabs(int **tab, int **sorted, int size)
 {
 	int		i;
 	int		j;
