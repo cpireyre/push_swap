@@ -24,13 +24,20 @@ void	ncurses_print_tab(int *tab, int size, size_t leftshift, int total)
 
 void	visu_wrapper(t_ps *ps, char **line)
 {
+	int	height;
+	int	size_a;
+	int	size_b;
+
+	size_a = tablen(A);
+	size_b = tablen(B);
+	height = ft_max(size_a, size_b);
 	clear();
 	do_action(ps, line, NO_PRINT);
-	mvprintw(ps->size_total + 2, 1, "-------------------||-------------------");
-	ncurses_print_tab(ps->a, ps->size_a, 1, ps->size_total);
-	mvprintw(ps->size_total + 3, 9, "a");
-	ncurses_print_tab(ps->b, ps->size_b, 30, ps->size_total);
-	mvprintw(ps->size_total + 3, 30, "b");
+	mvprintw(height + 2, 1, "-------------------||-------------------");
+	ncurses_print_tab(A, size_a, 1, height);
+	mvprintw(height + 3, 9, "a");
+	ncurses_print_tab(B, size_b, 30, height);
+	mvprintw(height + 3, 30, "b");
 	refresh();
 	sleep(1);
 }

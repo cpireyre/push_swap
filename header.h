@@ -24,12 +24,8 @@
 # define MSG_DUPES		"Error: duplicate entries.\n"
 # define MSG_BAD_ACTION	"Error: invalid instruction.\n"
 
-# define A_FIRST	(ps->a[0])
-# define A_SECOND	(ps->a[1])
-# define A_LAST		(ps->a[ps->size_a - 1])
-# define B_FIRST	(ps->b[0])
-# define B_SECOND	(ps->b[1])
-# define B_LAST		(ps->b[ps->size_b - 1])
+# define A		(ps->a)
+# define B		(ps->b)
 
 # define PA			pa(ps, will_print)
 # define PB			pb(ps, will_print)
@@ -47,13 +43,6 @@ typedef struct	s_ps
 {
 	int		*a;
 	int		*b;
-	int		size_total;
-	int		size_a;
-	int		size_b;
-	int		*sorted;
-	int		*splits;
-	int		nbr_splits;
-	int		median;
 }				t_ps;
 
 /*
@@ -71,7 +60,7 @@ int				*create_tab(int argc, char **argv);
 */
 
 int				*calculate_splits(int *sorted, int size, int *nbr_splits);
-void			normalize_tabs(int **tab, int **sorted, int size);
+void			normalize_tab(int **tab, int *sorted, int size);
 
 /*
 **	actions.c
@@ -89,6 +78,7 @@ void			visu_wrapper(t_ps *ps, char **line);
 **	mem.c
 */
 
+int	tablen(int *tab);
 void			free_ps(t_ps **ps);
 void			ft_exit(const char *errmsg);
 void			quit_push_swap(t_ps **ps, const char *errmsg);
@@ -97,10 +87,10 @@ void			quit_push_swap(t_ps **ps, const char *errmsg);
 **	tab.c
 */
 
-void			tab_erase_first(int **tab, int *size);
-void			tab_add_first(int **tab, int *size, int value);
-void			tab_rotate_down(int **tab, int *size);
-void			tab_rotate_up(int **tab, int *size);
+void	tab_erase_first(int **tab);
+void	tab_add_first(int **tab, int value);
+void			tab_rotate_down(int **tab);
+void			tab_rotate_up(int **tab);
 
 /*
 **	push.c
@@ -137,8 +127,8 @@ void			rrr(t_ps *ps, t_bool will_print);
 **	math.c
 */
 
-int				tab_get_min(int *tab, int size);
-int				tab_get_max(int *tab, int size);
+int				tab_get_min(int *tab);
+int				tab_get_max(int *tab);
 void			tab_get_median(int *tab, int size, int *median);
 
 /*
@@ -162,8 +152,8 @@ typedef struct	s_action
 */
 
 t_pattern		find_pattern(t_ps *ps, t_checker to_pass);
-t_bool			dry_run(t_ps *ps, t_pattern to_try, t_checker check);
-t_pattern		deep_run(t_ps *ps, t_pattern to_try, t_checker check);
+t_bool		dry_run(t_ps *ps, int size, t_pattern to_try, t_checker check);
+t_pattern	deep_run(t_ps *ps, int size, t_pattern to_try, t_checker check);
 void			print_pattern(t_ps *ps, char *instruction);
 
 void			leader(t_ps *ps, t_bool will_print);
@@ -206,7 +196,7 @@ void			crapsort(t_ps *ps, t_bool will_print);
 **	splitsort.c
 */
 
-void			push_all_below_median(t_ps *ps, t_bool will_print);
+void	push_all_below_cutoff(t_ps *ps, t_bool will_print, int cutoff);
 void			splitsort(t_ps *ps, t_bool will_print);
 
 void			optisort(t_ps *ps, t_bool will_print);

@@ -14,9 +14,9 @@
 
 void	ra(t_ps *ps, t_bool will_print)
 {
-	if (ps->size_a >= 2)
+	if (A[1])
 	{
-		tab_rotate_up(&(ps->a), &(ps->size_a));
+		tab_rotate_up(&(A));
 		if (will_print)
 			print_pattern(ps, "ra");
 	}
@@ -24,9 +24,9 @@ void	ra(t_ps *ps, t_bool will_print)
 
 void	rb(t_ps *ps, t_bool will_print)
 {
-	if (ps->size_b >= 2)
+	if (B[1])
 	{
-		tab_rotate_up(&(ps->b), &(ps->size_b));
+		tab_rotate_up(&(B));
 		if (will_print)
 			print_pattern(ps, "rb");
 	}

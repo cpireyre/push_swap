@@ -42,7 +42,7 @@ int			*calculate_splits(int *sorted, int size, int *nbr_splits)
 	return (splits);
 }
 
-void		normalize_tabs(int **tab, int **sorted, int size)
+void		normalize_tab(int **tab, int *sorted, int size)
 {
 	int		i;
 	int		j;
@@ -53,11 +53,8 @@ void		normalize_tabs(int **tab, int **sorted, int size)
 	while (++i < size)
 	{
 		j = 0;
-		while (j < size && ptr[j] != (*sorted)[i])
+		while (j < size && ptr[j] != (sorted)[i])
 			j++;
 		ptr[j] = i + 1;
 	}
-	i = -1;
-	while (++i < size)
-		(*sorted)[i] = i + 1;
 }

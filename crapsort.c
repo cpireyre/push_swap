@@ -33,9 +33,9 @@ void	place_min_first(t_ps *ps, t_bool will_print)
 	t_pattern	spin;
 	int			min;
 
-	min = tab_get_min(ps->a, ps->size_a);
+	min = tab_get_min(A);
 	spin = spin_til(ps, min);
-	while (A_FIRST != min)
+	while (A[0] == min)
 		spin(ps, will_print);
 }
 
@@ -49,6 +49,6 @@ void	crapsort(t_ps *ps, t_bool will_print)
 		PB;
 	}
 	sorta(ps, will_print);
-	while (ps->size_b)
+	while (B[0])
 		PA;
 }

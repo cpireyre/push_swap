@@ -16,26 +16,26 @@ void	pb(t_ps *ps, t_bool will_print)
 {
 	int		tmp;
 
-	if (ps->size_a >= 1)
+	if (A[0])
 	{
-		tmp = (ps->a)[0];
-		tab_erase_first(&(ps->a), &(ps->size_a));
-		tab_add_first(&(ps->b), &(ps->size_b), tmp);
+		tmp = (A)[0];
+		tab_erase_first(&(A));
+		tab_add_first(&(B), tmp);
+		if (will_print)
+			print_pattern(ps, "pb");
 	}
-	if (will_print)
-		print_pattern(ps, "pb");
 }
 
 void	pa(t_ps *ps, t_bool will_print)
 {
 	int		tmp;
 
-	if (ps->size_b >= 1)
+	if (B[0])
 	{
-		tmp = (ps->b)[0];
-		tab_erase_first(&(ps->b), &(ps->size_b));
-		tab_add_first(&(ps->a), &(ps->size_a), tmp);
+		tmp = (B)[0];
+		tab_erase_first(&(B));
+		tab_add_first(&(A), tmp);
+		if (will_print)
+			print_pattern(ps, "pa");
 	}
-	if (will_print)
-		print_pattern(ps, "pa");
 }

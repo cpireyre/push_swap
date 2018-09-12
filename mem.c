@@ -12,6 +12,17 @@
 
 #include "header.h"
 
+/*
+**	note: i am allowed this because my int arrays are ft_memalloc'd,
+**	therefore ft_bzero'd, therefore NULL-termination is guaranteed,
+**	as in strings.
+**	the recursion is probably fine and gets TCO'd with -O2.
+*/
+
+int	tablen(int *tab)
+{
+	return (*tab ? 1 + tablen(++tab) : 0);
+}
 void	quit_push_swap(t_ps **ps, const char *errmsg)
 {
 	endwin();
@@ -21,8 +32,6 @@ void	quit_push_swap(t_ps **ps, const char *errmsg)
 
 void	free_ps(t_ps **ps)
 {
-	free((*ps)->splits);
-	free((*ps)->sorted);
 	free((*ps)->b);
 	free((*ps)->a);
 	free((*ps));

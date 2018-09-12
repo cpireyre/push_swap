@@ -49,7 +49,7 @@ int		*create_tab(int argc, char **argv)
 	int		*tab;
 	int		i;
 
-	tab = ft_memalloc(sizeof(int) * (argc - 1));
+	tab = ft_memalloc(sizeof(int) * argc);
 	i = 0;
 	while (++i < argc)
 	{
@@ -64,18 +64,19 @@ int		*create_tab(int argc, char **argv)
 t_ps	*parse(int argc, char **argv)
 {
 	t_ps	*ps;
+	int	args;
+	int	*sorted;
+	t_bool	dupes;
 
 	ps = ft_memalloc(sizeof(t_ps));
-	ps->a = create_tab(argc, argv);
-	ps->size_total = argc - 1;
-	ps->b = ft_memalloc(sizeof(int) * ps->size_total);
-	ps->size_a = ps->size_total;
-	ps->size_b = 0;
-	ps->sorted = create_sorted_copy(ps->a, ps->size_a);
-	if (has_dupes(ps->sorted, ps->size_a))
+	args = argc - 1;
+	A = create_tab(argc, argv);
+	B = ft_memalloc(sizeof(int) * args + 1);
+	sorted = create_sorted_copy(A, args);
+	normalize_tab(&A, sorted, args);
+	dupes = has_dupes(sorted, args);
+	free(sorted);
+	if (dupes)
 		quit_push_swap(&ps, MSG_DUPES);
-	ps->splits = calculate_splits(ps->sorted, ps->size_total, &ps->nbr_splits);
-	ps->median = 0;
-	normalize_tabs(&ps->a, &ps->sorted, ps->size_a);
 	return (ps);
 }

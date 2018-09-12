@@ -12,7 +12,7 @@
 
 CC		:=	gcc
 RM		:=	rm -f
-CFLAGS	:=	-Wall -Wextra -Werror -std=c89
+CFLAGS	:=	-Wall -Wextra -Werror -std=c89 -O2
 LIBDIR	:=	./libft
 LIBFT	:=	$(LIBDIR)/libft.a
 BFLAGS	:=	-I$(LIBDIR)/
@@ -27,7 +27,7 @@ C_FILES		:=	parse.c mem.c actions.c normalize.c \
 	push.c swap.c rotate.c reverse.c \
 	tab.c math.c \
 	draw.c \
-	$(PATTERNS) patterns.c crapsort.c splitsort.c optisort.c dilettantesort.c \
+	$(PATTERNS) patterns.c crapsort.c splitsort.c \
 	is_ordered.c \
 	sorcery.c
 H_FILES		:=	header.h

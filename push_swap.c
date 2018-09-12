@@ -16,15 +16,17 @@ void	push_swap(t_ps *ps)
 {
 	t_pattern	solve;
 	int			i;
+	int	size;
 
 	i = -1;
+	size = tablen(A) + tablen(B);
 	solve = find_pattern(ps, &is_done);
 	if (solve)
 		solve(ps, PRINT);
 	else
 	{
 		while (++i < NBR_PATTERNS)
-			if ((solve = deep_run(ps, g_all_patterns[i], &is_done)))
+			if ((solve = deep_run(ps, size, g_all_patterns[i], &is_done)))
 			{
 				g_all_patterns[i](ps, PRINT);
 				solve(ps, PRINT);

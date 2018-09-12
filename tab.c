@@ -12,43 +12,46 @@
 
 #include "header.h"
 
-void	tab_erase_first(int **tab, int *size)
+void	tab_erase_first(int **tab)
 {
 	int		i;
 
-	if (*size < 1)
-		return ;
 	i = -1;
-	while (++i < (*size - 1))
+	while ((*tab)[++i])
 		(*tab)[i] = (*tab)[i + 1];
-	(*size)--;
 }
 
-void	tab_add_first(int **tab, int *size, int value)
+/*
+**	this one might be glitched out under the new regime.
+*/
+
+void	tab_add_first(int **tab, int value)
 {
 	int		i;
 	int		tmp;
 
-	(*size)++;
 	i = 0;
 	tmp = (*tab)[0];
 	(*tab)[0] = value;
-	while (++i < (*size))
+	while ((*tab)[++i])
 		ft_swap_int(&tmp, &(*tab)[i]);
+	ft_swap_int(&tmp, &(*tab)[i]);
 }
 
-void	tab_rotate_down(int **tab, int *size)
+void	tab_rotate_down(int **tab)
 {
 	int		tmp;
 	int		i;
+	int		size;
 
-	if (*size < 2)
+	size = tablen(*tab);
+	if (size < 2)
 		return ;
-	else if (*size == 2)
+	else if (size == 2)
 		ft_swap_int(&((*tab)[0]), &((*tab)[1]));
 	else
 	{
-		i = *size;
+		i = size;
 		while (--i)
 		{
 			tmp = (*tab)[i];
@@ -58,19 +61,21 @@ void	tab_rotate_down(int **tab, int *size)
 	}
 }
 
-void	tab_rotate_up(int **tab, int *size)
+void	tab_rotate_up(int **tab)
 {
 	int		tmp;
 	int		i;
+	int		size;
 
-	if (*size < 2)
+	size = tablen(*tab);
+	if (size < 2)
 		return ;
-	else if (*size == 2)
+	else if (size == 2)
 		ft_swap_int(&((*tab)[0]), &((*tab)[1]));
 	else
 	{
 		i = -1;
-		while (++i < *size - 1)
+		while (++i < size - 1)
 		{
 			tmp = (*tab)[i];
 			(*tab)[i] = (*tab)[i + 1];
@@ -87,12 +92,14 @@ void	tab_rotate_up(int **tab, int *size)
 t_bool	is_done(t_ps *ps)
 {
 	int	i;
+	int	size_a;
 
-	if (ps->size_b || (ps->size_a != ps->size_total))
+	if (tablen(B) > 0)
 		return (false);
 	i = -1;
-	while (++i < ps->size_total)
-		if (ps->a[i] != i + 1)
+	size_a = tablen(A);
+	while (++i < size_a)
+		if (A[i] != i + 1)
 			return (false);
 	return (true);
 }

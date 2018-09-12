@@ -14,9 +14,9 @@
 
 void	sa(t_ps *ps, t_bool will_print)
 {
-	if (ps->size_a >= 2)
+	if (A[1])
 	{
-		ft_swap_int(&((ps->a)[0]), &((ps->a)[1]));
+		ft_swap_int(&((A)[0]), &((A)[1]));
 		if (will_print)
 			print_pattern(ps, "sa");
 	}
@@ -24,9 +24,9 @@ void	sa(t_ps *ps, t_bool will_print)
 
 void	sb(t_ps *ps, t_bool will_print)
 {
-	if (ps->size_b >= 2)
+	if (B[1])
 	{
-		ft_swap_int(&((ps->b)[0]), &((ps->b)[1]));
+		ft_swap_int(&((B)[0]), &((B)[1]));
 		if (will_print)
 			print_pattern(ps, "sb");
 	}
