@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   spin.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/09/12 13:58:03 by cpireyre          #+#    #+#             */
+/*   Updated: 2018/09/12 13:58:35 by cpireyre         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../header.h"
 
-int		distance(int *tab, int size, int to_find)
+int			distance(int *tab, int size, int to_find)
 {
 	int	count;
 

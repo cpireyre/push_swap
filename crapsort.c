@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   crapsort.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/09/12 14:01:54 by cpireyre          #+#    #+#             */
+/*   Updated: 2018/09/12 14:05:26 by cpireyre         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "header.h"
 
 t_bool	finished(t_ps *ps)
@@ -19,7 +31,7 @@ t_bool	finished(t_ps *ps)
 void	place_min_first(t_ps *ps, t_bool will_print)
 {
 	t_pattern	spin;
-	int		min;
+	int			min;
 
 	min = tab_get_min(ps->a, ps->size_a);
 	spin = spin_til(ps, min);

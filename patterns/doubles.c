@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   doubles.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/09/12 13:54:29 by cpireyre          #+#    #+#             */
+/*   Updated: 2018/09/12 13:59:08 by cpireyre         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../header.h"
 
 void	dra(t_ps *ps, t_bool will_print)
@@ -24,7 +36,7 @@ void	drrb(t_ps *ps, t_bool will_print)
 	RRB;
 }
 
-void	leader(t_ps *ps,t_bool will_print)
+void	leader(t_ps *ps, t_bool will_print)
 {
 	PB;
 	SA;

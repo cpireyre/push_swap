@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/05 10:05:08 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/09/05 15:45:01 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/09/12 14:00:14 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	push_swap(t_ps *ps)
 {
 	t_pattern	solve;
-	int		i;
+	int			i;
 
 	i = -1;
 	solve = find_pattern(ps, &is_done);

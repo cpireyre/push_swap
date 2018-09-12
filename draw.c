@@ -6,14 +6,14 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/05 09:52:54 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/09/05 15:47:20 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/09/12 14:20:40 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 #include <unistd.h>
 
-void	ncurses_print_tab(int *tab, int size, size_t leftshift, int	total)
+void	ncurses_print_tab(int *tab, int size, size_t leftshift, int total)
 {
 	int		i;
 

@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/05 09:36:55 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/09/05 15:17:08 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/09/12 13:57:49 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ t_pattern	get_operation(const char *arg)
 	return (NULL);
 }
 
-void			do_action(t_ps *ps, char **line, t_bool will_print)
+void		do_action(t_ps *ps, char **line, t_bool will_print)
 {
 	t_pattern do_op;
 

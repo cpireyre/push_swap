@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   patterns.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/09/12 13:58:41 by cpireyre          #+#    #+#             */
+/*   Updated: 2018/09/12 14:20:51 by cpireyre         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "header.h"
 
 t_bool		dry_run(t_ps *ps, t_pattern to_try, t_checker check)
 {
 	t_ps	copy;
-	int	a_copy[ps->size_total];
-	int	b_copy[ps->size_total];
+	int		a_copy[ps->size_total];
+	int		b_copy[ps->size_total];
 
 	ft_memcpy(&copy, ps, sizeof(t_ps));
 	ft_memcpy(a_copy, ps->a, sizeof(a_copy));
@@ -18,9 +30,9 @@ t_bool		dry_run(t_ps *ps, t_pattern to_try, t_checker check)
 t_pattern	deep_run(t_ps *ps, t_pattern to_try, t_checker check)
 {
 	t_ps	copy;
-	int	a_copy[ps->size_total];
-	int	b_copy[ps->size_total];
-	int	i;
+	int		a_copy[ps->size_total];
+	int		b_copy[ps->size_total];
+	int		i;
 
 	ft_memcpy(&copy, ps, sizeof(t_ps));
 	ft_memcpy(a_copy, ps->a, sizeof(a_copy));
@@ -40,7 +52,7 @@ t_pattern	deep_run(t_ps *ps, t_pattern to_try, t_checker check)
 t_pattern	find_pattern(t_ps *ps, t_checker to_pass)
 {
 	int	i;
-	
+
 	i = -1;
 	while (++i < NBR_PATTERNS)
 		if (dry_run(ps, g_all_patterns[i], to_pass))
@@ -48,7 +60,7 @@ t_pattern	find_pattern(t_ps *ps, t_checker to_pass)
 	return (NULL);
 }
 
-void	print_pattern(t_ps *ps, char *instruction)
+void		print_pattern(t_ps *ps, char *instruction)
 {
 	(void)ps;
 	ft_putendl(instruction);

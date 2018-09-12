@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   splitsort.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/09/12 14:08:36 by cpireyre          #+#    #+#             */
+/*   Updated: 2018/09/12 14:08:37 by cpireyre         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "header.h"
 
 t_bool	first_and_next(t_ps *ps)
@@ -65,7 +77,7 @@ void	smart_push(t_ps *ps, t_bool will_print)
 		RB;
 	}
 }
-	
+
 void	push_all_below_median(t_ps *ps, t_bool will_print)
 {
 	int	current_median;
@@ -88,8 +100,8 @@ void	push_all_below_median(t_ps *ps, t_bool will_print)
 void	place_bmax_first(t_ps *ps, t_bool will_print)
 {
 	t_pattern	spin;
-	int		max;
-	int		min;
+	int			max;
+	int			min;
 	t_bool		double_it;
 
 	max = tab_get_max(ps->b, ps->size_b);
@@ -114,7 +126,7 @@ void	place_bmax_first(t_ps *ps, t_bool will_print)
 void	insertionsort(t_ps *ps, t_bool will_print)
 {
 	t_pattern	aspin;
-	int	min;
+	int			min;
 
 	min = ps->sorted[0];
 	while (ps->size_b)

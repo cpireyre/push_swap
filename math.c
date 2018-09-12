@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   math.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/09/12 13:54:38 by cpireyre          #+#    #+#             */
+/*   Updated: 2018/09/12 14:03:08 by cpireyre         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "header.h"
 
-int	tab_get_min(int *tab, int size)
+int		tab_get_min(int *tab, int size)
 {
 	int	min;
 	int	i;
@@ -12,7 +24,7 @@ int	tab_get_min(int *tab, int size)
 	return (min);
 }
 
-int	tab_get_max(int *tab, int size)
+int		tab_get_max(int *tab, int size)
 {
 	int	max;
 	int	i;
@@ -24,7 +36,7 @@ int	tab_get_max(int *tab, int size)
 	return (max);
 }
 
-int	get_next_int(int *sorted, int size, int previous)
+int		get_next_int(int *sorted, int size, int previous)
 {
 	int	i;
 
@@ -34,7 +46,7 @@ int	get_next_int(int *sorted, int size, int previous)
 	return ((i < size - 1) ? sorted[i + 1] : previous);
 }
 
-int	get_prev_int(int *sorted, int size, int next)
+int		get_prev_int(int *sorted, int size, int next)
 {
 	int	i;
 

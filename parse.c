@@ -6,14 +6,14 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/31 12:21:21 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/09/05 09:39:25 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/09/12 14:03:28 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 #include <limits.h>
 
-static t_bool	is_valid_arg(const char *arg)
+t_bool	is_valid_arg(const char *arg)
 {
 	intmax_t	tmp;
 
@@ -33,7 +33,18 @@ static t_bool	is_valid_arg(const char *arg)
 	return (true);
 }
 
-static int		*create_tab(int argc, char **argv)
+t_bool	has_dupes(int *sorted, int size)
+{
+	int		i;
+
+	i = -1;
+	while (++i < (size - 1))
+		if (sorted[i] == sorted[i + 1])
+			return (true);
+	return (false);
+}
+
+int		*create_tab(int argc, char **argv)
 {
 	int		*tab;
 	int		i;
@@ -50,48 +61,7 @@ static int		*create_tab(int argc, char **argv)
 	return (tab);
 }
 
-static t_bool	has_dupes(int *sorted, int size)
-{
-	int		i;
-
-	i = -1;
-	while (++i < (size - 1))
-		if (sorted[i] == sorted[i + 1])
-			return (true);
-	return (false);
-}
-
-int	*create_sorted_copy(int	*tab, int size)
-{
-	int	*sorted;
-
-	sorted = ft_memalloc(sizeof(int) * size);
-	ft_memcpy((void*)sorted, (void*)(tab), sizeof(int) * size);
-	ft_sort_tab(sorted, size);
-	return (sorted);
-}
-
-int			*calculate_splits(int *sorted, int size, int *nbr_splits)
-{
-	int	*splits;
-	int	i;
-	int	pwr;
-	
-	*nbr_splits = 0;
-	while (size >> *nbr_splits)
-		(*nbr_splits)++;
-	splits = ft_memalloc(sizeof(int) * *nbr_splits);
-	i = 0;
-	while (i < *nbr_splits)
-	{
-		pwr = 1 << i;
-		splits[i] = sorted[size - (1 + size / (2 * pwr))];
-		i++;
-	}
-	return (splits);
-}
-
-t_ps			*parse(int argc, char **argv)
+t_ps	*parse(int argc, char **argv)
 {
 	t_ps	*ps;
 

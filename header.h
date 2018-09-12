@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/31 12:32:30 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/09/05 15:03:40 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/09/12 14:03:48 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,17 +31,17 @@
 # define B_SECOND	(ps->b[1])
 # define B_LAST		(ps->b[ps->size_b - 1])
 
-# define PA	pa(ps, will_print)
-# define PB	pb(ps, will_print)
-# define SA	sa(ps, will_print)
-# define SB	sb(ps, will_print)
-# define SS	ss(ps, will_print)
-# define RA	ra(ps, will_print)
-# define RB	rb(ps, will_print)
-# define RR	rr(ps, will_print)
-# define RRA	rra(ps, will_print)
-# define RRB	rrb(ps, will_print)
-# define RRR	rrr(ps, will_print)
+# define PA			pa(ps, will_print)
+# define PB			pb(ps, will_print)
+# define SA			sa(ps, will_print)
+# define SB			sb(ps, will_print)
+# define SS			ss(ps, will_print)
+# define RA			ra(ps, will_print)
+# define RB			rb(ps, will_print)
+# define RR			rr(ps, will_print)
+# define RRA		rra(ps, will_print)
+# define RRB		rrb(ps, will_print)
+# define RRR		rrr(ps, will_print)
 
 typedef struct	s_ps
 {
@@ -56,13 +56,21 @@ typedef struct	s_ps
 	int		median;
 }				t_ps;
 
-
 /*
 **	parse.c
 */
 
 t_ps			*parse(int argc, char **argv);
-int	*create_sorted_copy(int	*tab, int size);
+int				*create_sorted_copy(int	*tab, int size);
+t_bool			is_valid_arg(const char *arg);
+t_bool			has_dupes(int *sorted, int size);
+int				*create_tab(int argc, char **argv);
+
+/*
+**	normalize.c
+*/
+
+int				*calculate_splits(int *sorted, int size, int *nbr_splits);
 
 /*
 **	actions.c
@@ -128,11 +136,11 @@ void			rrr(t_ps *ps, t_bool will_print);
 **	math.c
 */
 
-int	tab_get_min(int *tab, int size);
-int	tab_get_max(int *tab, int size);
-int	get_next_int(int *sorted, int size, int previous);
-int	get_prev_int(int *sorted, int size, int next);
-void	tab_get_median(int *tab, int size, int *median);
+int				tab_get_min(int *tab, int size);
+int				tab_get_max(int *tab, int size);
+int				get_next_int(int *sorted, int size, int previous);
+int				get_prev_int(int *sorted, int size, int next);
+void			tab_get_median(int *tab, int size, int *median);
 
 /*
 ** --- A Pattern Language:
@@ -154,64 +162,64 @@ typedef struct	s_action
 **	patterns.c
 */
 
-t_pattern	find_pattern(t_ps *ps, t_checker to_pass);
-t_bool		dry_run(t_ps *ps, t_pattern to_try, t_checker check);
-t_pattern	deep_run(t_ps *ps, t_pattern to_try, t_checker check);
-void	print_pattern(t_ps *ps, char *instruction);
+t_pattern		find_pattern(t_ps *ps, t_checker to_pass);
+t_bool			dry_run(t_ps *ps, t_pattern to_try, t_checker check);
+t_pattern		deep_run(t_ps *ps, t_pattern to_try, t_checker check);
+void			print_pattern(t_ps *ps, char *instruction);
 
-void	leader(t_ps *ps, t_bool will_print);
+void			leader(t_ps *ps, t_bool will_print);
 
 /*
 **	./patterns/doubles.c
 */
 
-void	dra(t_ps *ps, t_bool will_print);
-void	drra(t_ps *ps, t_bool will_print);
-void	drb(t_ps *ps, t_bool will_print);
-void	drrb(t_ps *ps, t_bool will_print);
+void			dra(t_ps *ps, t_bool will_print);
+void			drra(t_ps *ps, t_bool will_print);
+void			drb(t_ps *ps, t_bool will_print);
+void			drrb(t_ps *ps, t_bool will_print);
 
 /*
 **	./patterns/swaps.c
 */
 
-void	swap_second_third(t_ps *ps, t_bool will_print);
-void	swap_first_last(t_ps *ps, t_bool will_print);
-void	b_swap_second_third(t_ps *ps, t_bool will_print);
-void	b_swap_first_last(t_ps *ps, t_bool will_print);
-void	swap_and_down(t_ps *ps, t_bool will_print);
-void	b_swap_and_down(t_ps *ps, t_bool will_print);
+void			swap_second_third(t_ps *ps, t_bool will_print);
+void			swap_first_last(t_ps *ps, t_bool will_print);
+void			b_swap_second_third(t_ps *ps, t_bool will_print);
+void			b_swap_first_last(t_ps *ps, t_bool will_print);
+void			swap_and_down(t_ps *ps, t_bool will_print);
+void			b_swap_and_down(t_ps *ps, t_bool will_print);
 
 /*
 **	spin.c
 */
 
-t_pattern	spin_til(t_ps *ps, int to_find);
-t_pattern	b_spin_til(t_ps *ps, int to_find);
+t_pattern		spin_til(t_ps *ps, int to_find);
+t_pattern		b_spin_til(t_ps *ps, int to_find);
 
 /*
 **	crapsort.c
 */
 
-void	place_min_first(t_ps *ps, t_bool will_print); /* todo: move to own file */
-void	crapsort(t_ps *ps, t_bool will_print);
+void			place_min_first(t_ps *ps, t_bool will_print);
+void			crapsort(t_ps *ps, t_bool will_print);
 
 /*
 **	splitsort.c
 */
 
-void	push_all_below_median(t_ps *ps, t_bool will_print);
-void	splitsort(t_ps *ps, t_bool will_print);
+void			push_all_below_median(t_ps *ps, t_bool will_print);
+void			splitsort(t_ps *ps, t_bool will_print);
 
-void	optisort(t_ps *ps, t_bool will_print);
-void	push_half(t_ps *ps, t_bool willprint);
-void	dilettantesort(t_ps *ps, t_bool willprint);
+void			optisort(t_ps *ps, t_bool will_print);
+void			push_half(t_ps *ps, t_bool willprint);
+void			dilettantesort(t_ps *ps, t_bool willprint);
 
 /*
 **	a few checkers to start with.
 **	todo: move them to their own files
 */
 
-t_bool			is_done(t_ps *ps); /* hidden in tab.c */
+t_bool			is_done(t_ps *ps);
 
 /*
 **	is_ordered.c
@@ -219,8 +227,8 @@ t_bool			is_done(t_ps *ps); /* hidden in tab.c */
 
 t_bool			a_is_ordered(t_ps *ps);
 t_bool			b_is_ordered(t_ps *ps);
-t_bool	b_is_decreasing(t_ps *ps);
-t_bool	a_is_increasing(t_ps *ps);
+t_bool			b_is_decreasing(t_ps *ps);
+t_bool			a_is_increasing(t_ps *ps);
 
 static const	t_action g_actions[11] = {
 	(t_action){"pa", &pa},
@@ -271,7 +279,7 @@ static const	t_pattern g_all_patterns[NBR_PATTERNS] = {
 **	sorcery.c
 */
 
-t_pattern	*composition(t_pattern f, t_pattern g);
-void		run_sequence(t_ps **ps, t_pattern *composite, t_bool will_print);
+t_pattern		*composition(t_pattern f, t_pattern g);
+void			run_sequence(t_ps **ps, t_pattern *composite, t_bool print);
 
 #endif
