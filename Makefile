@@ -12,7 +12,7 @@
 
 CC		:=	gcc
 RM		:=	rm -f
-CFLAGS	:=	-Wall -Wextra -Werror -std=c89 -O2
+CFLAGS	:=	-Wall -Wextra -Werror -std=c89 -O1
 LIBDIR	:=	./libft
 LIBFT	:=	$(LIBDIR)/libft.a
 BFLAGS	:=	-I$(LIBDIR)/
