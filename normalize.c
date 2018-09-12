@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/12 13:54:50 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/09/12 14:49:14 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/09/12 14:58:40 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void		normalize_tabs(int **tab, int **sorted, int size)
 			j++;
 		ptr[j] = i + 1;
 	}
-	i = 0;
+	i = -1;
 	while (++i < size)
 		(*sorted)[i] = i + 1;
 }

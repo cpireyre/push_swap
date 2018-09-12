@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/31 12:21:21 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/09/12 14:03:28 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/09/12 14:58:49 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,5 +76,6 @@ t_ps	*parse(int argc, char **argv)
 		quit_push_swap(&ps, MSG_DUPES);
 	ps->splits = calculate_splits(ps->sorted, ps->size_total, &ps->nbr_splits);
 	ps->median = 0;
+	normalize_tabs(&ps->a, &ps->sorted, ps->size_a);
 	return (ps);
 }

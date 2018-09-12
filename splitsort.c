@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/12 14:08:36 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/09/12 14:08:37 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/09/12 15:00:42 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 t_bool	first_and_next(t_ps *ps)
 {
-	return (A_SECOND == get_next_int(ps->sorted, ps->size_total, A_FIRST));
+	return (A_SECOND == A_FIRST + 1);
 }
 
 t_bool	b_first_and_next(t_ps *ps)
 {
-	return (B_SECOND == get_prev_int(ps->sorted, ps->size_total, B_FIRST));
+	return (B_SECOND == B_FIRST - 1);
 }
 
 t_bool	autosolve(t_ps **ps, t_bool will_print, t_checker check)

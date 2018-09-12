@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/02 14:18:57 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/09/02 15:30:33 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/09/12 15:08:00 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,8 +86,13 @@ void	tab_rotate_up(int **tab, int *size)
 
 t_bool	is_done(t_ps *ps)
 {
+	int	i;
+
 	if (ps->size_b || (ps->size_a != ps->size_total))
 		return (false);
-	return (!(ft_memcmp((void*)(ps->a), (void*)(ps->sorted),
-					sizeof(int) * ps->size_total)));
+	i = -1;
+	while (++i < ps->size_total)
+		if (ps->a[i] != i + 1)
+			return (false);
+	return (true);
 }

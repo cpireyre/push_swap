@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/31 12:32:30 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/09/12 14:03:48 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/09/12 14:59:53 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ int				*create_tab(int argc, char **argv);
 */
 
 int				*calculate_splits(int *sorted, int size, int *nbr_splits);
+void			normalize_tabs(int **tab, int **sorted, int size);
 
 /*
 **	actions.c
@@ -138,8 +139,6 @@ void			rrr(t_ps *ps, t_bool will_print);
 
 int				tab_get_min(int *tab, int size);
 int				tab_get_max(int *tab, int size);
-int				get_next_int(int *sorted, int size, int previous);
-int				get_prev_int(int *sorted, int size, int next);
 void			tab_get_median(int *tab, int size, int *median);
 
 /*
