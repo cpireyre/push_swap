@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/31 12:22:12 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/09/13 14:33:28 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/09/13 17:04:34 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,8 @@ int				main(int argc, char **argv)
 	}
 	endwin();
 	ft_assert(is_done(ps), MSG_OK, MSG_NOT_OK);
-	free(sorted);
+	if (visu_on)
+		free(sorted);
 	free_ps(&ps);
 	return (0);
 }

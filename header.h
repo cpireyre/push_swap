@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/31 12:32:30 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/09/13 14:33:00 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/09/13 16:46:02 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -188,6 +188,7 @@ void			b_swap_and_down(t_ps *ps, t_bool will_print);
 **	spin.c
 */
 
+int			distance(int *tab, int to_find);
 t_pattern		spin_til(t_ps *ps, int to_find);
 t_pattern		b_spin_til(t_ps *ps, int to_find);
 

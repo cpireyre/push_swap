@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/12 14:08:36 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/09/12 15:00:42 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/09/13 17:04:04 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,20 +55,27 @@ t_bool	entries_below(t_ps *ps, int below)
 
 void	smart_push(t_ps *ps, t_bool will_print)
 {
-	int	diff_first;
-	int	diff_last;
-	int	size_b;
+	int		i;
+	int		index;
+	int		tmp;
+	int		diff;
+	int		ret;
 
-	size_b = tablen(B);
-	diff_first = ft_abs(B[0] - A[0]);
-	diff_last = ft_abs(B[size_b - 1] - A[0]);
-	if (diff_first < diff_last)
-		PB;
-	else
+	i = 0;
+	index = 0;
+	diff = ft_abs(B[i] - A[0]);
+	while (B[++i])
 	{
-		PB;
-		RB;
+		tmp = diff;
+		diff = ft_abs(B[i] - A[0]);
+		index = (diff < tmp) ? i : index;
+		if (diff == 1)
+			break ;
 	}
+	ret = B[index];
+	while (B[0] != ret)
+		RB;
+	PB;
 }
 
 /*
@@ -85,7 +92,7 @@ void	push_all_below_cutoff(t_ps *ps, t_bool will_print, int cutoff)
 	{
 		if (A[0] < cutoff)
 		{
-			if (B[0])
+			if (B[1])
 				smart_push(ps, will_print);
 			else
 				PB;
