@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/31 12:32:30 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/09/12 14:59:53 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/09/13 14:33:00 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,16 +69,22 @@ void			normalize_tab(int **tab, int *sorted, int size);
 void			do_action(t_ps *ps, char **line, t_bool will_print);
 
 /*
+**	visu.c
+*/
+
+t_ps	*parse_visu(int argc, char **argv, int **sorted);
+
+/*
 **	draw.c
 */
 
-void			visu_wrapper(t_ps *ps, char **line);
+void	visu_wrapper(t_ps *ps, char **line, int *sorted);
 
 /*
 **	mem.c
 */
 
-int	tablen(int *tab);
+int				tablen(int *tab);
 void			free_ps(t_ps **ps);
 void			ft_exit(const char *errmsg);
 void			quit_push_swap(t_ps **ps, const char *errmsg);

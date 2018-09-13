@@ -6,7 +6,7 @@
 #    By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/06/29 14:18:45 by cpireyre          #+#    #+#              #
-#    Updated: 2018/09/12 13:01:38 by cpireyre         ###   ########.fr        #
+#    Updated: 2018/09/13 14:43:34 by cpireyre         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ PATTERNS	:=	$(addprefix ./patterns/, $(PAT_SRC))
 C_FILES		:=	parse.c mem.c actions.c normalize.c \
 	push.c swap.c rotate.c reverse.c \
 	tab.c math.c \
-	draw.c \
+	draw.c visu.c \
 	$(PATTERNS) patterns.c crapsort.c splitsort.c \
 	is_ordered.c \
 	sorcery.c

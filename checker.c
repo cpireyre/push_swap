@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/31 12:22:12 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/09/12 14:24:08 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/09/13 14:33:28 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,27 +46,24 @@ int				main(int argc, char **argv)
 	t_bool	visu_on;
 	t_ps	*ps;
 	char	*line;
-	int		count;
+	int		*sorted;
 
 	if (argc < 2)
 		return (1);
 	toggle_visu(&argv, &visu_on, &argc);
-	ps = parse(argc, argv);
+	ps = visu_on ? parse_visu(argc, argv, &sorted) : parse(argc, argv);
 	line = NULL;
-	count = 0;
 	while (ft_gnl(0, &line))
 	{
 		if (visu_on)
-			visu_wrapper(ps, &line);
+			visu_wrapper(ps, &line, sorted);
 		else
 			do_action(ps, &line, NO_PRINT);
 		ft_strdel(&line);
-		count++;
 	}
 	endwin();
 	ft_assert(is_done(ps), MSG_OK, MSG_NOT_OK);
-	if (0)
-		ft_printf("%d moves.\n", count);
+	free(sorted);
 	free_ps(&ps);
 	return (0);
 }
