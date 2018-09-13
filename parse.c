@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/31 12:21:21 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/09/12 14:58:49 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/09/13 14:01:11 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ t_ps	*parse(int argc, char **argv)
 	ps = ft_memalloc(sizeof(t_ps));
 	args = argc - 1;
 	A = create_tab(argc, argv);
-	B = ft_memalloc(sizeof(int) * args + 1);
+	B = ft_memalloc(sizeof(int) * (args + 1));
 	sorted = create_sorted_copy(A, args);
 	normalize_tab(&A, sorted, args);
 	dupes = has_dupes(sorted, args);

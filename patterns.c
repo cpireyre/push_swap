@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/12 13:58:41 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/09/12 14:20:51 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/09/13 13:59:23 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 t_bool		dry_run(t_ps *ps, int size, t_pattern to_try, t_checker check)
 {
 	t_ps	copy;
-	int		a_copy[size];
-	int		b_copy[size];
+	int		a_copy[size + 1];
+	int		b_copy[size + 1];
 
-	ft_memcpy(&copy, ps, sizeof(t_ps));
+	ft_memcpy(&copy, ps, sizeof(ps));
 	ft_memcpy(a_copy, A, sizeof(a_copy));
 	copy.a = a_copy;
 	ft_memcpy(b_copy, B, sizeof(b_copy));
@@ -30,8 +30,8 @@ t_bool		dry_run(t_ps *ps, int size, t_pattern to_try, t_checker check)
 t_pattern	deep_run(t_ps *ps, int size, t_pattern to_try, t_checker check)
 {
 	t_ps	copy;
-	int		a_copy[size];
-	int		b_copy[size];
+	int		a_copy[size + 1];
+	int		b_copy[size + 1];
 	int		i;
 
 	ft_memcpy(&copy, ps, sizeof(t_ps));
