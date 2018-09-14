@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/12 13:56:42 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/09/12 15:04:00 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/09/14 10:34:28 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,15 @@
 
 t_bool	a_is_ordered(t_ps *ps)
 {
+	int	max;
+	int	min;
 	int	i;
 
 	i = 0;
+	max = tab_get_max(A);
+	min = tab_get_min(A);
 	while (A[++i])
-		if (A[i - 1] != A[i] - 1)
+		if (A[i - 1] != A[i] - 1 && !(A[i - 1] == max && A[i] == min))
 			return (false);
 	return (true);
 }
