@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/12 14:08:36 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/09/12 15:00:42 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/09/14 12:20:25 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,26 +99,17 @@ void	place_bmax_first(t_ps *ps, t_bool will_print)
 {
 	t_pattern	spin;
 	int			max;
-	int			min;
-	t_bool		double_it;
 
 	max = tab_get_max(B);
-	min = tab_get_min(B);
 	spin = b_spin_til(ps, max);
 	while (B[0] != max)
 	{
-		if ((double_it = (B[0] == min)))
+		spin(ps, will_print);
+		if (B[0] == max - 1)
 			PA;
-		if (!double_it)
-			spin(ps, will_print);
-		else if (spin == &rb)
-			RR;
-		else
-		{
-			RA;
-			RRB;
-		}
 	}
+	PA;
+	autosolve(&ps, will_print, &first_three_ok);
 }
 
 void	insertionsort(t_ps *ps, t_bool will_print)
@@ -126,10 +117,7 @@ void	insertionsort(t_ps *ps, t_bool will_print)
 	t_pattern	aspin;
 
 	while (B[0])
-	{
 		place_bmax_first(ps, will_print);
-		PA;
-	}
 	aspin = spin_til(ps, 1);
 	while (A[0] != 1)
 		aspin(ps, will_print);
@@ -139,14 +127,15 @@ void	splitsort(t_ps *ps, t_bool will_print)
 {
 	int	two;
 	int	total;
+	t_pattern	sorta;
 
 	total = tablen(A) + tablen(B);
 	two = 1;
-	while (!a_is_ordered(ps))
+	while (!(sorta = find_pattern(ps, &a_is_ordered)))
 	{
 		push_all_below_cutoff(ps, will_print, total - (total / two));
 		two *= 2;
 	}
-	autosolve(&ps, will_print, &a_is_ordered);
+	sorta(ps, will_print);
 	insertionsort(ps, will_print);
 }

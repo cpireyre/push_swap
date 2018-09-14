@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/31 12:32:30 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/09/13 16:46:02 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/09/14 10:36:42 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -191,6 +191,7 @@ void			b_swap_and_down(t_ps *ps, t_bool will_print);
 int			distance(int *tab, int to_find);
 t_pattern		spin_til(t_ps *ps, int to_find);
 t_pattern		b_spin_til(t_ps *ps, int to_find);
+void		b_actually_spin(t_ps *ps, t_bool will_print, int to_find);
 
 /*
 **	crapsort.c
@@ -221,6 +222,7 @@ t_bool			is_done(t_ps *ps);
 **	is_ordered.c
 */
 
+t_bool			first_three_ok(t_ps *ps);
 t_bool			a_is_ordered(t_ps *ps);
 t_bool			b_is_ordered(t_ps *ps);
 t_bool			b_is_decreasing(t_ps *ps);
