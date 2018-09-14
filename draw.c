@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/05 09:52:54 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/09/13 15:57:55 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/09/14 10:06:45 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,7 @@ void	visu_wrapper(t_ps *ps, char **line, int *sorted)
 	mvprintw(height + 3, 30, "b");
 	refresh();
 	do_action(ps, line, NO_PRINT);
-	sleep(1);
+	size_a = 900000000;
+	while (size_a--)
+		;
 }
