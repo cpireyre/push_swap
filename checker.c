@@ -45,26 +45,27 @@ int				main(int argc, char **argv)
 {
 	t_bool	visu_on;
 	t_ps	*ps;
-	char	*line;
+	t_ops	*list;
 	int		*sorted;
 
 	if (argc < 2)
 		return (1);
 	toggle_visu(&argv, &visu_on, &argc);
 	ps = visu_on ? parse_visu(argc, argv, &sorted) : parse(argc, argv);
-	line = NULL;
-	while (ft_gnl(0, &line))
+	list = make_list(0);
+	while (list)
 	{
 		if (visu_on)
-			visu_wrapper(ps, &line, sorted);
+			visu_wrapper(ps, list->op, sorted);
 		else
-			do_action(ps, &line, NO_PRINT);
-		ft_strdel(&line);
+			do_action(ps, list->op, NO_PRINT);
+		list = list->next;
 	}
 	endwin();
 	ft_assert(is_done(ps), MSG_OK, MSG_NOT_OK);
 	if (visu_on)
 		free(sorted);
+	free_all_ops(&list);
 	free_ps(&ps);
 	return (0);
 }

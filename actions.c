@@ -23,16 +23,13 @@ t_pattern	get_operation(const char *arg)
 	return (NULL);
 }
 
-void		do_action(t_ps *ps, char **line, t_bool will_print)
+void		do_action(t_ps *ps, char *line, t_bool will_print)
 {
 	t_pattern do_op;
 
-	do_op = get_operation(*line);
+	do_op = get_operation(line);
 	if (do_op)
 		do_op(ps, (will_print) ? PRINT : NO_PRINT);
 	else
-	{
-		ft_strdel(line);
 		quit_push_swap(&ps, MSG_BAD_ACTION);
-	}
 }
