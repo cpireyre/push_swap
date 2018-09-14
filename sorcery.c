@@ -12,6 +12,18 @@
 
 #include "header.h"
 
+t_bool	autosolve(t_ps **ps, t_bool will_print, t_checker check)
+{
+	t_pattern	tmp;
+
+	if (check(*ps))
+		return (true);
+	tmp = find_pattern(*ps, check);
+	if (tmp)
+		tmp(*ps, will_print);
+	return (tmp ? true : false);
+}
+
 t_pattern	*composition(t_pattern f, t_pattern g)
 {
 	t_pattern	*composite;

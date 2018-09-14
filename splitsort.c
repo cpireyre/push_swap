@@ -25,18 +25,6 @@ t_bool	b_first_and_next(t_ps *ps)
 	return (B[1] == B[0] - 1);
 }
 
-t_bool	autosolve(t_ps **ps, t_bool will_print, t_checker check)
-{
-	t_pattern	tmp;
-
-	if (check(*ps))
-		return (true);
-	tmp = find_pattern(*ps, check);
-	if (tmp)
-		tmp(*ps, will_print);
-	return (tmp ? true : false);
-}
-
 /*
 **	todo: split these into two patterns
 **	and then figure out some way to merge them with rrs and rrrs and sss...
