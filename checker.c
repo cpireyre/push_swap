@@ -46,6 +46,7 @@ int				main(int argc, char **argv)
 	t_bool	visu_on;
 	t_ps	*ps;
 	t_ops	*list;
+	t_ops	*tmp;
 	int		*sorted;
 
 	if (argc < 2)
@@ -53,6 +54,7 @@ int				main(int argc, char **argv)
 	toggle_visu(&argv, &visu_on, &argc);
 	ps = visu_on ? parse_visu(argc, argv, &sorted) : parse(argc, argv);
 	list = make_list(0);
+	tmp = list;
 	while (list)
 	{
 		if (visu_on)
@@ -65,7 +67,7 @@ int				main(int argc, char **argv)
 	ft_assert(is_done(ps), MSG_OK, MSG_NOT_OK);
 	if (visu_on)
 		free(sorted);
-	free_all_ops(&list);
+	free_all_ops(&tmp);
 	free_ps(&ps);
 	return (0);
 }

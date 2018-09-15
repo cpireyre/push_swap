@@ -300,6 +300,6 @@ t_bool	autosolve(t_ps **ps, t_bool will_print, t_checker check);
 **	quicksort.c
 */
 
-void	two_tapes_quicksort(t_ps *ps, t_byte sort, int cutoff, int size);
+void	two_tapes_quicksort(t_ps *ps, int cutoff, int size, t_byte sort);
 
 #endif

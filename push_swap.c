@@ -32,7 +32,8 @@ void	push_swap(t_ps *ps)
 				solve(ps, PRINT);
 				return ;
 			}
-		two_tapes_quicksort(ps, 1, size - 1, size - 1);
+		two_tapes_quicksort(ps, size / 2, size, 1);
+		two_tapes_quicksort(ps, 10, 20, 1);
 	}
 }
 
