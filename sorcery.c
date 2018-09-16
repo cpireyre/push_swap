@@ -6,11 +6,23 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/12 13:59:59 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/09/12 13:59:59 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/09/16 17:32:30 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
+
+t_bool	autosolve(t_ps **ps, t_bool will_print, t_checker check)
+{
+	t_pattern	tmp;
+
+	if (check(*ps))
+		return (true);
+	tmp = find_pattern(*ps, check);
+	if (tmp)
+		tmp(*ps, will_print);
+	return (tmp ? true : false);
+}
 
 t_pattern	*composition(t_pattern f, t_pattern g)
 {

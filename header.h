@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/31 12:32:30 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/09/14 10:36:42 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/09/16 17:33:20 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -279,5 +279,6 @@ static const	t_pattern g_all_patterns[NBR_PATTERNS] = {
 
 t_pattern		*composition(t_pattern f, t_pattern g);
 void			run_sequence(t_ps **ps, t_pattern *composite, t_bool print);
+t_bool	autosolve(t_ps **ps, t_bool will_print, t_checker check);
 
 #endif

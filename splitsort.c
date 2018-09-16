@@ -6,36 +6,11 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/12 14:08:36 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/09/14 12:20:25 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/09/16 17:48:23 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
-/*
-**	good candidates for inlining.
-*/
-
-t_bool	first_and_next(t_ps *ps)
-{
-	return (A[1] == A[0] + 1);
-}
-
-t_bool	b_first_and_next(t_ps *ps)
-{
-	return (B[1] == B[0] - 1);
-}
-
-t_bool	autosolve(t_ps **ps, t_bool will_print, t_checker check)
-{
-	t_pattern	tmp;
-
-	if (check(*ps))
-		return (true);
-	tmp = find_pattern(*ps, check);
-	if (tmp)
-		tmp(*ps, will_print);
-	return (tmp ? true : false);
-}
 
 /*
 **	todo: split these into two patterns
@@ -53,16 +28,9 @@ t_bool	entries_below(t_ps *ps, int below)
 	return (false);
 }
 
-void	smart_push(t_ps *ps, t_bool will_print)
+void	smart_push(t_ps *ps, t_bool will_print, int cutoff)
 {
-	int	diff_first;
-	int	diff_last;
-	int	size_b;
-
-	size_b = tablen(B);
-	diff_first = ft_abs(B[0] - A[0]);
-	diff_last = ft_abs(B[size_b - 1] - A[0]);
-	if (diff_first < diff_last)
+	if (A[0] > cutoff / 2)
 		PB;
 	else
 	{
@@ -86,7 +54,7 @@ void	push_all_below_cutoff(t_ps *ps, t_bool will_print, int cutoff)
 		if (A[0] < cutoff)
 		{
 			if (B[0])
-				smart_push(ps, will_print);
+				smart_push(ps, will_print, cutoff);
 			else
 				PB;
 		}
@@ -104,12 +72,14 @@ void	place_bmax_first(t_ps *ps, t_bool will_print)
 	spin = b_spin_til(ps, max);
 	while (B[0] != max)
 	{
-		spin(ps, will_print);
 		if (B[0] == max - 1)
 			PA;
+		else
+			spin(ps, will_print);
 	}
 	PA;
-	autosolve(&ps, will_print, &first_three_ok);
+	if (A[0] == A[1] + 1)
+		SA;
 }
 
 void	insertionsort(t_ps *ps, t_bool will_print)
@@ -127,15 +97,14 @@ void	splitsort(t_ps *ps, t_bool will_print)
 {
 	int	two;
 	int	total;
-	t_pattern	sorta;
 
 	total = tablen(A) + tablen(B);
 	two = 1;
-	while (!(sorta = find_pattern(ps, &a_is_ordered)))
+	while (A[2])
 	{
 		push_all_below_cutoff(ps, will_print, total - (total / two));
 		two *= 2;
 	}
-	sorta(ps, will_print);
+	autosolve(&ps, will_print, &a_is_ordered);
 	insertionsort(ps, will_print);
 }
