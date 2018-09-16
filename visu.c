@@ -25,7 +25,6 @@ t_ps	*parse_visu(int argc, char **argv, int **sorted)
 	*sorted = create_sorted_copy(A, args);
 	normalize_tab(&A, *sorted, args);
 	dupes = has_dupes(*sorted, args);
-	ft_print_int_tab(*sorted, args);
 	if (dupes)
 	{
 		free(*sorted);

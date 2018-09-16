@@ -45,6 +45,23 @@ typedef struct	s_ps
 	int		*b;
 }				t_ps;
 
+typedef struct	s_ops
+{
+	char	*op;
+	struct s_ops	*prev;
+	struct s_ops	*next;
+}		t_ops;
+
+/*
+**	list.c
+*/
+
+
+t_ops	*add_tail(t_ops **oldtail, char *input);
+void	free_op(t_ops **to_free);
+void	free_all_ops(t_ops **head);
+t_ops	*make_list(int fd);
+
 /*
 **	parse.c
 */
@@ -66,7 +83,7 @@ void			normalize_tab(int **tab, int *sorted, int size);
 **	actions.c
 */
 
-void			do_action(t_ps *ps, char **line, t_bool will_print);
+void			do_action(t_ps *ps, char *line, t_bool will_print);
 
 /*
 **	visu.c
@@ -78,7 +95,7 @@ t_ps	*parse_visu(int argc, char **argv, int **sorted);
 **	draw.c
 */
 
-void	visu_wrapper(t_ps *ps, char **line, int *sorted);
+void	visu_wrapper(t_ps *ps, char *line, int *sorted);
 
 /*
 **	mem.c
@@ -279,5 +296,12 @@ static const	t_pattern g_all_patterns[NBR_PATTERNS] = {
 
 t_pattern		*composition(t_pattern f, t_pattern g);
 void			run_sequence(t_ps **ps, t_pattern *composite, t_bool print);
+t_bool	autosolve(t_ps **ps, t_bool will_print, t_checker check);
+
+/*
+**	quicksort.c
+*/
+
+void	two_tapes_quicksort(t_ps *ps, int cutoff, int size, t_byte sort);
 
 #endif

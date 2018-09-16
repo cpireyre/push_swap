@@ -26,8 +26,8 @@ PATTERNS	:=	$(addprefix ./patterns/, $(PAT_SRC))
 C_FILES		:=	parse.c mem.c actions.c normalize.c \
 	push.c swap.c rotate.c reverse.c \
 	tab.c math.c \
-	draw.c visu.c \
-	$(PATTERNS) patterns.c crapsort.c splitsort.c \
+	draw.c visu.c list.c \
+	$(PATTERNS) patterns.c crapsort.c splitsort.c quicksort.c \
 	is_ordered.c \
 	sorcery.c
 H_FILES		:=	header.h

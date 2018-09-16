@@ -12,7 +12,7 @@
 
 #include "header.h"
 
-t_ops	*ops_add_tail(t_ops **oldtail, char *input)
+t_ops	*add_tail(t_ops **oldtail, char *input)
 {
 	t_ops	*new;
 
@@ -32,4 +32,43 @@ t_ops	*ops_add_tail(t_ops **oldtail, char *input)
 		new->next = NULL;
 	}
 	return (new);
+}
+
+void	free_op(t_ops **to_free)
+{
+	ft_strdel(&((*to_free)->op));
+	ft_memdel((void**)to_free);
+}
+
+void	free_all_ops(t_ops **head)
+{
+	t_ops	*tmp;
+	t_ops	*list;
+
+	list = *head;
+	while (list->prev)
+		list = list->prev;
+	while (list)
+	{
+		tmp = list;
+		list = list->next;
+		free_op(&tmp);
+	}
+}
+
+t_ops	*make_list(int fd)
+{
+	t_ops	*list;
+	char	*line;
+
+	line = NULL;
+	list = NULL;
+	while (ft_gnl(fd, &line))
+	{
+		list = add_tail(&list, line);
+		ft_strdel(&line);
+	}
+	while (list->prev)
+		list = list->prev;
+	return (list);
 }

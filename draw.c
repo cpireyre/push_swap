@@ -22,7 +22,7 @@ void	ncurses_print_tab(int *tab, int *sorted, int size, size_t leftshift, int to
 		mvprintw(total - i, leftshift, "%d", sorted[tab[size - i - 1] - 1]);
 }
 
-void	visu_wrapper(t_ps *ps, char **line, int *sorted)
+void	visu_wrapper(t_ps *ps, char *line, int *sorted)
 {
 	int	height;
 	int	size_a;

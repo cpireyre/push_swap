@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/12 14:08:36 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/09/14 12:20:25 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/09/16 12:57:32 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,18 +23,6 @@ t_bool	first_and_next(t_ps *ps)
 t_bool	b_first_and_next(t_ps *ps)
 {
 	return (B[1] == B[0] - 1);
-}
-
-t_bool	autosolve(t_ps **ps, t_bool will_print, t_checker check)
-{
-	t_pattern	tmp;
-
-	if (check(*ps))
-		return (true);
-	tmp = find_pattern(*ps, check);
-	if (tmp)
-		tmp(*ps, will_print);
-	return (tmp ? true : false);
 }
 
 /*
