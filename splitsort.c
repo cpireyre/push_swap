@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/12 14:08:36 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/09/16 19:01:36 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/09/16 19:10:38 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void	place_bmax_first(t_ps *ps, t_bool will_print)
 	{
 		if (B[0] == max - 1)
 			PA;
-		else if(B[0] == min)
+		else if (B[0] == min)
 		{
 			PA;
 			RA;

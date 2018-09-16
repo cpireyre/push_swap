@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/31 12:32:30 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/09/16 17:33:20 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/09/16 19:14:22 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,13 +72,13 @@ void			do_action(t_ps *ps, char **line, t_bool will_print);
 **	visu.c
 */
 
-t_ps	*parse_visu(int argc, char **argv, int **sorted);
+t_ps			*parse_visu(int argc, char **argv, int **sorted);
 
 /*
 **	draw.c
 */
 
-void	visu_wrapper(t_ps *ps, char **line, int *sorted);
+void			visu_wrapper(t_ps *ps, char **line, int *sorted);
 
 /*
 **	mem.c
@@ -93,8 +93,8 @@ void			quit_push_swap(t_ps **ps, const char *errmsg);
 **	tab.c
 */
 
-void	tab_erase_first(int **tab);
-void	tab_add_first(int **tab, int value);
+void			tab_erase_first(int **tab);
+void			tab_add_first(int **tab, int value);
 void			tab_rotate_down(int **tab);
 void			tab_rotate_up(int **tab);
 
@@ -158,8 +158,8 @@ typedef struct	s_action
 */
 
 t_pattern		find_pattern(t_ps *ps, t_checker to_pass);
-t_bool		dry_run(t_ps *ps, int size, t_pattern to_try, t_checker check);
-t_pattern	deep_run(t_ps *ps, int size, t_pattern to_try, t_checker check);
+t_bool			dry_run(t_ps *ps, int size, t_pattern to_try, t_checker check);
+t_pattern		deep_run(t_ps *ps, int size, t_pattern to_try, t_checker check);
 void			print_pattern(t_ps *ps, char *instruction);
 
 void			leader(t_ps *ps, t_bool will_print);
@@ -188,10 +188,10 @@ void			b_swap_and_down(t_ps *ps, t_bool will_print);
 **	spin.c
 */
 
-int			distance(int *tab, int to_find);
+int				distance(int *tab, int to_find);
 t_pattern		spin_til(t_ps *ps, int to_find);
 t_pattern		b_spin_til(t_ps *ps, int to_find);
-void		b_actually_spin(t_ps *ps, t_bool will_print, int to_find);
+void			b_actually_spin(t_ps *ps, t_bool will_print, int to_find);
 
 /*
 **	crapsort.c
@@ -204,7 +204,7 @@ void			crapsort(t_ps *ps, t_bool will_print);
 **	splitsort.c
 */
 
-void	push_all_below_cutoff(t_ps *ps, t_bool will_print, int cutoff);
+void			push_all_below_cutoff(t_ps *ps, t_bool will_print, int cutoff);
 void			splitsort(t_ps *ps, t_bool will_print);
 
 void			optisort(t_ps *ps, t_bool will_print);
@@ -279,6 +279,6 @@ static const	t_pattern g_all_patterns[NBR_PATTERNS] = {
 
 t_pattern		*composition(t_pattern f, t_pattern g);
 void			run_sequence(t_ps **ps, t_pattern *composite, t_bool print);
-t_bool	autosolve(t_ps **ps, t_bool will_print, t_checker check);
+t_bool			autosolve(t_ps **ps, t_bool will_print, t_checker check);
 
 #endif

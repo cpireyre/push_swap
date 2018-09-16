@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/13 14:32:14 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/09/13 15:01:05 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/09/16 19:12:26 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 t_ps	*parse_visu(int argc, char **argv, int **sorted)
 {
 	t_ps	*ps;
-	int	args;
+	int		args;
 	t_bool	dupes;
 
 	ps = ft_memalloc(sizeof(t_ps));

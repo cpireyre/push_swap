@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/05 10:05:08 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/09/13 11:37:49 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/09/16 19:12:41 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	push_swap(t_ps *ps)
 {
 	t_pattern	solve;
 	int			i;
-	int	size;
+	int			size;
 
 	i = -1;
 	size = tablen(A) + tablen(B);

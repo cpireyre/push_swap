@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/01 11:09:54 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/09/13 11:43:50 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/09/16 19:13:44 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,11 @@
 **	the recursion is probably fine and gets TCO'd with -O1.
 */
 
-int	tablen(int *tab)
+int		tablen(int *tab)
 {
 	return (*tab ? 1 + tablen(++tab) : 0);
 }
+
 void	quit_push_swap(t_ps **ps, const char *errmsg)
 {
 	endwin();

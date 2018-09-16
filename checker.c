@@ -6,14 +6,14 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/31 12:22:12 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/09/13 17:04:34 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/09/16 19:13:22 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 #include <unistd.h>
 
-static void			init_visu(void)
+static void		init_visu(void)
 {
 	initscr();
 	if (has_colors() == false)
