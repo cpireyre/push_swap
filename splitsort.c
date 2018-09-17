@@ -35,7 +35,7 @@ void	smart_push(t_ps *ps, t_bool will_print, int cutoff)
 	else
 	{
 		PB;
-		RB;
+		A[0] > cutoff ? RR : RB;
 	}
 }
 
@@ -112,6 +112,7 @@ void	splitsort(t_ps *ps, t_bool will_print)
 		push_all_below_cutoff(ps, will_print, total - (total / two));
 		two *= 2;
 	}
-	autosolve(&ps, will_print, &a_is_ordered);
+	if (A[0] == A[1] + 1)
+		SA;
 	insertionsort(ps, will_print);
 }
