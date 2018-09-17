@@ -20,13 +20,9 @@ t_bool	first_three_ok(t_ps *ps)
 
 t_bool	a_is_ordered(t_ps *ps)
 {
-	int	max;
-	int	min;
 	int	i;
 
 	i = 0;
-	max = tab_get_max(A);
-	min = tab_get_min(A);
 	while (A[++i])
 		if (A[i - 1] != A[i] - 1)
 			return (false);
