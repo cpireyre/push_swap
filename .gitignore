@@ -55,9 +55,5 @@ Mkfile.old
 dkms.conf
 
 # Project specific
-analyzer.sh
-fuck.sh
-game
 checker
-test
 push_swap
