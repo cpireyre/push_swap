@@ -46,6 +46,12 @@ typedef struct	s_ps
 }				t_ps;
 
 /*
+**	multifd.c
+*/
+
+int	get_number_entries(char **argv);
+
+/*
 **	parse.c
 */
 

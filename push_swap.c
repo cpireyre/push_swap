@@ -38,13 +38,20 @@ void	push_swap(t_ps *ps)
 
 int		main(int argc, char **argv)
 {
-	t_ps	*ps;
+	int	numbers;
 
 	if (argc < 2)
 		return (1);
+	argc--;
+	argv++;
+	numbers = get_number_entries(argv);
+	ft_printf("Detected %d numbers\n", numbers);
+/*
+	t_ps	*ps;
 	ps = parse(argc, argv);
 	if (!is_done(ps))
 		push_swap(ps);
 	free_ps(&ps);
+*/
 	return (0);
 }

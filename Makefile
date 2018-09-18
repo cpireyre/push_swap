@@ -12,18 +12,18 @@
 
 CC		:=	gcc
 RM		:=	rm -f
-CFLAGS	:=	-Wall -Wextra -Werror #-std=c89 -O1
+CFLAGS	:=	-Wall -Wextra -Werror -std=c89 -O1
 LIBDIR	:=	./libft
 LIBFT	:=	$(LIBDIR)/libft.a
 BFLAGS	:=	-I$(LIBDIR)/
-#DEBUG	:=	-g3 -fsanitize=address -fsanitize=undefined 
+DEBUG	:=	-g3 -fsanitize=address -fsanitize=undefined 
 INCLUDE	:=	-lncurses -lft -L$(LIBDIR)/
 
 PROGRAMS	=	push_swap checker
 
 PAT_SRC		:=	swaps.c doubles.c spin.c bswaps.c smart_pushes.c
 PATTERNS	:=	$(addprefix ./patterns/, $(PAT_SRC))
-C_FILES		:=	parse.c mem.c actions.c normalize.c \
+C_FILES		:=	parse.c mem.c actions.c normalize.c multifd.c \
 	push.c swap.c rotate.c reverse.c \
 	tab.c math.c \
 	draw.c visu.c \
