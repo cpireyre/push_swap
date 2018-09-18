@@ -61,6 +61,7 @@ int				*create_sorted_copy(int	*tab, int size);
 t_bool			is_valid_arg(const char *arg);
 t_bool			has_dupes(int *sorted, int size);
 int				*create_tab(int argc, char **argv);
+void	ps_fill_tab(int **tab, char **argv);
 
 /*
 **	normalize.c
@@ -79,7 +80,7 @@ void			do_action(t_ps *ps, char **line, t_bool will_print);
 **	visu.c
 */
 
-t_ps			*parse_visu(int argc, char **argv, int **sorted);
+t_ps			*parse_visu(char **argv, int **sorted);
 
 /*
 **	draw.c

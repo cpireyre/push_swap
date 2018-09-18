@@ -51,7 +51,9 @@ int				main(int argc, char **argv)
 	if (argc < 2)
 		return (1);
 	toggle_visu(&argv, &visu_on, &argc);
-	ps = visu_on ? parse_visu(argc, argv, &sorted) : parse(argc, argv);
+	argc--;
+	argv++;
+	ps = visu_on ? parse_visu(argv, &sorted) : parse(argv);
 	line = NULL;
 	while (ft_gnl(0, &line))
 	{
