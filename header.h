@@ -49,13 +49,14 @@ typedef struct	s_ps
 **	multifd.c
 */
 
+size_t	ft_strsplen(const char *str);
 int	get_number_entries(char **argv);
 
 /*
 **	parse.c
 */
 
-t_ps			*parse(int argc, char **argv);
+t_ps			*parse(char **argv);
 int				*create_sorted_copy(int	*tab, int size);
 t_bool			is_valid_arg(const char *arg);
 t_bool			has_dupes(int *sorted, int size);

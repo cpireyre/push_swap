@@ -11,6 +11,8 @@
 /* ************************************************************************** */
 
 #include "header.h"
+#include <unistd.h>
+#include <fcntl.h>
 
 
 t_bool	has_dupes(int *sorted, int size)
@@ -24,24 +26,48 @@ t_bool	has_dupes(int *sorted, int size)
 	return (false);
 }
 
-int		*create_tab(int argc, char **argv)
+void		fill_tab_from_string(int **tab, int *index, char *str)
 {
-	int		*tab;
-	int		i;
-
-	tab = ft_memalloc(sizeof(int) * argc);
-	i = -1;
-	while (++i < argc)
+	while (*str)
 	{
-		if (is_valid_arg(argv[i]))
-			tab[i - 1] = ft_atoi(argv[i]);
-		else
-			ft_exit(MSG_INVALID);
+		while (*str && ft_isspace(*str))
+			str++;
+		if (*str)
+		{
+			(*tab)[*index] = ft_atoi(str);
+			(*index)++;
+			str += ft_strsplen(str);
+		}
 	}
-	return (tab);
 }
 
-t_ps	*parse(int argc, char **argv)
+void	ps_fill_tab(int **tab, char **argv)
+{
+	int	fd;
+	int	index;
+	char	*line;
+
+	index = 0;
+	while (*argv)
+	{
+		fd = open(*argv, O_RDONLY);
+		if (fd == -1)
+			fill_tab_from_string(tab, &index, *argv);
+		else
+		{
+			while (ft_gnl(fd, &line))
+			{
+				fill_tab_from_string(tab, &index, line);
+				ft_strdel(&line);
+			}
+			if ((close(fd) == -1))
+				ft_exit("Something went wrong while closing file descriptor.");
+		}
+		argv++;
+	}
+}
+
+t_ps	*parse(char **argv)
 {
 	t_ps	*ps;
 	int		args;
@@ -49,8 +75,9 @@ t_ps	*parse(int argc, char **argv)
 	t_bool	dupes;
 
 	ps = ft_memalloc(sizeof(t_ps));
-	args = argc;
-	A = create_tab(argc, argv);
+	args = get_number_entries(argv);
+	A = ft_memalloc(sizeof(int) * (args + 1));
+	ps_fill_tab(&A, argv);
 	B = ft_memalloc(sizeof(int) * (args + 1));
 	sorted = create_sorted_copy(A, args);
 	normalize_tab(&A, sorted, args);

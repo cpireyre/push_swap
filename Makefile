@@ -26,7 +26,7 @@ PATTERNS	:=	$(addprefix ./patterns/, $(PAT_SRC))
 C_FILES		:=	parse.c mem.c actions.c normalize.c multifd.c \
 	push.c swap.c rotate.c reverse.c \
 	tab.c math.c \
-	draw.c visu.c \
+	draw.c  \
 	$(PATTERNS) patterns.c crapsort.c splitsort.c \
 	is_ordered.c \
 	sorcery.c
