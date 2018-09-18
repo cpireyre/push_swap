@@ -6,38 +6,11 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/12 14:08:36 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/09/16 19:10:38 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/09/18 08:51:43 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
-
-/*
-**	todo: split these into two patterns
-**	and then figure out some way to merge them with rrs and rrrs and sss...
-*/
-
-t_bool	entries_below(t_ps *ps, int below)
-{
-	int	i;
-
-	i = -1;
-	while (A[++i])
-		if (A[i] < below)
-			return (true);
-	return (false);
-}
-
-void	smart_push(t_ps *ps, t_bool will_print, int cutoff)
-{
-	if (A[0] > cutoff / 2)
-		PB;
-	else
-	{
-		PB;
-		A[0] > cutoff ? RR : RB;
-	}
-}
 
 /*
 **	this is where i could use akarasso's trick
@@ -46,22 +19,6 @@ void	smart_push(t_ps *ps, t_bool will_print, int cutoff)
 **	fully filled out yet, so you don't have to
 **	scroll a lot.
 */
-
-void	push_all_below_cutoff(t_ps *ps, t_bool will_print, int cutoff)
-{
-	while (entries_below(ps, cutoff))
-	{
-		if (A[0] < cutoff)
-		{
-			if (B[0])
-				smart_push(ps, will_print, cutoff);
-			else
-				PB;
-		}
-		else
-			RA;
-	}
-}
 
 void	place_bmax_first(t_ps *ps, t_bool will_print)
 {

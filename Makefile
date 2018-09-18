@@ -6,22 +6,22 @@
 #    By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/06/29 14:18:45 by cpireyre          #+#    #+#              #
-#    Updated: 2018/09/13 14:43:34 by cpireyre         ###   ########.fr        #
+#    Updated: 2018/09/18 09:01:29 by cpireyre         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC		:=	gcc
 RM		:=	rm -f
-CFLAGS	:=	-Wall -Wextra -Werror -std=c89 -O1
+CFLAGS	:=	-Wall -Wextra -Werror #-std=c89 -O1
 LIBDIR	:=	./libft
 LIBFT	:=	$(LIBDIR)/libft.a
 BFLAGS	:=	-I$(LIBDIR)/
-DEBUG	:=	-g3 -fsanitize=address -fsanitize=undefined 
+#DEBUG	:=	-g3 -fsanitize=address -fsanitize=undefined 
 INCLUDE	:=	-lncurses -lft -L$(LIBDIR)/
 
 PROGRAMS	=	push_swap checker
 
-PAT_SRC		:=	swaps.c doubles.c spin.c
+PAT_SRC		:=	swaps.c doubles.c spin.c bswaps.c smart_pushes.c
 PATTERNS	:=	$(addprefix ./patterns/, $(PAT_SRC))
 C_FILES		:=	parse.c mem.c actions.c normalize.c \
 	push.c swap.c rotate.c reverse.c \

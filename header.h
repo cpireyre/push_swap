@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/31 12:32:30 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/09/16 19:14:22 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/09/18 08:49:51 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -183,6 +183,13 @@ void			b_swap_second_third(t_ps *ps, t_bool will_print);
 void			b_swap_first_last(t_ps *ps, t_bool will_print);
 void			swap_and_down(t_ps *ps, t_bool will_print);
 void			b_swap_and_down(t_ps *ps, t_bool will_print);
+
+/*
+**	./patterns/smart_pushes.c
+*/
+
+void	smart_push(t_ps *ps, t_bool will_print, int cutoff);
+void	push_all_below_cutoff(t_ps *ps, t_bool will_print, int cutoff);
 
 /*
 **	spin.c
