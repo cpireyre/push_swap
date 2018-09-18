@@ -6,7 +6,7 @@
 #    By: aroulin <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/07/26 18:08:32 by aroulin           #+#    #+#              #
-#    Updated: 2018/09/18 07:22:49 by cpireyre         ###   ########.fr        #
+#    Updated: 2018/09/18 07:46:37 by cpireyre         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -83,8 +83,8 @@ do
 done;
 MOY=$(( $MOY / $TRY ));
 echo "\n\x1b[33m$WELL/$TRY\x1b[0m lists were sorted correctly."
-echo "Of which, x1B[31m$MORE\x1b[0m longer than $MED."
-echo "And x1B[32m$LESS\x1b[0m shorter than $MED."
+echo "Of which, \x1B[31m$MORE\x1b[0m longer than $MED."
+echo "And \x1B[32m$LESS\x1b[0m shorter than $MED."
 echo "Longest sort:\x1B[31m$MAX\x1b[0m"
 echo "Shortest sort:\t\x1b[33m$MOY\x1b[0m"
 echo "Average sort::\x1B[32m$MIN\x1b[0m"
