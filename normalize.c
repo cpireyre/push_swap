@@ -22,6 +22,10 @@ int			*create_sorted_copy(int *tab, int size)
 	return (sorted);
 }
 
+/*
+**	todo: delete this thing
+*/
+
 int			*calculate_splits(int *sorted, int size, int *nbr_splits)
 {
 	int	*splits;
@@ -53,8 +57,8 @@ void		normalize_tab(int **tab, int *sorted, int size)
 	while (++i < size)
 	{
 		j = 0;
-		while (j < size && ptr[j] != (sorted)[i])
+		while (j < size && ptr[i] != (sorted)[j])
 			j++;
-		ptr[j] = i + 1;
+		ptr[i] = j + 1;
 	}
 }
