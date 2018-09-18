@@ -13,7 +13,7 @@ size_t	ft_strsplen(const char *str)
 	return (i);
 }
 
-static t_bool	is_valid_arg(const char *arg)
+t_bool	is_valid_arg(const char *arg)
 {
 	intmax_t	tmp;
 	size_t		len;
@@ -51,10 +51,7 @@ static int	count_numbers_in_string(const char *str)
 		else
 			if (*str)
 				return (-1);
-		if (*str && (*str == '-' || *str == '+'))
-			str++;
-		while (*str && ft_isdigit(*str))
-			str++;
+		str += ft_strsplen(str);
 	}
 	return (count);
 }
