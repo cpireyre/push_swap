@@ -6,7 +6,7 @@
 #    By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/06/29 14:18:45 by cpireyre          #+#    #+#              #
-#    Updated: 2018/09/18 12:21:32 by cpireyre         ###   ########.fr        #
+#    Updated: 2018/09/18 12:23:46 by cpireyre         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,7 +47,7 @@ $(PROGRAMS): %: %.o $(DEPS) $(LIBFT) $(OBJ)
 	$(CC) $(CFLAGS) $(BFLAGS) $(OBJ) $< $(NAME) $(INCLUDE) $(DEBUG) -o $@
 
 clean:
-	$(RM) checker_main.o push_swap.o
+	$(RM) checker.o push_swap.o
 	$(MAKE) clean -C $(LIBDIR)
 	$(RM) $(OBJ)
 
