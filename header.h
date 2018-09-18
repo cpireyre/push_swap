@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/31 12:32:30 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/09/18 08:49:51 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/09/18 11:41:31 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -188,8 +188,8 @@ void			b_swap_and_down(t_ps *ps, t_bool will_print);
 **	./patterns/smart_pushes.c
 */
 
-void	smart_push(t_ps *ps, t_bool will_print, int cutoff);
-void	push_all_below_cutoff(t_ps *ps, t_bool will_print, int cutoff);
+void			smart_push(t_ps *ps, t_bool will_print, int cutoff);
+void			push_all_below_cutoff(t_ps *ps, t_bool will_print, int cutoff);
 
 /*
 **	spin.c
@@ -213,10 +213,6 @@ void			crapsort(t_ps *ps, t_bool will_print);
 
 void			push_all_below_cutoff(t_ps *ps, t_bool will_print, int cutoff);
 void			splitsort(t_ps *ps, t_bool will_print);
-
-void			optisort(t_ps *ps, t_bool will_print);
-void			push_half(t_ps *ps, t_bool willprint);
-void			dilettantesort(t_ps *ps, t_bool willprint);
 
 /*
 **	a few checkers to start with.
