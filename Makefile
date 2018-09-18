@@ -6,7 +6,7 @@
 #    By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/06/29 14:18:45 by cpireyre          #+#    #+#              #
-#    Updated: 2018/09/18 09:01:29 by cpireyre         ###   ########.fr        #
+#    Updated: 2018/09/18 12:21:32 by cpireyre         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,6 @@ OBJ			:=	$(C_FILES:.c=.o)
 DEPS		=	$(H_FILES) Makefile 
 
 all: push_swap checker
-	ctags -R #remove later
 
 $(LIBFT): force
 	@$(MAKE) -C $(LIBDIR) 2> /dev/null
@@ -55,8 +54,6 @@ clean:
 fclean: clean
 	make fclean -C libft/
 	$(RM) $(PROGRAMS)
-	rm -rf *.dSYM #comment out later?
-	$(RM) tags
 
 re: fclean all
 
