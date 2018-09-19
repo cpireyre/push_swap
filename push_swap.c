@@ -32,7 +32,7 @@ void	push_swap(t_ps *ps)
 				solve(ps, PRINT);
 				return ;
 			}
-		size < 250 ? splitsort(ps, PRINT) : two_tapes_quicksort(ps);
+		size < 1 ? splitsort(ps, PRINT) : subfilesort(ps, PRINT);
 	}
 }
 

@@ -11,17 +11,77 @@ t_bool	entries_in_range(int *tape, int a, int b)
 	return (false);
 }
 
-void	push_range(t_ps *ps, int a, int b)
+t_pattern	find_closest_below(t_ps *ps, int a, int b, t_bool atob)
 {
-	while (entries_in_range(A, a, b))
+	int	min;
+	int	dist;
+	int	*tape;
+	int	tmp;
+
+	tape = atob ? A : B;
+	dist = distance(tape, a);
+	tmp = a;
+	while (++a <= b)
 	{
-		if (A[0] <= b)
-			pb(ps, PRINT);
-		else
-			ra(ps, PRINT);
+		dist = distance(tape, a);
+		if (dist <= min)
+		{
+			min = dist;
+			tmp = a;
+		}
 	}
-	if (B[0] != b)
-		rrb(ps, PRINT);
+	return (atob ? spin_til(ps, tmp) : b_spin_til(ps, tmp));
+}
+
+void	push_range(t_ps *ps, int a, int b, t_bool atob)
+{
+	t_pattern	push;
+	t_pattern	spin;
+	int		*tape;
+
+	tape = atob ? A : B;
+	spin = find_closest_below(ps, a, b, atob);
+	push = atob ? &pb : &pa;
+	while (entries_in_range(tape, a, b))
+	{
+		if (a <= tape[0] && tape[0] <= b)
+		{
+			push(ps, PRINT);
+			spin = find_closest_below(ps, a, b, atob);
+		}
+		else
+			spin(ps, PRINT);
+	}
+}
+
+void	sortab(t_ps *ps, int splits)
+{
+	int	size;
+	int	i;
+	int	factor;
+
+	size = tablen(A);
+	i = size / splits;
+	factor = 0;
+	while (factor <= splits)
+	{
+		push_range(ps, (i * factor) + 1, (i * (factor + 1)), true);
+		factor++;
+	}
+}
+
+void	sortba(t_ps *ps, int splits)
+{
+	int	size;
+	int	i;
+
+	size = tablen(B);
+	i = size / splits;
+	while (splits)
+	{
+		push_range(ps, (i * splits) + 1, (i * (splits + 1)), false);
+		splits--;
+	}
 }
 
 /*
@@ -34,19 +94,10 @@ void	push_range(t_ps *ps, int a, int b)
 
 void	two_tapes_quicksort(t_ps *ps)
 {
-	int	size;
-	int	i;
-	int	factor;
-	int	splits;
-
-	size = tablen(A);
-	splits = 12;
-	i = size / splits;
-	factor = 0;
-	while (factor <= splits)
-	{
-		push_range(ps, (i * factor) + 1, (i * (factor + 1)));
-		factor++;
-	}
+	sortab(ps, 4);
+	sortba(ps, 8);
+	sortab(ps, 16);
+	while (A[0])
+		pb(ps, PRINT);
 	insertionsort(ps, PRINT);
 }

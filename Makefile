@@ -27,7 +27,7 @@ C_FILES		:=	parse.c mem.c actions.c normalize.c multifd.c \
 	push.c swap.c rotate.c reverse.c \
 	tab.c math.c \
 	draw.c visu.c  \
-	$(PATTERNS) patterns.c crapsort.c splitsort.c twotapes.c \
+	$(PATTERNS) patterns.c crapsort.c splitsort.c twotapes.c intelligentsort.c \
 	is_ordered.c \
 	sorcery.c
 H_FILES		:=	header.h

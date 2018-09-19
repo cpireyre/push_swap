@@ -229,6 +229,15 @@ void	insertionsort(t_ps *ps, t_bool will_print);
 */
 
 void	two_tapes_quicksort(t_ps *ps);
+t_bool	entries_in_range(int *tape, int a, int b);
+t_pattern	find_closest_below(t_ps *ps, int a, int b, t_bool atob);
+
+/*
+**	intelligentsort.c
+*/
+
+void	subfilesort(t_ps *ps, t_bool will_print);
+
 /*
 **	a few checkers to start with.
 **	todo: move them to their own files
