@@ -22,15 +22,15 @@
 ##		You may provide a median against which to compare your scores.
 
 
-echo "\x1B[36m";
+echo "\033[36m";
 echo "\n--- [ ANALYZING PUSH_SWAP] ---";
-echo "\x1B[0m";
+echo "\033[0m";
 
 read -p "Range of numbers? [from ... to] (At least two.) " NBRBOT NBRTOP
 read -p "How many loops? " TRY
 read -p "Median number of instructions? " MED
 NBR=$(($NBRTOP - $NBRBOT))
-((NBR++))
+NBR=$(( $NBR + 1 ));
 MOY=0;
 MAX=-1;
 MIN=-1;
@@ -76,17 +76,17 @@ do
 	IND=$(( $IND - 1 ));
 	if [ $NBRCOUP -gt $MED ]
 	then 
-		((MORE++))
+		MORE=$(( $MORE + 1))
 	else
-		((LESS++))
+		LESS=$(( $LESS + 1))
 	fi;
 done;
 MOY=$(( $MOY / $TRY ));
-echo "\n\x1b[33m$WELL/$TRY\x1b[0m lists were sorted correctly."
-echo "Of which, \x1B[31m$MORE\x1b[0m longer than $MED."
-echo "And \x1B[32m$LESS\x1b[0m shorter than $MED."
-echo "Longest sort:\x1B[31m$MAX\x1b[0m"
-echo "Shortest sort:\t\x1b[33m$MOY\x1b[0m"
-echo "Average sort::\x1B[32m$MIN\x1b[0m"
+echo "\n\033[33m$WELL/$TRY\033[0m lists were sorted correctly."
+echo "Of which, \033[31m$MORE\033[0m longer than $MED."
+echo "And \033[32m$LESS\033[0m shorter than $MED."
+echo "Longest sort:\033[31m$MAX\033[0m"
+echo "Average sort:\t\033[33m$MOY\033[0m"
+echo "Shortest sort:\033[32m$MIN\033[0m"
 echo "Worst list:\t$ACTMAX"
 echo "Best list:\t\t$ACTMIN"
