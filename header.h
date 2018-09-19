@@ -221,11 +221,14 @@ void			crapsort(t_ps *ps, t_bool will_print);
 
 void			push_all_below_cutoff(t_ps *ps, t_bool will_print, int cutoff);
 void			splitsort(t_ps *ps, t_bool will_print);
-
-void			optisort(t_ps *ps, t_bool will_print);
 void			push_half(t_ps *ps, t_bool willprint);
-void			dilettantesort(t_ps *ps, t_bool willprint);
+void	insertionsort(t_ps *ps, t_bool will_print);
 
+/*
+**	twotapes.c
+*/
+
+void	two_tapes_quicksort(t_ps *ps);
 /*
 **	a few checkers to start with.
 **	todo: move them to their own files
