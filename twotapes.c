@@ -20,6 +20,7 @@ t_pattern	find_closest_below(t_ps *ps, int a, int b, t_bool atob)
 
 	tape = atob ? A : B;
 	dist = distance(tape, a);
+	min = dist;
 	tmp = a;
 	while (++a <= b)
 	{

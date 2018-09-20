@@ -12,11 +12,11 @@
 
 CC		:=	gcc
 RM		:=	rm -f
-CFLAGS	:=	-Wall -Wextra -Werror #-std=c89 -O1
+CFLAGS	:=	-Wall -Wextra -Werror -std=c89 -O1
 LIBDIR	:=	./libft
 LIBFT	:=	$(LIBDIR)/libft.a
 BFLAGS	:=	-I$(LIBDIR)/
-#DEBUG	:=	-g3 -fsanitize=address -fsanitize=undefined 
+DEBUG	:=	-g3 -fsanitize=address -fsanitize=undefined 
 INCLUDE	:=	-lncurses -lft -L$(LIBDIR)/
 
 PROGRAMS	=	push_swap checker
