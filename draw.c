@@ -41,7 +41,7 @@ void	visu_wrapper(t_ps *ps, char **line, int *sorted)
 	mvprintw(height + 3, 30, "b");
 	refresh();
 	do_action(ps, line, NO_PRINT);
-	size_a = 100000000;
+	size_a = 500000000;
 	while (size_a--)
 		;
 }

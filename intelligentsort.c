@@ -9,7 +9,7 @@ void	subfilesort(t_ps *ps, t_bool will_print)
 	t_pattern	spin;
 
 	i = tablen(A) / 2;
-	halfsplits = 20;
+	halfsplits = i / 11;
 	while (A[0])
 	{
 		a = i - halfsplits;
@@ -22,7 +22,7 @@ void	subfilesort(t_ps *ps, t_bool will_print)
 				PB;
 				if (B[0] < i)
 					(A[0] > b || A[0] < a)
-					&& (spin == &ra) ? RR : RB;
+						&& (spin == &ra) ? RR : RB;
 				spin = find_closest_below(ps, a, b, true);
 			}
 			else
