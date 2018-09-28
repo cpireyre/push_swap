@@ -27,6 +27,11 @@ t_draw	create_draw_struct(int *tape, int color)
 	ret.tape = tape;
 	ret.size = tablen(tape);
 	ret.color = color;
+	if (ret.size > LINES - 4)
+	{
+		endwin();
+		ft_exit("Term window too small. Please try again.\n");
+	}
 	return (ret);
 }
 
