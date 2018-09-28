@@ -73,7 +73,6 @@ static int	count_numbers_in_arg(const char *arg)
 			if (count == -1)
 				return (-1);
 			acc += count;
-			ft_strdel(&line);
 		}
 		if ((close(fd) == -1))
 			ft_exit("Something went wrong while closing file descriptor.");

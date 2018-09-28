@@ -39,6 +39,8 @@ static void		toggle_visu(char ***argv, t_bool *visu_on, int *argc)
 	}
 	else
 		*visu_on = false;
+	(*argv)++;
+	(*argc)--;
 }
 
 int				main(int argc, char **argv)
@@ -51,8 +53,6 @@ int				main(int argc, char **argv)
 	if (argc < 2)
 		return (1);
 	toggle_visu(&argv, &visu_on, &argc);
-	argc--;
-	argv++;
 	ps = visu_on ? parse_visu(argv, &sorted) : parse(argv);
 	line = NULL;
 	while (ft_gnl(0, &line))
