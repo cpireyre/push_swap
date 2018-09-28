@@ -57,13 +57,12 @@ int				main(int argc, char **argv)
 	line = NULL;
 	while (ft_gnl(0, &line))
 	{
-		if (*line)
-		{
-			if (visu_on)
-				visu_wrapper(ps, &line, sorted);
-			else
-				do_action(ps, &line, NO_PRINT);
-		}
+		if (!*line)
+			continue ;
+		if (visu_on)
+			visu_wrapper(ps, &line, sorted);
+		else
+			do_action(ps, &line, NO_PRINT);
 	}
 	endwin();
 	ft_assert(is_done(ps), MSG_OK, MSG_NOT_OK);
