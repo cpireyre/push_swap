@@ -47,6 +47,27 @@ void	ncurses_print_tab(t_draw to_draw, int *sorted, size_t leftshift, int total)
 	attroff(COLOR_PAIR(to_draw.color));
 }
 
+void	print_action_string(char *line, int offset)
+{
+	attron(A_BOLD);
+	if (ft_strchr(line, 'a'))
+	{
+		attron(COLOR_PAIR(3));
+		mvprintw(1, offset + 9, "%s", line);
+		attroff(COLOR_PAIR(3));
+	}
+	else if (ft_strchr(line, 'b'))
+	{
+		attron(COLOR_PAIR(4));
+		mvprintw(1, offset + 30, "%s", line);
+		attroff(COLOR_PAIR(4));
+	}
+	else
+		mvprintw(1, offset + 18, "%s", line);
+	attroff(A_BOLD);
+	refresh();
+}
+
 void	visu_wrapper(t_ps *ps, char **line, int *sorted)
 {
 	t_draw	tape_a;
@@ -55,18 +76,17 @@ void	visu_wrapper(t_ps *ps, char **line, int *sorted)
 	int	horizontal_offset;
 
 	horizontal_offset = 20;
-	init_pair(1, COLOR_RED, -1);
-	init_pair(2, COLOR_BLUE, -1);
 	tape_a = create_draw_struct(A, 1);
 	tape_b = create_draw_struct(B, 2);
-	height = tape_a.size + tape_b.size;
+	height = tape_a.size + tape_b.size + 2;
 	clear();
+	print_action_string(*line, horizontal_offset);
 	mvprintw(height + 2, horizontal_offset + 1, "-------------------||-------------------");
 	if (tape_a.size)
-		ncurses_print_tab(tape_a, sorted, horizontal_offset + 8, height);
+		ncurses_print_tab(tape_a, sorted, horizontal_offset + 8, height + 1);
 	mvprintw(height + 3, horizontal_offset + 9, "a");
 	if (tape_b.size)
-		ncurses_print_tab(tape_b, sorted, horizontal_offset + 30, height);
+		ncurses_print_tab(tape_b, sorted, horizontal_offset + 30, height + 1);
 	mvprintw(height + 3, horizontal_offset + 30, "b");
 	refresh();
 	do_action(ps, line, NO_PRINT);

@@ -26,6 +26,10 @@ static void		init_visu(void)
 	keypad(stdscr, TRUE);
 	use_default_colors();
 	start_color();
+	init_pair(1, COLOR_RED, -1);
+	init_pair(2, COLOR_BLUE, -1);
+	init_pair(3, COLOR_BLACK, COLOR_RED);
+	init_pair(4, COLOR_BLACK, COLOR_BLUE);
 }
 
 static void		toggle_visu(char ***argv, t_bool *visu_on, int *argc)
