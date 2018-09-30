@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/05 10:05:08 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/09/30 16:29:13 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/09/30 18:20:11 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	push_swap(t_ps *ps)
 				solve(ps, PRINT);
 				return ;
 			}
-		(size < 200) ? splitsort(ps, PRINT) : subfilesort(ps, PRINT);
+		(size < 50) ? splitsort(ps, PRINT) : subfilesort(ps, PRINT);
 	}
 }
 
