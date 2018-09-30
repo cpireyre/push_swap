@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/31 12:32:30 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/09/18 08:49:51 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/09/30 17:56:31 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,7 @@ typedef struct	s_ps
 **	multifd.c
 */
 
-size_t	ft_strsplen(const char *str);
-int	get_number_entries(char **argv);
+int				get_number_entries(char **argv);
 
 /*
 **	parse.c
@@ -61,7 +60,7 @@ int				*create_sorted_copy(int	*tab, int size);
 t_bool			is_valid_arg(const char *arg);
 t_bool			has_dupes(int *sorted, int size);
 int				*create_tab(int argc, char **argv);
-void	ps_fill_tab(int **tab, char **argv);
+void			ps_fill_tab(int **tab, char **argv);
 
 /*
 **	normalize.c
@@ -85,6 +84,13 @@ t_ps			*parse_visu(char **argv, int **sorted);
 /*
 **	draw.c
 */
+
+typedef struct	s_draw
+{
+	int	*tape;
+	int	size;
+	int	color;
+}				t_draw;
 
 void			visu_wrapper(t_ps *ps, char **line, int *sorted);
 
@@ -196,8 +202,8 @@ void			b_swap_and_down(t_ps *ps, t_bool will_print);
 **	./patterns/smart_pushes.c
 */
 
-void	smart_push(t_ps *ps, t_bool will_print, int cutoff);
-void	push_all_below_cutoff(t_ps *ps, t_bool will_print, int cutoff);
+void			smart_push(t_ps *ps, t_bool will_print, int cutoff);
+void			push_all_below_cutoff(t_ps *ps, t_bool will_print, int cutoff);
 
 /*
 **	spin.c
@@ -222,21 +228,21 @@ void			crapsort(t_ps *ps, t_bool will_print);
 void			push_all_below_cutoff(t_ps *ps, t_bool will_print, int cutoff);
 void			splitsort(t_ps *ps, t_bool will_print);
 void			push_half(t_ps *ps, t_bool willprint);
-void	insertionsort(t_ps *ps, t_bool will_print);
+void			insertionsort(t_ps *ps, t_bool will_print);
 
 /*
 **	twotapes.c
 */
 
-void	two_tapes_quicksort(t_ps *ps);
-t_bool	entries_in_range(int *tape, int a, int b);
-t_pattern	find_closest_below(t_ps *ps, int a, int b, t_bool atob);
+void			two_tapes_quicksort(t_ps *ps);
+t_bool			entries_in_range(int *tape, int a, int b);
+t_pattern		find_closest_below(t_ps *ps, int a, int b, t_bool atob);
 
 /*
 **	intelligentsort.c
 */
 
-void	subfilesort(t_ps *ps, t_bool will_print);
+void			subfilesort(t_ps *ps, t_bool will_print);
 
 /*
 **	a few checkers to start with.

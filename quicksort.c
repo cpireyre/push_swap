@@ -1,4 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   quicksort.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/09/30 18:03:47 by cpireyre          #+#    #+#             */
+/*   Updated: 2018/09/30 18:04:23 by cpireyre         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "header.h"
+
+/*
+**	this whole thing is probably deprecated anyway.
+*/
 
 t_bool	sorted_up_to_rank(t_ps *ps, t_byte sort, int rank)
 {

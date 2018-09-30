@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   multifd.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/09/30 17:59:08 by cpireyre          #+#    #+#             */
+/*   Updated: 2018/09/30 18:07:34 by cpireyre         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "header.h"
 #include <unistd.h>
 #include <fcntl.h>
 #include <limits.h>
 
-t_bool	is_valid_arg(const char *arg)
+t_bool		is_valid_arg(const char *arg)
 {
 	intmax_t	tmp;
 	size_t		len;
@@ -39,8 +51,10 @@ static int	count_numbers_in_string(const char *str)
 		if (is_valid_arg(str))
 			count++;
 		else
+		{
 			if (*str)
 				return (-1);
+		}
 		str += ft_strsplen(str);
 	}
 	return (count);
@@ -48,10 +62,10 @@ static int	count_numbers_in_string(const char *str)
 
 static int	count_numbers_in_arg(const char *arg)
 {
-	int	fd;
+	int		fd;
 	char	*line;
-	int	acc;
-	int	count;
+	int		acc;
+	int		count;
 
 	fd = open(arg, O_RDONLY);
 	acc = 0;
@@ -71,8 +85,8 @@ static int	count_numbers_in_arg(const char *arg)
 	else
 		return (count_numbers_in_string(arg));
 }
-		
-int	get_number_entries(char **argv)
+
+int			get_number_entries(char **argv)
 {
 	int	acc;
 	int	count;

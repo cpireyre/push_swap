@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/31 12:21:21 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/09/16 19:13:51 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/09/30 18:03:34 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 #include <unistd.h>
 #include <fcntl.h>
 
-
-t_bool	has_dupes(int *sorted, int size)
+t_bool		has_dupes(int *sorted, int size)
 {
 	int		i;
 
@@ -41,10 +40,10 @@ void		fill_tab_from_string(int **tab, int *index, char *str)
 	}
 }
 
-void	ps_fill_tab(int **tab, char **argv)
+void		ps_fill_tab(int **tab, char **argv)
 {
-	int	fd;
-	int	index;
+	int		fd;
+	int		index;
 	char	*line;
 
 	index = 0;
@@ -64,7 +63,7 @@ void	ps_fill_tab(int **tab, char **argv)
 	}
 }
 
-t_ps	*parse(char **argv)
+t_ps		*parse(char **argv)
 {
 	t_ps	*ps;
 	int		args;

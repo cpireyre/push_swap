@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   twotapes.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/09/30 18:00:36 by cpireyre          #+#    #+#             */
+/*   Updated: 2018/09/30 18:09:40 by cpireyre         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "header.h"
 
-t_bool	entries_in_range(int *tape, int a, int b)
+t_bool		entries_in_range(int *tape, int a, int b)
 {
 	int	i;
 
@@ -34,11 +46,11 @@ t_pattern	find_closest_below(t_ps *ps, int a, int b, t_bool atob)
 	return (atob ? spin_til(ps, tmp) : b_spin_til(ps, tmp));
 }
 
-void	push_range(t_ps *ps, int a, int b, t_bool atob)
+void		push_range(t_ps *ps, int a, int b, t_bool atob)
 {
 	t_pattern	push;
 	t_pattern	spin;
-	int		*tape;
+	int			*tape;
 
 	tape = atob ? A : B;
 	spin = find_closest_below(ps, a, b, atob);
@@ -55,7 +67,7 @@ void	push_range(t_ps *ps, int a, int b, t_bool atob)
 	}
 }
 
-void	sortab(t_ps *ps, int splits)
+void		sortab(t_ps *ps, int splits)
 {
 	int	size;
 	int	i;
@@ -71,7 +83,7 @@ void	sortab(t_ps *ps, int splits)
 	}
 }
 
-void	sortba(t_ps *ps, int splits)
+void		sortba(t_ps *ps, int splits)
 {
 	int	size;
 	int	i;
@@ -93,7 +105,7 @@ void	sortba(t_ps *ps, int splits)
 **	500 integers, 5 splits: 8531 avg
 */
 
-void	two_tapes_quicksort(t_ps *ps)
+void		two_tapes_quicksort(t_ps *ps)
 {
 	sortab(ps, 4);
 	sortba(ps, 8);

@@ -6,7 +6,7 @@
 #    By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/06/29 14:18:45 by cpireyre          #+#    #+#              #
-#    Updated: 2018/09/18 09:01:29 by cpireyre         ###   ########.fr        #
+#    Updated: 2018/09/30 15:09:00 by cpireyre         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,5 +65,7 @@ force:
 
 run: push_swap
 	sh run.sh
+
+urn: run
 
 .PHONY: all, re, clean, fclean, force
