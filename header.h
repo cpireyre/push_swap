@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/31 12:32:30 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/09/30 17:56:31 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/09/30 18:14:39 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -228,7 +228,7 @@ void			crapsort(t_ps *ps, t_bool will_print);
 void			push_all_below_cutoff(t_ps *ps, t_bool will_print, int cutoff);
 void			splitsort(t_ps *ps, t_bool will_print);
 void			push_half(t_ps *ps, t_bool willprint);
-void			insertionsort(t_ps *ps, t_bool will_print);
+void			selectionsort(t_ps *ps, t_bool will_print);
 
 /*
 **	twotapes.c

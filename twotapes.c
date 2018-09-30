@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/30 18:00:36 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/09/30 18:09:40 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/09/30 18:14:39 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,5 +112,5 @@ void		two_tapes_quicksort(t_ps *ps)
 	sortab(ps, 16);
 	while (A[0])
 		pb(ps, PRINT);
-	insertionsort(ps, PRINT);
+	selectionsort(ps, PRINT);
 }

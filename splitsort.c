@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/12 14:08:36 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/09/18 08:51:43 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/09/30 18:14:39 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	place_bmax_first(t_ps *ps, t_bool will_print)
 		(B[0] < B[1]) ? SS : SA;
 }
 
-void	insertionsort(t_ps *ps, t_bool will_print)
+void	selectionsort(t_ps *ps, t_bool will_print)
 {
 	t_pattern	aspin;
 
@@ -72,5 +72,5 @@ void	splitsort(t_ps *ps, t_bool will_print)
 	}
 	if (A[0] == A[1] + 1)
 		(B[0] < B[1]) ? SS : SA;
-	insertionsort(ps, will_print);
+	selectionsort(ps, will_print);
 }
