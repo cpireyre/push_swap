@@ -18,7 +18,7 @@ int			*create_sorted_copy(int *tab, int size)
 
 	sorted = ft_memalloc(sizeof(int) * (size + 1));
 	ft_memcpy((void*)sorted, (void*)(tab), sizeof(int) * size);
-	ft_sort_tab(sorted, size);
+	ft_quicksort(sorted, size);
 	return (sorted);
 }
 

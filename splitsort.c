@@ -36,14 +36,15 @@ void	place_bmax_first(t_ps *ps, t_bool will_print)
 		else if (B[0] == min)
 		{
 			PA;
-			RA;
+			(B[0] != max && B[0] != max - 1 && spin == &rb) ? RR : RA;
+			min++;
 		}
 		else
 			spin(ps, will_print);
 	}
 	PA;
 	if (A[0] == A[1] + 1)
-		SA;
+		(B[0] < B[1]) ? SS : SA;
 }
 
 void	insertionsort(t_ps *ps, t_bool will_print)
@@ -70,6 +71,6 @@ void	splitsort(t_ps *ps, t_bool will_print)
 		two *= 2;
 	}
 	if (A[0] == A[1] + 1)
-		SA;
+		(B[0] < B[1]) ? SS : SA;
 	insertionsort(ps, will_print);
 }

@@ -3,16 +3,6 @@
 #include <fcntl.h>
 #include <limits.h>
 
-size_t	ft_strsplen(const char *str)
-{
-	size_t	i;
-
-	i = 0;
-	while (str[i] && !ft_isspace(str[i]))
-		i++;
-	return (i);
-}
-
 t_bool	is_valid_arg(const char *arg)
 {
 	intmax_t	tmp;
@@ -73,7 +63,6 @@ static int	count_numbers_in_arg(const char *arg)
 			if (count == -1)
 				return (-1);
 			acc += count;
-			ft_strdel(&line);
 		}
 		if ((close(fd) == -1))
 			ft_exit("Something went wrong while closing file descriptor.");

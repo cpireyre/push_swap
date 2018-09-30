@@ -26,6 +26,10 @@ static void		init_visu(void)
 	keypad(stdscr, TRUE);
 	use_default_colors();
 	start_color();
+	init_pair(1, COLOR_RED, -1);
+	init_pair(2, COLOR_BLUE, -1);
+	init_pair(3, COLOR_BLACK, COLOR_RED);
+	init_pair(4, COLOR_BLACK, COLOR_BLUE);
 }
 
 static void		toggle_visu(char ***argv, t_bool *visu_on, int *argc)
@@ -39,6 +43,8 @@ static void		toggle_visu(char ***argv, t_bool *visu_on, int *argc)
 	}
 	else
 		*visu_on = false;
+	(*argv)++;
+	(*argc)--;
 }
 
 int				main(int argc, char **argv)
@@ -51,17 +57,16 @@ int				main(int argc, char **argv)
 	if (argc < 2)
 		return (1);
 	toggle_visu(&argv, &visu_on, &argc);
-	argc--;
-	argv++;
 	ps = visu_on ? parse_visu(argv, &sorted) : parse(argv);
 	line = NULL;
 	while (ft_gnl(0, &line))
 	{
+		if (!*line)
+			continue ;
 		if (visu_on)
 			visu_wrapper(ps, &line, sorted);
 		else
 			do_action(ps, &line, NO_PRINT);
-		ft_strdel(&line);
 	}
 	endwin();
 	ft_assert(is_done(ps), MSG_OK, MSG_NOT_OK);

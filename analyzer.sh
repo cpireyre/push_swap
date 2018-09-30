@@ -50,6 +50,7 @@ do
 	ARG=`ruby -e "puts ($NBRBOT..$NBRTOP).to_a.shuffle.join(' ')"`
 	NBRCOUP=$(./push_swap $ARG | wc -l);
 	TEST=$(./push_swap $ARG | ./checker $ARG);
+	#TEST="OK";
 	if [ $TEST = "OK" ]
 	then
 		printf "\033[0;32m▓\033[0;0m"

@@ -56,10 +56,7 @@ void	ps_fill_tab(int **tab, char **argv)
 		else
 		{
 			while (ft_gnl(fd, &line))
-			{
 				fill_tab_from_string(tab, &index, line);
-				ft_strdel(&line);
-			}
 			if ((close(fd) == -1))
 				ft_exit("Something went wrong while closing file descriptor.");
 		}
