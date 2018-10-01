@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/31 12:32:30 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/09/30 18:14:39 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/10/01 19:37:24 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -243,6 +243,12 @@ t_pattern		find_closest_below(t_ps *ps, int a, int b, t_bool atob);
 */
 
 void			subfilesort(t_ps *ps, t_bool will_print);
+
+/*
+**	insertionsort.c
+*/
+
+void	insertionsort(t_ps *ps, t_bool will_print);
 
 /*
 **	a few checkers to start with.

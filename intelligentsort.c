@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/30 16:21:25 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/09/30 19:39:09 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/10/01 19:39:21 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,5 @@ void	subfilesort(t_ps *ps, t_bool will_print)
 			push_where_appropriate(ps, a, b, i, will_print);
 		halfsplits += halfsplits;
 	}
-	selectionsort(ps, will_print);
+	insertionsort(ps, will_print);
 }

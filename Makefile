@@ -6,7 +6,7 @@
 #    By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/06/29 14:18:45 by cpireyre          #+#    #+#              #
-#    Updated: 2018/09/30 15:09:00 by cpireyre         ###   ########.fr        #
+#    Updated: 2018/10/01 19:37:41 by cpireyre         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,8 @@ C_FILES		:=	parse.c mem.c actions.c normalize.c multifd.c \
 	push.c swap.c rotate.c reverse.c \
 	tab.c math.c \
 	draw.c visu.c  \
-	$(PATTERNS) patterns.c crapsort.c splitsort.c twotapes.c intelligentsort.c \
+	$(PATTERNS) patterns.c \
+	insertionsort.c crapsort.c splitsort.c twotapes.c intelligentsort.c \
 	is_ordered.c \
 	sorcery.c
 H_FILES		:=	header.h
