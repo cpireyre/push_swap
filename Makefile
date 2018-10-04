@@ -6,7 +6,7 @@
 #    By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/06/29 14:18:45 by cpireyre          #+#    #+#              #
-#    Updated: 2018/10/01 19:37:41 by cpireyre         ###   ########.fr        #
+#    Updated: 2018/10/04 12:02:54 by cpireyre         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CFLAGS	:=	-Wall -Wextra -Werror -O1
 LIBDIR	:=	./libft
 LIBFT	:=	$(LIBDIR)/libft.a
 BFLAGS	:=	-I$(LIBDIR)/
-DEBUG	:=	-g3 -fsanitize=address -fsanitize=undefined 
+#DEBUG	:=	-g3 -fsanitize=address -fsanitize=undefined 
 INCLUDE	:=	-lncurses -lft -L$(LIBDIR)/
 
 PROGRAMS	=	push_swap checker
