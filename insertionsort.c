@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/01 19:32:37 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/10/01 19:55:47 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/10/04 10:32:29 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,40 @@
 
 void	insertionsort(t_ps *ps, t_bool will_print)
 {
-	int		dist;
-	int		max;
+	t_pattern	spin;
+	int			min;
+	int			max;
 
+	PA;
+	min = A[0];
+	max = A[0];
 	while (B[0])
 	{
-		dist = distance(A, B[0] + 1);
-		max = tab_get_max(A);
-		if (dist == -1)
+		if (B[0] > max)
 		{
-			if (B[0] > max)
-				while (A[0] != max)
-					RA;
+			spin = spin_til(ps, min);
+			while (A[0] != min)
+				spin(ps, will_print);
+			max = B[0];
 			PA;
 		}
-		if (!A[0] || !dist)
+		else if (B[0] < min)
+		{
+			spin = spin_til(ps, min);
+			while (A[0] != min)
+				spin(ps, will_print);
+			min = B[0];
 			PA;
+		}
+		else if (A[0] < B[0] && B[0] < A[1])
+		{
+			PA;
+			SA;
+		}
 		else
 			RA;
 	}
+	spin = spin_til(ps, 1);
 	while (A[0] != 1)
-		RRA;
+		spin(ps, will_print);
 }

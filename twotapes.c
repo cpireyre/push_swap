@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/30 18:00:36 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/09/30 18:14:39 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/10/04 10:09:03 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,14 @@ t_bool		entries_in_range(int *tape, int a, int b)
 	return (false);
 }
 
-t_pattern	find_closest_below(t_ps *ps, int a, int b, t_bool atob)
+t_pattern	find_closest_below(t_ps *ps, int a, int b, t_bool spin_a)
 {
 	int	min;
 	int	dist;
 	int	*tape;
 	int	tmp;
 
-	tape = atob ? A : B;
+	tape = spin_a ? A : B;
 	dist = distance(tape, a);
 	min = dist;
 	tmp = a;
@@ -43,7 +43,7 @@ t_pattern	find_closest_below(t_ps *ps, int a, int b, t_bool atob)
 			tmp = a;
 		}
 	}
-	return (atob ? spin_til(ps, tmp) : b_spin_til(ps, tmp));
+	return (spin_a ? spin_til(ps, tmp) : b_spin_til(ps, tmp));
 }
 
 void		push_range(t_ps *ps, int a, int b, t_bool atob)
