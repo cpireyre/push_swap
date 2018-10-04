@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/01 19:32:37 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/10/04 12:00:13 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/10/04 14:56:33 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_pattern	find_fit(t_ps *ps)
 	index = 0;
 	len = tablen(A);
 	if (A[len - 1] < B[0] && B[0] < A[0])
-		return (&ra);
+		return (NULL);
 	else
 	{
 		while (!(A[index] < B[0] && B[0] < A[index + 1]))
@@ -45,26 +45,28 @@ void		insertionsort(t_ps *ps, t_bool will_print)
 			spin = spin_til(ps, min);
 			while (A[0] != min)
 				spin(ps, will_print);
-			max = B[0];
 			PA;
+			max = A[0];
 		}
 		else if (B[0] < min)
 		{
 			spin = spin_til(ps, min);
 			while (A[0] != min)
 				spin(ps, will_print);
-			min = B[0];
 			PA;
+			min = A[0];
 		}
 		else if (A[0] < B[0] && B[0] < A[1])
 		{
 			PA;
-			SA;
+			(B[0] > B[1]) ? SA : SS;
 		}
 		else
 		{
 			spin = find_fit(ps);
-			while (!(A[0] < B[0] && B[0] < A[1]))
+			if (!spin)
+				PA;
+			else
 				spin(ps, will_print);
 		}
 	}
