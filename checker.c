@@ -61,8 +61,6 @@ int				main(int argc, char **argv)
 	line = NULL;
 	while (ft_gnl(0, &line))
 	{
-		if (!*line)
-			continue ;
 		if (visu_on)
 			visu_wrapper(ps, &line, sorted);
 		else
