@@ -71,6 +71,9 @@ t_ps		*parse(char **argv)
 	t_bool	dupes;
 
 	ps = ft_memalloc(sizeof(t_ps));
+	ps->buf.pos = 0;
+	ps->buf.filedesc = 1;
+	ps->buf.written = 0;
 	args = get_number_entries(argv);
 	A = ft_memalloc(sizeof(int) * (args + 1));
 	ps_fill_tab(&A, argv);

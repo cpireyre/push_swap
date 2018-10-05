@@ -64,6 +64,6 @@ t_pattern	find_pattern(t_ps *ps, t_checker to_pass)
 
 void		print_pattern(t_ps *ps, char *instruction)
 {
-	(void)ps;
-	ft_putendl(instruction);
+	putstr_buf(&(ps->buf), instruction);
+	putc_buf(&(ps->buf), '\n');
 }

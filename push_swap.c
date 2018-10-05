@@ -47,6 +47,7 @@ int		main(int argc, char **argv)
 	ps = parse(argv);
 	if (!is_done(ps))
 		push_swap(ps);
+	flush_buf(&(ps->buf));
 	free_ps(&ps);
 	return (0);
 }

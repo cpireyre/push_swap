@@ -43,6 +43,7 @@ typedef struct	s_ps
 {
 	int		*a;
 	int		*b;
+	t_buf		buf;
 }				t_ps;
 
 /*
