@@ -53,5 +53,4 @@ void	subfilesort(t_ps *ps, t_bool will_print)
 			push_where_appropriate(ps, a, b, i, will_print);
 		halfsplits += halfsplits;
 	}
-	insertionsort(ps, will_print);
 }

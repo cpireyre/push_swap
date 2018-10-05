@@ -12,7 +12,7 @@
 
 #include "header.h"
 
-#define TEST_INSERT 1
+#define TEST_INSERT 0
 
 void	push_swap(t_ps *ps)
 {
@@ -42,7 +42,8 @@ void	push_swap(t_ps *ps)
 					solve(ps, PRINT);
 					return ;
 				}
-			(size < 50) ? splitsort(ps, PRINT) : subfilesort(ps, PRINT);
+			(size < 1) ? splitsort(ps, PRINT) : subfilesort(ps, PRINT);
+			selectionsort(ps, PRINT);
 		}
 	}
 }
