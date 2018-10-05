@@ -12,6 +12,8 @@
 
 #include "header.h"
 
+#define TEST_INSERT 1
+
 void	push_swap(t_ps *ps)
 {
 	t_pattern	solve;
@@ -21,18 +23,27 @@ void	push_swap(t_ps *ps)
 	i = -1;
 	size = tablen(A) + tablen(B);
 	solve = find_pattern(ps, &is_done);
-	if (solve)
-		solve(ps, PRINT);
+	if (TEST_INSERT)
+	{
+		while (A[0])
+			pb(ps, PRINT);
+		insertionsort(ps, PRINT);
+	}
 	else
 	{
-		while (++i < NBR_PATTERNS)
-			if ((solve = deep_run(ps, size, g_all_patterns[i], &is_done)))
-			{
-				g_all_patterns[i](ps, PRINT);
-				solve(ps, PRINT);
-				return ;
-			}
-		(size < 50) ? splitsort(ps, PRINT) : subfilesort(ps, PRINT);
+		if (solve)
+			solve(ps, PRINT);
+		else
+		{
+			while (++i < NBR_PATTERNS)
+				if ((solve = deep_run(ps, size, g_all_patterns[i], &is_done)))
+				{
+					g_all_patterns[i](ps, PRINT);
+					solve(ps, PRINT);
+					return ;
+				}
+			(size < 50) ? splitsort(ps, PRINT) : subfilesort(ps, PRINT);
+		}
 	}
 }
 
