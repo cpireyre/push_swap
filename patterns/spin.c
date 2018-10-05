@@ -15,18 +15,22 @@
 int			distance(int *tab, int to_find)
 {
 	int	count;
+	int	ret;
+	int	len;
 
 	count = 0;
 	while (tab[count] && tab[count] != to_find)
 		count++;
-	return (tab[count] ? count : -1);
+	len = tablen(tab);
+	ret = ((count * 2) < len) ? count : -1 * (len - count);
+	return (ret);
 }
 
 t_pattern	spin_til(t_ps *ps, int to_find)
 {
 	t_pattern	spin;
 
-	spin = ((distance(A, to_find) * 2) < tablen(A)) ? &ra : &rra;
+	spin = distance(A, to_find) > 0 ? &ra : &rra;
 	return (spin);
 }
 
@@ -34,7 +38,7 @@ t_pattern	b_spin_til(t_ps *ps, int to_find)
 {
 	t_pattern	spin;
 
-	spin = ((distance(B, to_find) * 2) < tablen(B)) ? &rb : &rrb;
+	spin = distance(B, to_find) > 0 ? &rb : &rrb;
 	return (spin);
 }
 
