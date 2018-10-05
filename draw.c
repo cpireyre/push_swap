@@ -83,7 +83,7 @@ void	visu_wrapper(t_ps *ps, char **line, int *sorted)
 	mvprintw(height + 3, hoffset + 30, "b");
 	refresh();
 	do_action(ps, line, NO_PRINT);
-	height = 80000000;
+	height = 180000000;
 	while (height--)
 		;
 }

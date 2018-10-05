@@ -66,6 +66,11 @@ int				main(int argc, char **argv)
 		else
 			do_action(ps, &line, NO_PRINT);
 	}
+	if (visu_on)
+	{
+		visu_wrapper(ps, &line, sorted);
+		sleep(4);
+	}
 	endwin();
 	ft_assert(is_done(ps), MSG_OK, MSG_NOT_OK);
 	if (visu_on)
