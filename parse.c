@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/31 12:21:21 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/09/30 18:03:34 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/10/07 10:42:20 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ void		ps_fill_tab(int **tab, char **argv)
 	char	*line;
 
 	index = 0;
+	line = NULL;
 	while (*argv)
 	{
 		fd = open(*argv, O_RDONLY);

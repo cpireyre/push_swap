@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/30 17:59:08 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/09/30 18:07:34 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/10/07 10:42:00 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ static int	count_numbers_in_arg(const char *arg)
 
 	fd = open(arg, O_RDONLY);
 	acc = 0;
+	line = NULL;
 	if (fd != -1)
 	{
 		while (ft_gnl(fd, &line))
