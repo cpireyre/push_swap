@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/31 12:22:12 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/09/16 19:13:22 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/10/07 10:29:22 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,11 +65,6 @@ int				main(int argc, char **argv)
 			visu_wrapper(ps, &line, sorted);
 		else
 			do_action(ps, &line, NO_PRINT);
-	}
-	if (visu_on)
-	{
-		visu_wrapper(ps, &line, sorted);
-		sleep(4);
 	}
 	endwin();
 	ft_assert(is_done(ps), MSG_OK, MSG_NOT_OK);

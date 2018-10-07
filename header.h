@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/31 12:32:30 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/10/01 19:37:24 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/10/07 10:25:48 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@
 
 typedef struct	s_ps
 {
-	int		*a;
-	int		*b;
+	int			*a;
+	int			*b;
 	t_buf		buf;
 }				t_ps;
 
@@ -216,13 +216,6 @@ t_pattern		b_spin_til(t_ps *ps, int to_find);
 void			b_actually_spin(t_ps *ps, t_bool will_print, int to_find);
 
 /*
-**	crapsort.c
-*/
-
-void			place_min_first(t_ps *ps, t_bool will_print);
-void			crapsort(t_ps *ps, t_bool will_print);
-
-/*
 **	splitsort.c
 */
 
@@ -246,14 +239,7 @@ t_pattern		find_closest_below(t_ps *ps, int a, int b, t_bool atob);
 void			subfilesort(t_ps *ps, t_bool will_print);
 
 /*
-**	insertionsort.c
-*/
-
-void	insertionsort(t_ps *ps, t_bool will_print);
-
-/*
-**	a few checkers to start with.
-**	todo: move them to their own files
+**	tab.c
 */
 
 t_bool			is_done(t_ps *ps);

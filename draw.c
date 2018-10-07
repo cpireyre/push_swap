@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/05 09:52:54 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/10/04 13:47:20 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/10/07 10:29:40 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ void	visu_wrapper(t_ps *ps, char **line, int *sorted)
 	int		height;
 	int		hoffset;
 
+	do_action(ps, line, NO_PRINT);
 	hoffset = 20;
 	tape_a = create_draw_struct(A, 1);
 	tape_b = create_draw_struct(B, 2);
@@ -82,7 +83,6 @@ void	visu_wrapper(t_ps *ps, char **line, int *sorted)
 		ncurses_print_tab(tape_b, sorted, hoffset + 30, height + 1);
 	mvprintw(height + 3, hoffset + 30, "b");
 	refresh();
-	do_action(ps, line, NO_PRINT);
 	height = 90000000;
 	while (height--)
 		;

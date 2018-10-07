@@ -6,7 +6,7 @@
 #    By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/06/29 14:18:45 by cpireyre          #+#    #+#              #
-#    Updated: 2018/10/04 13:46:50 by cpireyre         ###   ########.fr        #
+#    Updated: 2018/10/07 10:31:10 by cpireyre         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ C_FILES		:=	parse.c mem.c actions.c normalize.c multifd.c \
 	tab.c math.c \
 	draw.c visu.c  \
 	$(PATTERNS) patterns.c \
-	insertionsort.c crapsort.c splitsort.c twotapes.c intelligentsort.c \
+	twotapes.c splitsort.c intelligentsort.c \
 	is_ordered.c \
 	sorcery.c
 H_FILES		:=	header.h
@@ -37,7 +37,7 @@ OBJ			:=	$(C_FILES:.c=.o)
 DEPS		=	$(H_FILES) Makefile 
 
 all: push_swap checker
-	ctags -R #remove later
+	ctags -R
 
 $(LIBFT): force
 	@$(MAKE) -C $(LIBDIR) 2> /dev/null
@@ -56,7 +56,6 @@ clean:
 fclean: clean
 	make fclean -C libft/
 	$(RM) $(PROGRAMS)
-	rm -rf *.dSYM #comment out later?
 	$(RM) tags
 
 re: fclean all
@@ -69,4 +68,4 @@ run: push_swap
 
 urn: run
 
-.PHONY: all, re, clean, fclean, force
+.PHONY: all, re, clean, fclean, force, run, urn

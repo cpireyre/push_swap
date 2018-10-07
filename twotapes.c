@@ -6,7 +6,7 @@
 /*   By: cpireyre <cpireyre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/30 18:00:36 by cpireyre          #+#    #+#             */
-/*   Updated: 2018/10/04 10:09:03 by cpireyre         ###   ########.fr       */
+/*   Updated: 2018/10/07 10:16:28 by cpireyre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,52 +65,4 @@ void		push_range(t_ps *ps, int a, int b, t_bool atob)
 		else
 			spin(ps, PRINT);
 	}
-}
-
-void		sortab(t_ps *ps, int splits)
-{
-	int	size;
-	int	i;
-	int	factor;
-
-	size = tablen(A);
-	i = size / splits;
-	factor = 0;
-	while (factor <= splits)
-	{
-		push_range(ps, (i * factor) + 1, (i * (factor + 1)), true);
-		factor++;
-	}
-}
-
-void		sortba(t_ps *ps, int splits)
-{
-	int	size;
-	int	i;
-
-	size = tablen(B);
-	i = size / splits;
-	while (splits)
-	{
-		push_range(ps, (i * splits) + 1, (i * (splits + 1)), false);
-		splits--;
-	}
-}
-
-/*
-**	500 integers, 20 splits: 7488 avg
-**	500 integers, 15 splits: 6854 avg
-**	500 integers, 10 splits: 6734 avg
-**	500 integers, 8 splits: 6988 avg
-**	500 integers, 5 splits: 8531 avg
-*/
-
-void		two_tapes_quicksort(t_ps *ps)
-{
-	sortab(ps, 4);
-	sortba(ps, 8);
-	sortab(ps, 16);
-	while (A[0])
-		pb(ps, PRINT);
-	selectionsort(ps, PRINT);
 }
